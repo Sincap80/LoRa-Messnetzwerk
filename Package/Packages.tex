@@ -1,0 +1,86 @@
+\documentclass[a4paper,12pt]{scrreprt}
+
+%UTF8 rules
+\usepackage[utf8]{inputenc}
+%ordentlicher Schriftsatz
+\usepackage[T1]{fontenc}
+%Tabellen- und Bildunterschriften ordentlich formatiert
+\usepackage[labelfont=bf, font=small]{caption}
+%deutsche Spracheigenheiten wie Umlaute, Abkürzungen und Anführungszeichen
+\usepackage[ngerman]{babel}
+\usepackage[ngerman]{translator}
+\usepackage[babel,strict]{csquotes}
+
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+
+\usepackage{amsmath}
+\usepackage{siunitx}
+%\usepackage{minted}
+\usepackage{listings}
+
+\usepackage[gen]{eurosym}
+
+%Bilder
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage{listings}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{white},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+%\usepackage{indentfirst}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usepackage{pgfplotstable}
+
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{xcolor}
+%Links etc.
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{rotating}
+\usepackage[style=chicago-authordate,
+backend=biber,
+bibencoding=utf8]{biblatex}
+\addbibresource{Package/literatur.bib}
+
+\usepackage{kmath,kerkis}
+\usepackage{tocbasic}
+\usepackage[headsepline]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearpairofpagestyles    
+\lohead{\chaptername :\ \leftmark}      
+\automark[section]{chapter}                                         
+\ofoot[\pagemark]{\pagemark}
+
+\newcommand*{\quelle}{
+  \footnotesize Quelle:
+}
