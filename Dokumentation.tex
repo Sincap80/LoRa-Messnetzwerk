@@ -20,6 +20,10 @@ Es gab noch kein Projekt aus den vorherigen Semestern, sodass wir ganz von Anfan
     \begin{tabular}{ | l |  l | }
     \hline
     Komponente & Preis \\ \hline
+    Web-Server für NodeJS  & \\
+    VPS oder Cloud Server mieten & ab 5.00 \euro / Monat \\
+    oder & \\
+    einen vorhandenen Rechner benutzen & - \\ \hline
     LoRa-Gateway iC880A-SPI + Antenne + Pigtail cable + Raspberry Pi 2 B & 167.90 \euro \\ \hline
     LoRa-Node Data Link LoRa RN2483 + Antenne & Ca. 70 \euro \\ \hline
     Wägezelle + HX711 & 10.71 \euro \\ \hline
@@ -60,6 +64,9 @@ Es gab noch kein Projekt aus den vorherigen Semestern, sodass wir ganz von Anfan
     \center
     \includegraphics[width=15cm]{Bilder/lora-node.jpg}\\
     \caption{Data Link LoRa RN2483 als LoRa-Node}
+    \begin{flushleft}
+        \quelle\url{https://drotek.com/shop/2643-thickbox_default/data-link-lora-rn2483.jpg}
+    \end{flushleft}
     \label{fig:Lora-Node}
 \end{figure}
 
@@ -77,7 +84,7 @@ Hier sieht man unser aktuelles Komponentenmodell. Dort ist zu erkennen, welche K
 \begin{figure}[ht]
     \center
     \includegraphics[width=15cm]{Bilder/komponentenmodell.png}\\
-    \caption{Komponentenmodell}
+    \caption{Komponentenmodell, erstellt mit \url{https://www.draw.io/}}
     \label{fig:Komponentenmodell}
 \end{figure}
 
@@ -244,7 +251,7 @@ Unser LoRa-Gateway hat im Prinzip die Funktion eines WLAN-Routers. Alle Clients 
 \begin{figure}[ht]
     \center
     \includegraphics[width=15cm]{Bilder/lora-schaubild.jpg}\\
-    \caption{LoRa Schaubild}
+    \caption{Übersicht eines Beispiel LoRa-Netzwerks}
     \begin{center} \quelle\url{http://www.mstanley.co.uk/blog/wp-content/uploads/2015/11/Enabling-world-wide-mobility-for-the-IoT-image-2.jpg} \end{center}
     \label{fig:lora-schaubild}
 \end{figure}\\
@@ -255,7 +262,7 @@ Nachdem man die Anweisungen zum Konfigurieren befolgt hat, sollte es auf der Web
 \begin{figure}[ht]
     \center
     \includegraphics[width=16cm]{Bilder/lora-1.png}\\
-    \caption{TTN Gateways}
+    \caption{Übersicht der registrierten Gateways im TheThingsNetwork}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/gateways} \end{center}
 \end{figure}
 \newpage
@@ -264,13 +271,13 @@ Damit wir jetzt auch mit den verschlüsselten Daten, die wir empfangen, etwas an
 \begin{figure}[ht]
     \center
     \includegraphics[width=16cm]{Bilder/lora-2.png}\\
-    \caption{TTN Applications}
+    \caption{Übersicht der erstellten Applikationen im TheThingsNetwork}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
 \end{figure}
 \begin{figure}[ht]
     \center
     \includegraphics[width=16cm]{Bilder/lora-3.png}\\
-    \caption{Application hinzufügen}
+    \caption{Formular zur Erstellung einer Applikation}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
 \end{figure}
 \newpage
@@ -281,12 +288,12 @@ Nachdem man nun eine Applikation erstellt hat, sollte man nun auch ein Gerät zu
 \begin{figure}[ht]
     \center
     \includegraphics[width=16cm]{Bilder/lora-4.png}\\
-    \caption{Registrierte Geräte}
+    \caption{Übersicht der registrierten Geräte}
 \end{figure}
 \begin{figure}[ht]
     \center
     \includegraphics[width=16cm]{Bilder/lora-5.png}\\
-    \caption{Geräteregistrierung}
+    \caption{Formular zur Registrierung eines Geräts}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
 \end{figure}
 \newpage
@@ -301,7 +308,7 @@ Dazu gehen wir in $Application \rightarrow application\_id \rightarrow devices \
 \begin{figure}[ht]
     \center
     \includegraphics[width=4cm]{Bilder/lora-6.png}\\
-    \caption{Aktivierungsmethode}
+    \caption{Aktivierungsmethoden: links Over-the-Air Activation (OTAA), rechts Activation By Personalization (ABP)}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
 \end{figure}\\
 Wenn wir die Änderungen speichern, sollten wir wieder auf die Seite des Geräts kommen. Scrollen wir ganz nach unten, dann sehen wir ein Codebeispiel.
@@ -319,8 +326,8 @@ Unser LoRa-Node ist über die serielle Schnittstelle UART (PIN 6 + 7 am RN2483) 
 \begin{figure}[ht]
     \center
     \includegraphics[width=11cm]{Bilder/lora-8.png}\\
-    \caption{UART Interface}
-    \begin{center} \quelle\url{http://ww1.microchip.com/downloads/en/DeviceDoc/40001784F.pdf,  Kapitel 1.4, Seite 15} \end{center}
+    \caption{Spezifikationen für das UART-Interface des RN2483}
+    \begin{center} \quelle\url{http://ww1.microchip.com/downloads/en/DeviceDoc/40001784F.pdf} \end{center}
         \label{fig:UART}
 \end{figure}\\
 Kommen wir nun zur Initialisierung des RN2483, wenn dieser nun am Microchip hängt und soweit ansprechbar ist:\\
@@ -354,7 +361,7 @@ Nach jedem Befehl benutzen wir derzeit noch eine Delay-Funktion um dem RN2483 Ch
 \begin{figure}[ht]
     \center
     \includegraphics[width=11cm]{Bilder/lora-9.png}\\
-    \caption{Bootzeit}
+    \caption{RN2483 Boot Time unterteilt in die einzelnen Funktionen und der benötigten Zeit}
     \label{fig:boot-time}
 \end{figure}
 Jetzt ist der RN2483 fertig konfiguriert und wir können mit dem Befehl „\textbf{mac tx <type> <portno> <data>}“ Nachrichten versenden. Dabei ist:\\
@@ -373,7 +380,7 @@ Spreading Factor (kurz SF) ist, wie der Begriff teilweise schon verrät, ein Fak
 \begin{figure}[ht]
     \center
     \includegraphics[width=15cm]{Bilder/lora-10.png}\\
-    \caption{Spreading Factor}
+    \caption{Tabelle mit verschiedenen Spreading Factors und die zugehörige Bitrate}
     \begin{center} \quelle\url{https://witekio.com/wp-content/uploads/2018/01/lora-wan-spreading-factor.png} \end{center}
         \label{fig:spreading-factor}
 \end{figure}\\
@@ -390,7 +397,7 @@ Folgende Abbildung zeigt auch wie die Komponenten (LoRa-Nodes und LoRa-Gateway) 
 \begin{figure}[ht]
     \center
     \includegraphics[width=15cm]{Bilder/lora-11.png}\\
-    \caption{Security}
+    \caption{Verschlüsselung und Datensicherheit bei der Kommunikation zwischen verschiedenen LoRa-Geräten}
     \begin{center} \quelle\url{http://ww1.microchip.com/downloads/en/DeviceDoc/40001784F.pdf, Kapitel 1.1, Seite 1} \end{center}
         \label{fig:security}
 \end{figure}
@@ -415,10 +422,18 @@ Folgende Abbildung zeigt auch wie die Komponenten (LoRa-Nodes und LoRa-Gateway) 
 \chapter{Application Server}
 \section{Visualisierung der empfangenen Daten mit Angular CLI}
 Das Front-End ist die Ansicht, auf welche der Kunde blickt, um die Füllstände aller Behälter zu sehen. Es ist minimalistisch gehalten, sodass keine Überladung entsteht und das menschliche Auge die relevante Information schneller erkennt. \\
-%Bild
+\begin{figure}[ht]
+    \center
+    \includegraphics[width=16cm]{Bilder/front-end-1.png}\\
+    \caption{Übersicht der Füllstände der einzelnen Kaffeemaschinen auf der Webseite}
+\end{figure}
 
 Wie auf dem Bild zu sehen ist, gibt es zwei Seiten, auf die man blicken kann. Auf der Haupt- / Startseite (Dashboard) kann man die Zylinder mit Ihren Inhalten sehen. Jeder aktive Node wird hier mit ihren aktuellen Füllständen angezeigt. Die zweite Seite (Statistiken) zeigt auf einem größeren Diagramm die historischen Werte bis zum aktuellen Zeitpunkt an. Die Historischen Werte zeigen jedoch nur die Daten des Vortags bis zum neuesten Stand an. 
-%Bild
+\begin{figure}[ht]
+    \center
+    \includegraphics[width=16cm]{Bilder/front-end-2.png}\\
+    \caption{Füllstand-Verlauf einer Kaffeemaschine von 12:00 Uhr bis 15:00 Uhr}
+\end{figure}
 
 Die Visualisierung ist mithilfe des Front-End-Frameworks Angular CLI geschrieben worden. Die Programmiersprache von Angular ist TypeScript, eine Weiterentwicklung von JavaScript, mit einigen Verbesserungen wie die Typisierung von Variablen. Weiterhin wurden die Zylinder-Behälter mit der „AmCharts“ Angular-Bibliothek implementiert. Diese Bibliothek bietet die Möglichkeit diese Diagramme mit Hilfe einer „create“ Funktion zu erstellen und einer „update“ Funktion mit neuen Daten zu versorgen und damit das Diagramm in Echtzeit zu verändern. Darüber hinaus wurden die Statistikdiagramme mit Hilfe der gleichen Bibliothek erstellt. Diese Diagramme bieten die gleichen Funktionen wie die Zylinderdiagramme.
 
@@ -478,7 +493,7 @@ Der Schaltplan wurde mit dem Programm Fritzing (\url{http://fritzing.org/home}) 
 \begin{figure}[ht]
     \center
     \includegraphics[width=15cm]{Bilder/schaltplan-1.png}\\
-    \caption{Schaltplan}
+    \caption{Schaltplan, erstellt mit Fritzing}
     \label{fig:schaltplan}
 \end{figure}
 \newpage
