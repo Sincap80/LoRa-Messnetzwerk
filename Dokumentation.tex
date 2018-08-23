@@ -4,9 +4,17 @@
 \include{Package/Titleanbindung}
 
 \chapter{Projektvorstellung}
-Wir haben uns in der Veranstaltung Embedded Systems des Studiengangs Software-Engineering bei Prof. Dr. Jürgen Doneit und Herr Ulrich Straus im Sommersemester 2018 für das Projekt LoRa-Messnetzwerk entschieden. Die Aufgabe bestand darin, ein Messnetzwerk aufzubauen, welches mit Daten von Sensoren befüllt wird und über Long Range Wide Area Network, kurz LoRa, verschickt werden.\\
-Unser genauer Use Case ist wie folgt:\\
-In einem Restaurant wird das Gewicht jeder Kaffeekanne durch einen Wäge Sensor gemessen, sodass man ungefähr weiß, wie viel Kaffee sich noch in der jeweiligen Kanne befindet. Damit dies passieren kann, muss die Kaffeekanne auf der Wäge Plattform abgestellt werden. Die Messdaten werden an einzelne dazugehörige LoRa-Nodes übertragen, die daraufhin über LoRa mit dem LoRa-Gateway kommunizieren. Das LoRa-Gateway empfängt die Sensorgewichtsdaten und leitet diese auf einen Server weiter, wodurch dann die Füllstände der Kaffeekannen visualisiert werden. Hierbei befindet sich dann beispielsweise ein Dashboard in der Küche, wodurch ein genauer Überblick über die einzelnen Füllstände jeder Kaffeekanne gewährleistet wird, sodass nicht ständig manuell durch den Kellner geprüft werden muss, ob eine Kaffeekanne noch genügend Kaffee beinhaltet. Die Wäge Plattformen werden durch Akkus betrieben, sodass eine längere Laufzeit möglich ist, da LoRa sehr energiesparend ist.
+Wir haben uns in der Veranstaltung Embedded Systems des Studiengangs Software-Engineering bei Prof. Dr. Jürgen Doneit und Herr Ulrich Straus im Sommersemester 2018 für das Projekt LoRa-Messnetzwerk entschieden. Die Aufgabe bestand darin, ein Messnetzwerk aufzubauen, welches Sensordaten entgegennimmt und über Long Range Wide Area Network, kurz LoRaWAN, verschickt werden.\\
+\\
+Der daraus resultierende Use-Case:
+\begin{figure}[ht]
+    \center
+    \includegraphics[width=15cm]{Bilder/usecase-1.png}\\
+    \caption{Use-Case mit den Akteuren Kunde und Kellner und den Komponenten Kaffeekanne und Web-Server}
+    \label{fig:Use-Case}
+\end{figure}
+\\
+In einem Restaurant wird der Inhalt einer Kaffeekanne durch das Gewicht bestimmt. Um die Gewichtsmessung für alle Kannen durchzuführen, werden sie auf einer Plattform abgestellt, in der ein Wäge-Sensor-System integriert ist. Das Sensor-System, welches über einen Akku betrieben wird, besteht aus einem Wäge-Sensor, einem Mikrocontroller und einem Transmitter (dem LoRa-Node). Die Messdaten werden jeweils ausgelesen und an den angeschlossenen LoRa-Node übertragen. Die Gesamtheit aller LoRa-Nodes kommunizieren mit einem Empfänger, dem LoRa-Gateway. Das LoRa-Gateway, angeschlossen ans Internet, empfängt die Sensorgewichtsdaten und leitet diese auf einen Web-Server weiter. Das Server-System verarbeitet die Daten, um die Füllstände der Kaffeekannen schlussendlich auf einer Webseite zu visualisieren. Der plattformübergreifende Zugriff über diverse Endgeräte ist somit möglich.
 
 \chapter{Ausgangssituation}
 Es gab noch kein Projekt aus den vorherigen Semestern, sodass wir ganz von Anfang damit beginnen konnten. Hierbei war es sehr wichtig viel Recherche zu betreiben, da noch keine Vorahnung vorhanden war. Niemand hatte bis jetzt mit LoRa oder Sensoren gearbeitet, sodass wir uns anfangs viel einlesen mussten. Durch das LCD-Display Projekt am Anfang des Semesters konnten wir uns in die Programmiersprache C einarbeiten. Außerdem hat der Großteil der Gruppe noch keine Erfahrung mit dem Löten, sodass auch hier die Fähigkeiten erlernt und verbessert wurden. Wir arbeiteten anfangs mit dem AVR STK 500 und dem Mikrokontroller ATMega644PA und konnten uns durch Foreneinträge, Tutorials und Videos schnell darin einarbeiten.
@@ -30,6 +38,14 @@ Es gab noch kein Projekt aus den vorherigen Semestern, sodass wir ganz von Anfan
     \end{tabular}
 \end{table}
 
+\chapter{Komponentenmodell}
+Hier sieht man unser aktuelles Komponentenmodell. Dort ist zu erkennen, welche Komponenten und Bauteile von uns verwendet werden. Auch wie diese miteinander kommunizieren kann man aus dem Modell entnehmen. 
+\begin{figure}[ht]
+    \center
+    \includegraphics[width=15cm]{Bilder/komponentenmodell.png}\\
+    \caption{Komponentenmodell, erstellt mit \url{https://www.draw.io/}}
+    \label{fig:Komponentenmodell}
+\end{figure}
 
 \chapter{Überblick der Bauteile}
 \section{Gateway}
@@ -62,7 +78,7 @@ Es gab noch kein Projekt aus den vorherigen Semestern, sodass wir ganz von Anfan
 \section{LoRa Node}
 \begin{figure}[ht]
     \center
-    \includegraphics[width=15cm]{Bilder/lora-node.jpg}\\
+    \includegraphics[width=14cm]{Bilder/lora-node.jpg}\\
     \caption{Data Link LoRa RN2483 als LoRa-Node}
     \begin{flushleft}
         \quelle\url{https://drotek.com/shop/2643-thickbox_default/data-link-lora-rn2483.jpg}
@@ -77,15 +93,6 @@ Der Projektplan unseres Projektes hat sich, wie schon von uns vermutet, im Laufe
     \includegraphics[width=15cm]{Bilder/projektplan.png}\\
     \caption{Projektplan}
     \label{fig:Projektplan}
-\end{figure}
-
-\chapter{Komponentenmodell}
-Hier sieht man unser aktuelles Komponentenmodell. Dort ist zu erkennen, welche Komponenten und Bauteile von uns verwendet werden. Auch wie diese miteinander kommunizieren kann man aus dem Modell entnehmen. 
-\begin{figure}[ht]
-    \center
-    \includegraphics[width=15cm]{Bilder/komponentenmodell.png}\\
-    \caption{Komponentenmodell, erstellt mit \url{https://www.draw.io/}}
-    \label{fig:Komponentenmodell}
 \end{figure}
 
 \chapter{Gewichtsmessung mit einer Wägezelle}
@@ -440,7 +447,7 @@ Die Visualisierung ist mithilfe des Front-End-Frameworks Angular CLI geschrieben
 \section{NodeJS Server für die Verarbeitung der Datenpakete}
 Der Server ist in der Programmiersprache NodeJS geschrieben. Darin wurde ein Express Server implementiert. Dieser Express Server nutzt ein Websocket, um die Verbindung zwischen Server und Client herzustellen. Diese Verbindung wird von dem NPM (Node Package Manager) Modul „ttn“ genutzt. Hierbei ist ttn eine Bibliothek des Networkservers „The Things Network“. Durch das ttn Modul bekommt der Server die Nachrichten vom Network Server und damit kann das Paket verarbeitet und per Websocket an den Client weitergeleitet werden. Während der Weiterverarbeitung erfolgt auch die Speicherung einkommender Daten.
 
-\section{TTN}
+\section{The Things Network}
 Das TTN Modul (SDK) ist die Schnittstelle zwischen dem Express Server und dem Network Server. Die Verbindung wird automatisch hergestellt. Damit jedoch eine Verbindung hergestellt werden kann, müssen im Voraus zwei Werte vorhanden sein. Der erste ist die Application ID. Diese ID beschreibt das Projekt, welches vorher bei der TheThingsNetwork-Webseite festgelegt wurde. In diesem Fall ist die Application ID: lora\_measure\_network. Der zweite Wert ist der accessKey. Dieser ist für die Authentifizierung des SDK’s mit dem Network Server erforderlich. Der Key muss vorher über die Webseite generiert werden. Die Nachrichten, zwischen Network Server und SDK, sind in einem bestimmten Format:\\
 
 \begin{lstlisting}[caption=Payload,label=lst:payload]
@@ -465,9 +472,9 @@ Das TTN Modul (SDK) ist die Schnittstelle zwischen dem Express Server und dem Ne
     \item \textbf{message:} Das ist die Payload, welche vom payload\_raw geparst wurde 
 \end{itemize} 
 \newpage
-\section{Inaktivität}
+\section{Inaktivität der Behälter}
 Sobald ein Gerät inaktiv wird (d.h. eine Stunde ohne Nachrichtenempfang), ist es für die Nutzer in der UI nicht mehr möglich, das Gerät zu sehen. Diese Inaktivität würde bei einem Thermobehälter die Abkühlung bedeuten. Das Limit basiert auf dem Resultat einer Gesprächsrunde innerhalb der Entwickler. Sobald jedoch das Gerät wieder sendet, wird es in der UI eingeblendet. Dieses Limit hat den Hintergrund, dass ein Gerät unerwartet vom Netz genommen wird. Wenn dieser Fall eintreten würde, könnte man in der Visualisierung nicht erkennen, ob das Gerät überhaupt noch existiert.
-\section{Voraussetzungen und Starten des Node-Servers}
+\section{Voraussetzungen und Nutzung des Node-Servers}
 \textbf{Unterstützte Betriebssystem}
 \begin{itemize}
     \item Windows
