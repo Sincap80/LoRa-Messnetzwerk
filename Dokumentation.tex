@@ -4,6 +4,8 @@
 \include{Package/Titleanbindung}
 
 \pagenumbering{gobble}
+
+\thispagestyle{plain}
 \section*{Einleitung}
 Wir haben uns für dieses Projekt entschieden, da wir an dem LoRa-Protokoll sehr interessiert sind. Das LoRa-Protokoll ist eine neue innovative Technologie, die sehr energiesparend ist, sodass es perfekt für unsere kommerzielle Idee geeignet ist. 
 Die Arbeit zeigt unser Vorgehen und den Verlauf des Projekts innerhalb des Semesters. Hierbei gehen wir sowohl auf die Konzeptionierung, Umsetzung und auf den Ausblick ein. Diese Dokumentation geht außerdem sehr genau in die technische Umsetzung ein und beschreibt die verwendeten Technologien. Zudem weiten wir dies aus, indem wir erste Gedanken zur Kommerzialisierung beschreiben. 
@@ -33,9 +35,27 @@ Der daraus resultierende Use-Case:
 \\
 In einem Restaurant wird der Inhalt einer Kaffeekanne durch das Gewicht bestimmt. Um die Gewichtsmessung für alle Kannen durchzuführen, werden sie auf einer Plattform abgestellt, in der ein Wäge-Sensor-System integriert ist. Das Sensor-System, welches über einen Akku betrieben wird, besteht aus einem Wäge-Sensor, einem Mikrocontroller und einem Transmitter (dem LoRa-Node). Die Messdaten werden jeweils ausgelesen und an den angeschlossenen LoRa-Node übertragen. Die Gesamtheit aller LoRa-Nodes kommunizieren mit einem Empfänger, dem LoRa-Gateway. Das LoRa-Gateway, angeschlossen ans Internet, empfängt die Sensorgewichtsdaten und leitet diese auf einen Web-Server weiter. Das Server-System verarbeitet die Daten, um die Füllstände der Kaffeekannen schlussendlich auf einer Webseite zu visualisieren. Der plattformübergreifende Zugriff über diverse Endgeräte ist somit möglich.
 
-\chapter{Ausgangssituation}
-Es gab noch kein Projekt aus den vorherigen Semestern, sodass wir ganz von Anfang damit beginnen konnten. Hierbei war es sehr wichtig viel Recherche zu betreiben, da noch keine Vorahnung vorhanden war. Niemand hatte bis jetzt mit LoRa oder Sensoren gearbeitet, sodass wir uns anfangs viel einlesen mussten. Durch das LCD-Display Projekt am Anfang des Semesters konnten wir uns in die Programmiersprache C einarbeiten. Außerdem hat der Großteil der Gruppe noch keine Erfahrung mit dem Löten, sodass auch hier die Fähigkeiten erlernt und verbessert wurden. Wir arbeiteten anfangs mit dem AVR STK 500 und dem Mikrokontroller ATMega644PA und konnten uns durch Foreneinträge, Tutorials und Videos schnell darin einarbeiten.
+\chapter{Ausgangssituation / Beweggründe für die Umsetzung}
+In der Gastronomie üblich, prüft das Personal von Zeit zu Zeit ob in den Behältnissen der Gäste auf den Tischen oder am Buffet noch genügend Inhalt vorhanden ist. Das reicht von der Kaffeekanne auf dem Frühstückstisch, über das Butterbehältnis auf dem Buffett, bis hin zur Weinflasche am Abend im Restaurant. Natürlich gehört dies zum Service eines guten Gastrounternehmens. Auf der anderen Seite kostet es viel Servicekraft die Füllstände zur vollen Zufriedenheit des Kunden und jederzeit im Auge zu behalten.
+\\
+Unser Ziel ist es bei diesem Prozess eine höhere Effizienz zu erzielen. Es soll zu jeder Zeit und von überall, ohne Sichtprüfung eine klare Aussage über einen nötigen Nachfüllprozess getroffen werden können. Durch das Wegfallen der ständigen Sichtprüfung vor Ort, hat der Kunde eine ruhigere, entspanntere und damit angenehmere Atmosphäre. Er wird nur dann auf den Wunsch des Nachfüllens angesprochen, wenn das Gefäß tatsächlich leer ist. Damit werden deutlich optimalere Geschäftsabläufe gewährleistet: 
+\begin{itemize}
+    \item Produkte können bedarfsgerechter angerichtet, zubereitet oder hergestellt werden
+    \item Wartezeiten gegenüber dem Kunden lassen sich wahrnehmbar verkürzen, die Zufriedenheit steigt
+    \item und das Personal kann sich auf andere/wichtigere Themen bezüglich des Kunden konzentrieren
+\end{itemize}
+Um die Kernfunktionalität im Einsatz zu testen und die Idee zu validieren, beschränken wir uns bei der Entwicklung unseres Prototyps auf die Messung der Füllstände von Kaffeekannen.
+\\ 
+ Damit das System funktioniert, werden die Kaffeekannen auf einer Plattform abgestellt und durch Wäge-Sensoren gewogen. Die gemessenen Werte und die daraus entstandenen Informationen werden visualisiert und dem Personal über eine Webseite angezeigt. Bei niedrigem Füllstand (oder zu niedriger Temperatur, weil schon zu lange in der Kanne) können sie damit schnell reagieren. Die komplette drahtlose Kommunikation basiert dabei auf LoRa-Nodes, die sehr energiesparend sind. Bei konstanter täglicher Nutzung des Systems ist bei entsprechender Akkugröße eine Laufzeit von einem Jahr möglich. Trotzdem ist zusätzliches Optimierungspotential vorhanden. Denn werden die LoRa-Nodes nach dem Senden der Zeit- und Gewichtsinformationen in einen Sleep-Mode versetzt, zusätzlich der Sende-Zyklus verlängert und serverseitig ein besserer Abstraktionsalgorithmus implementiert, sind bei gleichem Akku Laufzeiten bis zu drei Jahren denkbar.
+\\
+Am Anfang des Projektes erstellten wir Bauteildiagramme und diskutierten über Kommunikationswege zwischen den Bauteilen. Danach teilten wir Schwerpunkte beziehungsweise Bauteile auf unsere Teammitglieder auf, welche dann nochmal tiefer vom zugewiesenen Teammitglied recherchiert wurden. Die Zusammensetzung der Bauteile erfolgte erstmal auf einer Entwicklungsplattform um schnelle Tests und Hardwareänderungen durchführen zu können. Nach erfolgreichen Tests auf unserer Entwicklungsplattform wechselten wird die Hardware auf eine selbst konzeptionierten Platine. Nach den letzten Tests dokumentierten wir unsere Ergebnisse.
 
+\begin{figure}[ht]
+    \center
+    \includegraphics[width=15cm]{Bilder/projektplan.png}\\
+    \caption{Projektplan}
+    \label{fig:Projektplan}
+\end{figure}
 \chapter{Einkaufsliste}
 
 \begin{table}[h]
@@ -104,15 +124,6 @@ Hier sieht man unser aktuelles Komponentenmodell. Dort ist zu erkennen, welche K
     \label{fig:Lora-Node}
 \end{figure}
 
-\chapter{Projektplan}
-Der Projektplan unseres Projektes hat sich, wie schon von uns vermutet, im Laufe des Semesters mehrmals verändert. Zum Projektstart kamen wir wie geplant recht zügig voran und es machten sich sehr schnell gute Fortschritte bemerkbar. Die ersten Realisierungen auf dem STK wurden in der geplanten Zeit fertiggestellt. Im späteren Teil des Projektes verbrauchten wir allerdings unseren zuvor angelegten Puffer etwas, um Verbesserung der Software und den Umzug auf die Platine zu gestalten. Die Tests am Ende des Projektes konnten bis kurz vor der Abschlusspräsentation abgeschlossen werden, sodass wir zur Präsentation ein gut funktionierendes System vorweisen konnten. Nach der Präsentation stellten wir dann gemeinsam die Dokumentation fertig. 
-\begin{figure}[ht]
-    \center
-    \includegraphics[width=15cm]{Bilder/projektplan.png}\\
-    \caption{Projektplan}
-    \label{fig:Projektplan}
-\end{figure}
-
 \chapter{Gewichtsmessung mit einer Wägezelle}
 \section{Funktionsweise der Wägezelle}
 Wägezellen sind Sensoren, die das Gewicht über Verformung ihres Materials mit Hilfe von Dehnungsmessstreifen messen können. Es sind vier Dehnungsmesstreifen, wie im Bild unten zu sehen, an der Wägezelle angebracht.
@@ -122,7 +133,7 @@ Wägezellen sind Sensoren, die das Gewicht über Verformung ihres Materials mit 
     \caption{Aufbaubeschreibung einer Wägezelle}
     \begin{flushleft} \quelle\url{https://learn.sparkfun.com/tutorials/getting-started-with-load-cells} \end{flushleft}
 \end{figure}\\
-Bei Auflage von Gewicht bzw. Verformung der Wägezelle messen zwei Dehnmessstreifen die Kompression und die anderen zwei die Spannung. Bei Kompression des Dehnmessstreifens werden die Leiter dicker (höherer Leiterquerschnitt) und kürzer (geringere Leiterlänge). Laut der Formel für den Leiterwiderstand (R = p * l/A, Leiterwiderstand = spezifischer Widerstand * Leiterlänge/Leiterquerschnitt) verringert sich der Widerstand des Dehnungsmessstreifens. Bei Spannung des Dehnmessstreifens werden die Leiter dünner und länger, somit erhöht sich auch der Widerstand des Dehnungsmessstreifens. 
+Bei Auflage von Gewicht bzw. Verformung der Wägezelle messen zwei Dehnmessstreifen die Kompression und die anderen zwei die Spannung. Bei Kompression des Dehnmessstreifens werden die Leiter dicker (höherer Leiterquerschnitt) und kürzer (geringere Leiterlänge). Laut der Formel für den Leiterwiderstand \[R=p \cdot \frac{I}{A}\] \[Leiterwiderstand=\textit{spezifischer Widerstand} \cdot \frac{\textit{Leiterlänge}}{Leiterquerschnitt}\] verringert sich der Widerstand des Dehnungsmessstreifens. Bei Spannung des Dehnmessstreifens werden die Leiter dünner und länger, somit erhöht sich auch der Widerstand des Dehnungsmessstreifens. 
 \newpage
 \begin{figure}[ht]
     \center
@@ -140,9 +151,9 @@ Um die Widerstandsveränderungen der Dehnungsmessstreifen messen zu können, sin
     \caption{Verschaltung der Dehnmessstreifen}
     \begin{flushleft} \quelle\url{https://learn.sparkfun.com/tutorials/getting-started-with-load-cells} \end{flushleft}
 \end{figure}
-Wenn gilt R1/R2 = R3/R4, dann misst man 0V an Out. Falls sich ein Widerstand verändern sollte, zum Beispiel durch Verformung eines Dehnmessstreifens, lässt sich eine Spannung an Out laut dieser Formel messen: \\
+Wenn gilt \[\frac{R1}{R2}=\frac{R3}{R4}\]dann misst man 0V an Out. Falls sich ein Widerstand verändern sollte, zum Beispiel durch Verformung eines Dehnmessstreifens, lässt sich eine Spannung an Out laut dieser Formel messen: \\
 %Formel:
-Vout = [(R3/(R3+R4)-R2/(R1+R2))]*Vin\\
+\[Vout=(\frac{R3}{(R3+R4)}-\frac{R2}{(R1+R2)}) \cdot Vin\]
 
 \begin{figure}[ht]
     \center
@@ -150,7 +161,7 @@ Vout = [(R3/(R3+R4)-R2/(R1+R2))]*Vin\\
     \caption{Verschaltung der Dehnmessstreifen mit Spannungsmessung}
     \begin{flushleft} \quelle\url{https://learn.sparkfun.com/tutorials/getting-started-with-load-cells} \end{flushleft}
 \end{figure}
-Die an V Out gemessene Spannung ist sehr klein und analog, deshalb benutzen wir den HX711, welcher das Signal verstärkt und in digitale Werte [0 bis 16777217] umwandelt. 
+Die an \textit{Vout} gemessene Spannung ist sehr klein und analog, deshalb benutzen wir den HX711, welcher das Signal verstärkt und in digitale Werte [0 bis 16777217] umwandelt. 
 \newpage
 
 
@@ -555,7 +566,19 @@ Das Frontend hat das Problem, dass es die "AmCharts" Bibliothek nutzt. Die Bibli
 In naher Zukunft ist es außerdem noch wichtig, dass sich die Platine und die nötige Hardware in einem Gehäuse befinden, da es sonst nicht im Kommerziellen nutzbar wäre. Zudem sollte das Gehäuse wasserfest sein, da sonst Kaffee oder ähnliches hindurchkommen und etwas beschädigen könnte.\\
 
 Dadurch wird unser Produkt deutlich kompakter und nutzvoller für Hotels. Unser erster Ansatz wäre ein Prototyp mit einem 3D-Drucker zu erstellen. 
+\section{Kommerzialisierung und mögliches Geschäftsmodell}
+Die nächsten nötigen Schritte zur Kommerzialisierung sind:
+\begin{enumerate}
+    \item Kundengespräche:\\
+    Wir müssen Gespräche mit unseren potenziellen Kunden, beispielsweise Hotels oder Restaurants führen, damit wir abschätzen können, wie hoch die Nachfrage sein könnte. Hierbei bekommen wir direktes Feedback zu unseren Prototypen, sodass darauf reagiert werden kann. Außerdem müssen wir Kundengruppen erschließen, damit wir eingrenzen können, in welchen Branchen das Produkt nutzbar wäre.
+    \item Optimierung des Prototyps:\\
+    Wir müssen ein wasserdichtes Gehäuse erstellen, damit die Technik verpackt werden kann. Zudem muss das Design des Gehäuses angepasst werden, sodass es in der Gastronomie verwendbar ist. Des Weiteren werden wir den Prototypen verbessern, indem wir einen Sleep-Mode einführen, damit die Laufzeit verlängert wird, den Taster verbessern und unnötige Komponenten entfernen.
+    \item Erstellen von Business-Plan, Strategie und Dokumente für Unternehmensgründung:\\
+    Für eine erfolgreiche Start-Up-Gründung benötigen wir einen Business-Plan, damit wir einen seriösen roten Faden haben und wir damit Investoren überzeugen können. Zudem müssen wir uns Strategien überlegen und die nächsten Schritte planen. Dazu benötigen wir noch weitere Dokumente und Berechnungen für die Unternehmensgründung.
+\end{enumerate}
 
+ Mögliches Geschäftsmodell: \\
+Um den Aufwand für Gastronomiebetreiber möglichst klein zu halten, sollten Geräte- und Softwarewartung möglichst outsourced werden. Gastronomiebetreiber sollten nach diesem Modell monatlich oder jährlich einen Festbetrag bezahlen um Installation und Wartung weiter leiten zu können. So könnte zum Beispiel die Software auf einem Cloudserver laufen und Geräte regelmäßig ausgetauscht, geupdatet und gewartet werden.
 
 \nocite{online:getting-started-load-cells}
 \nocite{doc:getting-started}

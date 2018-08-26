@@ -1,56 +1,56 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {ngerman}{}
 \contentsline {chapter}{\numberline {1}Projektvorstellung}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}Ausgangssituation}{2}{chapter.2}
-\contentsline {chapter}{\numberline {3}Einkaufsliste}{3}{chapter.3}
-\contentsline {chapter}{\numberline {4}Komponentenmodell}{4}{chapter.4}
-\contentsline {chapter}{\numberline {5}\IeC {\"U}berblick der Bauteile}{5}{chapter.5}
-\contentsline {section}{\numberline {5.1}Gateway}{5}{section.5.1}
-\contentsline {section}{\numberline {5.2}W\IeC {\"a}gezelle}{6}{section.5.2}
-\contentsline {section}{\numberline {5.3}Gewichtssensor}{7}{section.5.3}
-\contentsline {section}{\numberline {5.4}LoRa Node}{8}{section.5.4}
-\contentsline {chapter}{\numberline {6}Projektplan}{9}{chapter.6}
-\contentsline {chapter}{\numberline {7}Gewichtsmessung mit einer W\IeC {\"a}gezelle}{10}{chapter.7}
-\contentsline {section}{\numberline {7.1}Funktionsweise der W\IeC {\"a}gezelle}{10}{section.7.1}
-\contentsline {section}{\numberline {7.2}Versuchsaufbau zur Gewichtsmessung}{13}{section.7.2}
-\contentsline {section}{\numberline {7.3}Programmlogik unseres Microchips}{15}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Vereinfachte Funktionsweise f\IeC {\"u}r momentane Gewichtsmessung}{15}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Algorithmus f\IeC {\"u}r Rausch- und Driftunterdr\IeC {\"u}ckung}{15}{subsection.7.3.2}
-\contentsline {subsection}{\numberline {7.3.3}Algorithmus f\IeC {\"u}r Gewichtssendung mit dem LoRa-Modul}{16}{subsection.7.3.3}
-\contentsline {section}{\numberline {7.4}Demonstration der Gewichtsmessung}{16}{section.7.4}
-\contentsline {section}{\numberline {7.5}Use-Cases von Straight bar W\IeC {\"a}gezellen}{16}{section.7.5}
-\contentsline {section}{\numberline {7.6}Alternative Bauformen von W\IeC {\"a}gezellen}{17}{section.7.6}
-\contentsline {subsection}{\numberline {7.6.1}Disk-W\IeC {\"a}gezellen}{17}{subsection.7.6.1}
-\contentsline {subsection}{\numberline {7.6.2}W\IeC {\"a}gesensoren}{18}{subsection.7.6.2}
-\contentsline {subsection}{\numberline {7.6.3}S-Typ-W\IeC {\"a}gezellen}{18}{subsection.7.6.3}
-\contentsline {subsection}{\numberline {7.6.4}Kompressions-W\IeC {\"a}gezellen}{19}{subsection.7.6.4}
-\contentsline {section}{\numberline {7.7}Alternative Gewichtssensoren}{20}{section.7.7}
-\contentsline {subsection}{\numberline {7.7.1}Force Sensitive Resistor (FSR)}{20}{subsection.7.7.1}
-\contentsline {subsection}{\numberline {7.7.2}Piezoelektrischer Sensor}{20}{subsection.7.7.2}
-\contentsline {chapter}{\numberline {8}Drahtlose Verbindung zwischen den Komponenten mit dem LoRaWAN Protokoll}{21}{chapter.8}
-\contentsline {section}{\numberline {8.1}Aufsetzen eines Servers (LoRa-Gateway)}{21}{section.8.1}
-\contentsline {section}{\numberline {8.2}Erstellen einer LoRa-Applikation zum Abrufen der Daten}{23}{section.8.2}
-\contentsline {paragraph}{\nonumberline Application ID:}{24}{section*.31}
-\contentsline {paragraph}{\nonumberline Description:}{24}{section*.32}
-\contentsline {paragraph}{\nonumberline Handler registration:}{24}{section*.33}
-\contentsline {paragraph}{\nonumberline Device ID:}{25}{section*.36}
-\contentsline {paragraph}{\nonumberline Device EUI:}{25}{section*.37}
-\contentsline {paragraph}{\nonumberline App Key:}{25}{section*.38}
-\contentsline {paragraph}{\nonumberline App EUI:}{25}{section*.39}
-\contentsline {section}{\numberline {8.3}Aufsetzen eines Clients (LoRa-Node)}{26}{section.8.3}
-\contentsline {section}{\numberline {8.4}Spreading Factor}{28}{section.8.4}
-\contentsline {section}{\numberline {8.5}Security / Datensicherheit}{29}{section.8.5}
-\contentsline {section}{\numberline {8.6}RN2483- und UART-Methoden und ihre Funktionalit\IeC {\"a}t}{30}{section.8.6}
-\contentsline {subsection}{\numberline {8.6.1}RN2483.c}{30}{subsection.8.6.1}
-\contentsline {subsection}{\numberline {8.6.2}uart.c}{31}{subsection.8.6.2}
-\contentsline {chapter}{\numberline {9}Application Server}{32}{chapter.9}
-\contentsline {section}{\numberline {9.1}Visualisierung der empfangenen Daten mit Angular CLI}{32}{section.9.1}
-\contentsline {section}{\numberline {9.2}NodeJS Server f\IeC {\"u}r die Verarbeitung der Datenpakete}{33}{section.9.2}
-\contentsline {section}{\numberline {9.3}The Things Network}{33}{section.9.3}
-\contentsline {section}{\numberline {9.4}Inaktivit\IeC {\"a}t der Beh\IeC {\"a}lter}{35}{section.9.4}
-\contentsline {section}{\numberline {9.5}Voraussetzungen und Nutzung des Node-Servers}{35}{section.9.5}
-\contentsline {chapter}{\numberline {10}Schaltplan und Verl\IeC {\"o}ten der Platine}{36}{chapter.10}
-\contentsline {chapter}{\numberline {11}Ausblick}{39}{chapter.11}
-\contentsline {section}{\numberline {11.1}LoRaWAN Modul Code verbessern}{39}{section.11.1}
-\contentsline {section}{\numberline {11.2}Front-End Lizenzkosten vermeiden}{39}{section.11.2}
-\contentsline {section}{\numberline {11.3}Erstellen eines wasserfesten Geh\IeC {\"a}uses}{40}{section.11.3}
+\contentsline {chapter}{\numberline {2}Ausgangssituation / Beweggr\IeC {\"u}nde f\IeC {\"u}r die Umsetzung}{2}{chapter.2}
+\contentsline {chapter}{\numberline {3}Einkaufsliste}{4}{chapter.3}
+\contentsline {chapter}{\numberline {4}Komponentenmodell}{5}{chapter.4}
+\contentsline {chapter}{\numberline {5}\IeC {\"U}berblick der Bauteile}{6}{chapter.5}
+\contentsline {section}{\numberline {5.1}Gateway}{6}{section.5.1}
+\contentsline {section}{\numberline {5.2}W\IeC {\"a}gezelle}{7}{section.5.2}
+\contentsline {section}{\numberline {5.3}Gewichtssensor}{8}{section.5.3}
+\contentsline {section}{\numberline {5.4}LoRa Node}{9}{section.5.4}
+\contentsline {chapter}{\numberline {6}Gewichtsmessung mit einer W\IeC {\"a}gezelle}{10}{chapter.6}
+\contentsline {section}{\numberline {6.1}Funktionsweise der W\IeC {\"a}gezelle}{10}{section.6.1}
+\contentsline {section}{\numberline {6.2}Versuchsaufbau zur Gewichtsmessung}{14}{section.6.2}
+\contentsline {section}{\numberline {6.3}Programmlogik unseres Microchips}{16}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Vereinfachte Funktionsweise f\IeC {\"u}r momentane Gewichtsmessung}{16}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Algorithmus f\IeC {\"u}r Rausch- und Driftunterdr\IeC {\"u}ckung}{16}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Algorithmus f\IeC {\"u}r Gewichtssendung mit dem LoRa-Modul}{17}{subsection.6.3.3}
+\contentsline {section}{\numberline {6.4}Demonstration der Gewichtsmessung}{17}{section.6.4}
+\contentsline {section}{\numberline {6.5}Use-Cases von Straight bar W\IeC {\"a}gezellen}{17}{section.6.5}
+\contentsline {section}{\numberline {6.6}Alternative Bauformen von W\IeC {\"a}gezellen}{18}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Disk-W\IeC {\"a}gezellen}{18}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}W\IeC {\"a}gesensoren}{19}{subsection.6.6.2}
+\contentsline {subsection}{\numberline {6.6.3}S-Typ-W\IeC {\"a}gezellen}{19}{subsection.6.6.3}
+\contentsline {subsection}{\numberline {6.6.4}Kompressions-W\IeC {\"a}gezellen}{20}{subsection.6.6.4}
+\contentsline {section}{\numberline {6.7}Alternative Gewichtssensoren}{21}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Force Sensitive Resistor (FSR)}{21}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.2}Piezoelektrischer Sensor}{21}{subsection.6.7.2}
+\contentsline {chapter}{\numberline {7}Drahtlose Verbindung zwischen den Komponenten mit dem LoRaWAN Protokoll}{22}{chapter.7}
+\contentsline {section}{\numberline {7.1}Aufsetzen eines Servers (LoRa-Gateway)}{22}{section.7.1}
+\contentsline {section}{\numberline {7.2}Erstellen einer LoRa-Applikation zum Abrufen der Daten}{24}{section.7.2}
+\contentsline {paragraph}{\nonumberline Application ID:}{25}{section*.31}
+\contentsline {paragraph}{\nonumberline Description:}{25}{section*.32}
+\contentsline {paragraph}{\nonumberline Handler registration:}{25}{section*.33}
+\contentsline {paragraph}{\nonumberline Device ID:}{26}{section*.36}
+\contentsline {paragraph}{\nonumberline Device EUI:}{26}{section*.37}
+\contentsline {paragraph}{\nonumberline App Key:}{26}{section*.38}
+\contentsline {paragraph}{\nonumberline App EUI:}{26}{section*.39}
+\contentsline {section}{\numberline {7.3}Aufsetzen eines Clients (LoRa-Node)}{27}{section.7.3}
+\contentsline {section}{\numberline {7.4}Spreading Factor}{29}{section.7.4}
+\contentsline {section}{\numberline {7.5}Security / Datensicherheit}{30}{section.7.5}
+\contentsline {section}{\numberline {7.6}RN2483- und UART-Methoden und ihre Funktionalit\IeC {\"a}t}{31}{section.7.6}
+\contentsline {subsection}{\numberline {7.6.1}RN2483.c}{31}{subsection.7.6.1}
+\contentsline {subsection}{\numberline {7.6.2}uart.c}{32}{subsection.7.6.2}
+\contentsline {chapter}{\numberline {8}Application Server}{33}{chapter.8}
+\contentsline {section}{\numberline {8.1}Visualisierung der empfangenen Daten mit Angular CLI}{33}{section.8.1}
+\contentsline {section}{\numberline {8.2}NodeJS Server f\IeC {\"u}r die Verarbeitung der Datenpakete}{34}{section.8.2}
+\contentsline {section}{\numberline {8.3}The Things Network}{34}{section.8.3}
+\contentsline {section}{\numberline {8.4}Inaktivit\IeC {\"a}t der Beh\IeC {\"a}lter}{36}{section.8.4}
+\contentsline {section}{\numberline {8.5}Voraussetzungen und Nutzung des Node-Servers}{36}{section.8.5}
+\contentsline {chapter}{\numberline {9}Schaltplan und Verl\IeC {\"o}ten der Platine}{37}{chapter.9}
+\contentsline {chapter}{\numberline {10}Ausblick}{40}{chapter.10}
+\contentsline {section}{\numberline {10.1}LoRaWAN Modul Code verbessern}{40}{section.10.1}
+\contentsline {section}{\numberline {10.2}Front-End Lizenzkosten vermeiden}{40}{section.10.2}
+\contentsline {section}{\numberline {10.3}Erstellen eines wasserfesten Geh\IeC {\"a}uses}{41}{section.10.3}
+\contentsline {section}{\numberline {10.4}Kommerzialisierung und m\IeC {\"o}gliches Gesch\IeC {\"a}ftsmodell}{41}{section.10.4}
