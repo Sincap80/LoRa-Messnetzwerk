@@ -494,11 +494,14 @@ INPUT Bilder/einleitung.jpg
 INPUT ./Bilder/einleitung.jpg
 INPUT ./Bilder/einleitung.jpg
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ek8a.tfm
+INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ekb8a.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/eko8a.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/eko8a.vf
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/eko8r.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/ek8a.vf
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ek8r.tfm
+INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/ekb8a.vf
+INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ekb8r.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/ek8a.vf
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ek8r.tfm
 OUTPUT Package/Verzeichnisse.aux
@@ -521,9 +524,6 @@ OUTPUT Dokumentation.lot
 INPUT Bilder/usecase-1.png
 INPUT ./Bilder/usecase-1.png
 INPUT ./Bilder/usecase-1.png
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ekb8a.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/ekb8a.vf
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ekb8r.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/eurosym/feymr10.tfm
 INPUT Bilder/komponentenmodell.png
 INPUT ./Bilder/komponentenmodell.png
