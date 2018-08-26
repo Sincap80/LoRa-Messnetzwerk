@@ -30,19 +30,19 @@
 \contentsline {chapter}{\numberline {8}Drahtlose Verbindung zwischen den Komponenten mit dem LoRaWAN Protokoll}{21}{chapter.8}
 \contentsline {section}{\numberline {8.1}Aufsetzen eines Servers (LoRa-Gateway)}{21}{section.8.1}
 \contentsline {section}{\numberline {8.2}Erstellen einer LoRa-Applikation zum Abrufen der Daten}{23}{section.8.2}
-\contentsline {paragraph}{\nonumberline Application ID:}{24}{section*.29}
-\contentsline {paragraph}{\nonumberline Description:}{24}{section*.30}
-\contentsline {paragraph}{\nonumberline Handler registration:}{24}{section*.31}
-\contentsline {paragraph}{\nonumberline Device ID:}{25}{section*.34}
-\contentsline {paragraph}{\nonumberline Device EUI:}{25}{section*.35}
-\contentsline {paragraph}{\nonumberline App Key:}{25}{section*.36}
-\contentsline {paragraph}{\nonumberline App EUI:}{25}{section*.37}
+\contentsline {paragraph}{\nonumberline Application ID:}{24}{section*.31}
+\contentsline {paragraph}{\nonumberline Description:}{24}{section*.32}
+\contentsline {paragraph}{\nonumberline Handler registration:}{24}{section*.33}
+\contentsline {paragraph}{\nonumberline Device ID:}{25}{section*.36}
+\contentsline {paragraph}{\nonumberline Device EUI:}{25}{section*.37}
+\contentsline {paragraph}{\nonumberline App Key:}{25}{section*.38}
+\contentsline {paragraph}{\nonumberline App EUI:}{25}{section*.39}
 \contentsline {section}{\numberline {8.3}Aufsetzen eines Clients (LoRa-Node)}{26}{section.8.3}
 \contentsline {section}{\numberline {8.4}Spreading Factor}{28}{section.8.4}
 \contentsline {section}{\numberline {8.5}Security / Datensicherheit}{29}{section.8.5}
-\contentsline {section}{\numberline {8.6}RN2483- und UART-Methoden und ihre Funktionalit\IeC {\"a}t}{29}{section.8.6}
-\contentsline {subsection}{\numberline {8.6.1}RN2483.c}{29}{subsection.8.6.1}
-\contentsline {subsection}{\numberline {8.6.2}uart.c}{30}{subsection.8.6.2}
+\contentsline {section}{\numberline {8.6}RN2483- und UART-Methoden und ihre Funktionalit\IeC {\"a}t}{30}{section.8.6}
+\contentsline {subsection}{\numberline {8.6.1}RN2483.c}{30}{subsection.8.6.1}
+\contentsline {subsection}{\numberline {8.6.2}uart.c}{31}{subsection.8.6.2}
 \contentsline {chapter}{\numberline {9}Application Server}{32}{chapter.9}
 \contentsline {section}{\numberline {9.1}Visualisierung der empfangenen Daten mit Angular CLI}{32}{section.9.1}
 \contentsline {section}{\numberline {9.2}NodeJS Server f\IeC {\"u}r die Verarbeitung der Datenpakete}{33}{section.9.2}

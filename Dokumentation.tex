@@ -3,6 +3,23 @@
 \begin{document}
 \include{Package/Titleanbindung}
 
+\pagenumbering{gobble}
+\section*{Einleitung}
+Wir haben uns für dieses Projekt entschieden, da wir an dem LoRa-Protokoll sehr interessiert sind. Das LoRa-Protokoll ist eine neue innovative Technologie, die sehr energiesparend ist, sodass es perfekt für unsere kommerzielle Idee geeignet ist. 
+Die Arbeit zeigt unser Vorgehen und den Verlauf des Projekts innerhalb des Semesters. Hierbei gehen wir sowohl auf die Konzeptionierung, Umsetzung und auf den Ausblick ein. Diese Dokumentation geht außerdem sehr genau in die technische Umsetzung ein und beschreibt die verwendeten Technologien. Zudem weiten wir dies aus, indem wir erste Gedanken zur Kommerzialisierung beschreiben. 
+In dem folgenden Bild erkennt man unseren ersten fertigen Prototypen und die einzelnen Bauteile, die verwendet wurden. Hierbei handelt es sich um die gelötete Platine, die Wägezelle, das LoRa-Modul mit der Antenne und ein LCD-Display.
+\begin{figure}[H]
+    \center
+    \includegraphics[width=15cm]{Bilder/einleitung.jpg}\\
+    \caption*{Überblick des Prototyps}
+    \label{fig:Einleitung}
+\end{figure}
+Das Ziel dieser Dokumentation ist, dass klar und verständlich erklärt wird, wie der erste Prototyp funktioniert, welche Stärken dieser besitzt und wie man dies verbessern könnte. 
+Wir bedanken uns für die tatkräftige Unterstützung bei unseren Dozenten Prof. Dr.-Ing. Jürgen Doneit und Ulrich Strauß.
+\newpage
+
+\include{Package/Verzeichnisse}
+
 \chapter{Projektvorstellung}
 Wir haben uns in der Veranstaltung Embedded Systems des Studiengangs Software-Engineering bei Prof. Dr. Jürgen Doneit und Herr Ulrich Straus im Sommersemester 2018 für das Projekt LoRa-Messnetzwerk entschieden. Die Aufgabe bestand darin, ein Messnetzwerk aufzubauen, welches Sensordaten entgegennimmt und über Long Range Wide Area Network, kurz LoRaWAN, verschickt werden.\\
 \\
@@ -31,12 +48,13 @@ Es gab noch kein Projekt aus den vorherigen Semestern, sodass wir ganz von Anfan
     Web-Server für NodeJS  & \\
     VPS oder Cloud Server mieten & ab 5.00 \euro / Monat \\
     oder & \\
-    einen vorhandenen Rechner benutzen & - \\ \hline
+    einen vorhandenen, netzwerkfähigen Computer benutzen & - \\ \hline
     LoRa-Gateway iC880A-SPI + Antenne + Pigtail cable + Raspberry Pi 2 B & 167.90 \euro \\ \hline
     LoRa-Node Data Link LoRa RN2483 + Antenne & Ca. 70 \euro \\ \hline
     Wägezelle + HX711 & 10.71 \euro \\ \hline
     \end{tabular}
 \end{table}
+
 
 \chapter{Komponentenmodell}
 Hier sieht man unser aktuelles Komponentenmodell. Dort ist zu erkennen, welche Komponenten und Bauteile von uns verwendet werden. Auch wie diese miteinander kommunizieren kann man aus dem Modell entnehmen. 
@@ -368,7 +386,7 @@ Nach jedem Befehl benutzen wir derzeit noch eine Delay-Funktion um dem RN2483 Ch
 \begin{figure}[ht]
     \center
     \includegraphics[width=11cm]{Bilder/lora-9.png}\\
-    \caption{RN2483 Boot Time unterteilt in die einzelnen Funktionen und der benötigten Zeit}
+    \caption{RN2483 Boot Time unterteilt in die einzelnen Funktionen und der benötigten Zeit in ms}
     \label{fig:boot-time}
 \end{figure}
 Jetzt ist der RN2483 fertig konfiguriert und wir können mit dem Befehl „\textbf{mac tx <type> <portno> <data>}“ Nachrichten versenden. Dabei ist:\\
@@ -401,14 +419,13 @@ Jedes gute System sollte vor Angreifern geschützt sein. Und das ist auch bei Lo
 Weitere Infos hierzu gibt es auf der TheThingsNetwork Seite zu Security: \url{https://www.thethingsnetwork.org/docs/lorawan/security.html}\\
 
 Folgende Abbildung zeigt auch wie die Komponenten (LoRa-Nodes und LoRa-Gateway) mit den Daten umgehen.
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/lora-11.png}\\
     \caption{Verschlüsselung und Datensicherheit bei der Kommunikation zwischen verschiedenen LoRa-Geräten}
     \begin{center} \quelle\url{http://ww1.microchip.com/downloads/en/DeviceDoc/40001784F.pdf, Kapitel 1.1, Seite 1} \end{center}
         \label{fig:security}
 \end{figure}
-
 \section{RN2483- und UART-Methoden und ihre Funktionalität}
 \subsection{RN2483.c}
 \begin{itemize}
@@ -436,7 +453,7 @@ Das Front-End ist die Ansicht, auf welche der Kunde blickt, um die Füllstände 
 \end{figure}
 
 Wie auf dem Bild zu sehen ist, gibt es zwei Seiten, auf die man blicken kann. Auf der Haupt- / Startseite (Dashboard) kann man die Zylinder mit Ihren Inhalten sehen. Jeder aktive Node wird hier mit ihren aktuellen Füllständen angezeigt. Die zweite Seite (Statistiken) zeigt auf einem größeren Diagramm die historischen Werte bis zum aktuellen Zeitpunkt an. Die Historischen Werte zeigen jedoch nur die Daten des Vortags bis zum neuesten Stand an. 
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/front-end-2.png}\\
     \caption{Füllstand-Verlauf einer Kaffeemaschine von 12:00 Uhr bis 15:00 Uhr}
@@ -519,7 +536,7 @@ Unsere Platine sieht im Moment so aus:
     \caption{Vorderseite der verlöteten Platine unseres ersten Prototyps}
     \label{fig:schaltplan-vorderseite}
 \end{figure}\\
-Leider ist unser Taster im Moment nicht funktionsfähig und es kann somit nur durch aus und einschalten das Gewicht genullt werden. Des Weiteren kann für spätere Verwendungszwecke das Display wieder abgenommen werden, um somit Platz und Strom zu sparen. Es dient zurzeit nur zur Visualisierung des Gewichtes, ist aber für die Funktionsweise nicht von Bedeutung. 
+Dem Taster wurde eine Tar-Funktion zugewiesen, mit der das Gewicht genullt werden kann. Softwareseitig ist es auch möglich dem Taster andere Funktionen zuzuweisen, wie beispielsweise das An- und Ausschalten des Gerätes oder mit Verbund eines Displays zwischen verschiedenen Anzeigemodi zu Wechseln.
 
 \chapter{Ausblick}
 \section{LoRaWAN Modul Code verbessern}
