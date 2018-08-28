@@ -7,23 +7,22 @@
 
 \thispagestyle{plain}
 \section*{Einleitung}
-Wir haben uns für dieses Projekt entschieden, da wir an dem LoRa-Protokoll sehr interessiert sind. Das LoRa-Protokoll ist eine neue innovative Technologie, die sehr energiesparend ist, sodass es perfekt für unsere kommerzielle Idee geeignet ist. 
-Die Arbeit zeigt unser Vorgehen und den Verlauf des Projekts innerhalb des Semesters. Hierbei gehen wir sowohl auf die Konzeptionierung, Umsetzung und auf den Ausblick ein. Diese Dokumentation geht außerdem sehr genau in die technische Umsetzung ein und beschreibt die verwendeten Technologien. Zudem weiten wir dies aus, indem wir erste Gedanken zur Kommerzialisierung beschreiben. 
-In dem folgenden Bild erkennt man unseren ersten fertigen Prototypen und die einzelnen Bauteile, die verwendet wurden. Hierbei handelt es sich um die gelötete Platine, die Wägezelle, das LoRa-Modul mit der Antenne und ein LCD-Display.
+LoRa ist eine neue innovative Technologie, die sehr energiesparend ist, sodass es perfekt für unsere kommerzielle Idee geeignet ist. 
+Die Arbeit zeigt unser Vorgehen und den Verlauf des Projekts innerhalb des Semesters. Hierbei gehen wir sowohl auf die Konzeptionierung, Umsetzung und auf den Ausblick ein. Zudem weiten wir dies aus, indem wir erste Gedanken zur Kommerzialisierung beschreiben. 
+In dem folgenden Bild erkennt man unseren ersten fertigen Prototypen und die einzelnen Bauteile, die verwendet wurden. Hierbei handelt es sich um die gelötete Platine, die Wägezelle, das LoRa-Modul mit der Antenne und ein LCD-Display. Detaillierte Informationen zu den einzelnen Bauteilen folgen in den nächsten Kapiteln.
 \begin{figure}[H]
     \center
     \includegraphics[width=9cm]{Bilder/einleitung.jpg}\\
     \caption{Überblick des Prototyps}
     \label{fig:Einleitung}
 \end{figure}
-Das Ziel dieser Dokumentation ist, dass klar und verständlich erklärt wird, wie der erste Prototyp funktioniert, welche Stärken dieser besitzt und wie man dies verbessern könnte. 
-Wir bedanken uns für die tatkräftige Unterstützung bei unseren Dozenten Prof. Dr.-Ing. Jürgen Doneit und Ulrich Strauß.
+Das Ziel dieser Dokumentation ist, dass klar und verständlich erklärt wird, wie der erste Prototyp funktioniert, welche Stärken dieser besitzt und wie man diesen verbessern könnte. 
 \newpage
 
 \include{Package/Verzeichnisse}
 
 \chapter{Projektvorstellung}
-Wir haben uns in der Veranstaltung Embedded Systems des Studiengangs Software-Engineering bei Prof. Dr. Jürgen Doneit und Herr Ulrich Straus im Sommersemester 2018 für das Projekt LoRa-Messnetzwerk entschieden. Die Aufgabe bestand darin, ein Messnetzwerk aufzubauen, welches Sensordaten entgegennimmt und über Long Range Wide Area Network, kurz LoRaWAN, verschickt werden.\\
+Wir haben uns in der Veranstaltung Embedded Systems des Studiengangs Software-Engineering bei Prof. Dr. Jürgen Doneit und Herr Ulrich Straus im Sommersemester 2018 für das Projekt LoRa-Messnetzwerk entschieden. Die Aufgabe bestand darin, ein Messnetzwerk aufzubauen, welches Sensordaten entgegennimmt und diese über ein Long Range Wide Area Network, kurz LoRaWAN, verschickt.\\
 \\
 Der daraus resultierende Use-Case:
 \begin{figure}[ht]
@@ -48,7 +47,7 @@ Um die Kernfunktionalität im Einsatz zu testen und die Idee zu validieren, besc
 \\ 
  Damit das System funktioniert, werden die Kaffeekannen auf einer Plattform abgestellt und durch Wäge-Sensoren gewogen. Die gemessenen Werte und die daraus entstandenen Informationen werden visualisiert und dem Personal über eine Webseite angezeigt. Bei niedrigem Füllstand (oder zu niedriger Temperatur, weil schon zu lange in der Kanne) können sie damit schnell reagieren. Die komplette drahtlose Kommunikation basiert dabei auf LoRa-Nodes, die sehr energiesparend sind. Bei konstanter täglicher Nutzung des Systems ist bei entsprechender Akkugröße eine Laufzeit von einem Jahr möglich. Trotzdem ist zusätzliches Optimierungspotential vorhanden. Denn werden die LoRa-Nodes nach dem Senden der Zeit- und Gewichtsinformationen in einen Sleep-Mode versetzt, zusätzlich der Sende-Zyklus verlängert und serverseitig ein besserer Abstraktionsalgorithmus implementiert, sind bei gleichem Akku Laufzeiten bis zu drei Jahren denkbar.
 \\
-Am Anfang des Projektes erstellten wir Bauteildiagramme und diskutierten über Kommunikationswege zwischen den Bauteilen. Danach teilten wir Schwerpunkte beziehungsweise Bauteile auf unsere Teammitglieder auf, welche dann nochmal tiefer vom zugewiesenen Teammitglied recherchiert wurden. Die Zusammensetzung der Bauteile erfolgte erstmal auf einer Entwicklungsplattform um schnelle Tests und Hardwareänderungen durchführen zu können. Nach erfolgreichen Tests auf unserer Entwicklungsplattform wechselten wird die Hardware auf eine selbst konzeptionierten Platine. Nach den letzten Tests dokumentierten wir unsere Ergebnisse.
+Am Anfang des Projektes erstellten wir Bauteildiagramme und diskutierten über Kommunikationswege zwischen den Bauteilen. Danach teilten wir Schwerpunkte beziehungsweise Bauteile auf unsere Teammitglieder auf, welche dann nochmal tiefer vom zugewiesenen Teammitglied recherchiert wurden. Die Zusammensetzung der Bauteile erfolgte zunächst um schnelle Validierungstests und Hardwareänderungen durchführen zu können. Nach erfolgreichen Tests auf unserer Entwicklungsplattform wechselten wird die Hardware auf eine selbst konzeptionierten Platine. Mit dem letzten validen Test und nach der offiziellen Präsentation dokumentierten wir unsere Ergebnisse.
 
 \begin{figure}[ht]
     \center
@@ -72,27 +71,29 @@ Am Anfang des Projektes erstellten wir Bauteildiagramme und diskutierten über K
     LoRa-Gateway iC880A-SPI + Antenne + Pigtail cable + Raspberry Pi 2 B & 167.90 \euro \\ \hline
     LoRa-Node Data Link LoRa RN2483 + Antenne & Ca. 70 \euro \\ \hline
     Wägezelle + HX711 & 10.71 \euro \\ \hline
+    Mikrocontroller Atmega 644PA & 4.24 \euro \\ \hline
     \end{tabular}
 \end{table}
-Für unseren ersten Prototyp benötigten wir das LoRa-Node Modul mit Antenne, um Daten an das Gateway (Server) verschicken zu können. Außerdem haben wir eine Wägezelle mit einem AD-Wandler (HX711) an einen Mikrocontroller (Atmega 644PA) angeschlossen, um damit das Gewicht von der Wägezelle messen und übertragen zu können.
-\\
-Durch weitere Optimierungen kann der Atmega 644PA oder HX711 weggelassen werden, was den Preis nochmal verringern würde.
+Für unseren ersten Prototyp benötigten wir das LoRa-Node Modul mit Antenne, um Daten an das Gateway (Server) verschicken zu können. Außerdem haben wir eine Wägezelle mit einem AD-Wandler (HX711) an einen Mikrocontroller (Atmega 644PA) angeschlossen, um damit das Gewicht von der Wägezelle messen und übertragen zu können.\\
+Als Vorgriff vor dem Resultat, sei hier an dieser Stelle zu erwähnen, dass während der Validierungstests der Mikrocontroller oder das Steuergerät für die Wägezelle (HX711) als verzichtbar erkannt wurde. Das würde den Preis etwas verringern. Der Grund ist, dass mögliche Sensor-Informationen sich direkt über die Ein- und Ausgangskanäle des LoRa-Moduls (RN2483) ohne Zwischenschritt auf dem Mikrocontroller übertragen lassen. Im weiteren Dokumentationsverlauf wird der Mikrocontroller jedoch weiterhin eingesetzt. \\
 
-\chapter{Komponentenmodell}
-Hier sieht man unser aktuelles Komponentenmodell. Dort ist zu erkennen, welche Komponenten und Bauteile von uns verwendet werden. Auch wie diese miteinander kommunizieren kann man aus dem Modell entnehmen. 
-\begin{figure}[ht]
+\chapter{Komponentenmodell des Wägesystems für Kaffeekannen}
+Auf dem nachfolgenden Komponentenmodell sind die angedachten Kommunikationswege der einzelnen Module aufgebaut. 
+\begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/komponentenmodell.png}\\
     \caption{Komponentenmodell, erstellt mit \url{https://www.draw.io/}}
     \label{fig:Komponentenmodell}
 \end{figure}
+Die Herausforderung bestand dabei, die verteilten Informationen bis hin zum Client zu liefern. Da in der Gruppe die Arbeitspakete gleichzeitig abgearbeitet wurden, waren wir gezwungen für die einzelnen Testphasen Dummydaten zu erstellen, die das jeweils andere bzw. zuliefernde Modul ersetzt.
+Das Gehäuse (hier 'Case') beinhaltet alle Komponenten für den Prozess des Wiegens einer Kaffee-Kanne. Der darin enthaltene LoRa-Knoten (hier: LoRa-Node) übermittelt mit Hilfe des LoRaWAN-Protokolls die jeweiligen Sensordaten mit Adresse und Zeitstempel an das LoRa-Gateway, welches alle Knoten in Empfang nimmt.
 
 \chapter{Überblick der Bauteile}
-\section{Gateway}
+\section{LoRa Gateway als Empfänger der Sensordaten}
 \begin{figure}[ht]
     \center
     \includegraphics[width=15cm]{Bilder/mounted-boards.jpg}\\
-    \caption{iC880A-SPI Concentrator Board (links) und Raspberry Pi Model 2B (rechts) bilden zusammen das Gateway}
+    \caption{iC880A-SPI Concentrator Board (links) und Raspberry Pi Model 2B (rechts) bilden zusammen das Gateway, welches die Sensordaten der LoRa-Nodes entgegennimmt und zu einem Web-Server weiterleitet.}
     \begin{flushleft}
         \quelle\url{https://raw.githubusercontent.com/ttn-zh/ic880a-gateway/spi/images/mounted-boards.jpg}
     \end{flushleft}
@@ -115,11 +116,11 @@ Hier sieht man unser aktuelles Komponentenmodell. Dort ist zu erkennen, welche K
     \label{fig:Gewichtssensor}
 \end{figure}
 \newpage
-\section{LoRa Node}
+\section{LoRa Node als Sender der Sensordaten}
 \begin{figure}[ht]
     \center
     \includegraphics[width=14cm]{Bilder/lora-node.jpg}\\
-    \caption{Data Link LoRa RN2483 als LoRa-Node}
+    \caption{Data Link LoRa RN2483 als LoRa-Node, das zum Senden der Sensordaten über das LoRaWAN-Protokoll verwendet wird.}
     \begin{flushleft}
         \quelle\url{https://drotek.com/shop/2643-thickbox_default/data-link-lora-rn2483.jpg}
     \end{flushleft}
@@ -283,7 +284,7 @@ Bei Krafteinwirkung produzieren diese Sensoren eine elektrische Ladung, die geme
     \begin{center} \quelle\url{https://www.sparkfun.com/products/10293} \end{center}
 \end{figure}
 
-\chapter{Drahtlose Verbindung zwischen den Komponenten mit dem LoRaWAN Protokoll}
+\chapter{Drahtlose Verbindung zwischen den Komponenten mit dem LoRaWAN-Protokoll}
 \section{Aufsetzen eines Servers (LoRa-Gateway)}
 Unser LoRa-Gateway hat im Prinzip die Funktion eines WLAN-Routers. Alle Clients (LoRa-Nodes) melden sich an dem Gateway an und kommunizieren mit dem Gateway. Wie der Begriff „Gateway“ schon andeutet, ist dies ein Tor, das zum Internet führt (siehe folgende Abbildung \ref{fig:lora-schaubild}).
 \begin{figure}[ht]
