@@ -10,8 +10,8 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Komponentenmodell, erstellt mit \url {https://www.draw.io/}\relax }}{5}{figure.caption.9}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces iC880A-SPI Concentrator Board (links) und Raspberry Pi Model 2B (rechts) bilden zusammen das Gateway, welches die Sensordaten der LoRa-Nodes entgegennimmt und zu einem Web-Server weiterleitet.\relax }}{7}{figure.caption.10}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces 20Kg W\IeC {\"a}gezelle zwischen zwei Spanholzplatten befestigt\relax }}{8}{figure.caption.11}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces HX711 24-Bit ADC f\IeC {\"u}r Gewichtssensoren\relax }}{9}{figure.caption.12}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Eine 20Kg W\IeC {\"a}gezelle wird f\IeC {\"u}r die Gewichtsmessung zwischen zwei Spanholzplatten befestigt. W\IeC {\"a}hrend der Gewichtsmessung liegt die untere Spanholzplatte am Boden an und auf der oberen Spanholzplatte wird das zu messene Gewicht aufgelegt.\relax }}{8}{figure.caption.11}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Ein HX711 24-Bit ADC zur Analog-Digital-Wandlung und Verst\IeC {\"a}rkung des Signals zwischen Gewichtssensor und Mikrocontroller\relax }}{9}{figure.caption.12}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Data Link LoRa RN2483 als LoRa-Node, das zum Senden der Sensordaten \IeC {\"u}ber das LoRaWAN-Protokoll verwendet wird.\relax }}{10}{figure.caption.13}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Aufbaubeschreibung einer W\IeC {\"a}gezelle\relax }}{11}{figure.caption.14}

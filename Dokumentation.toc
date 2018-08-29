@@ -6,8 +6,8 @@
 \contentsline {chapter}{\numberline {4}Komponentenmodell des W\IeC {\"a}gesystems f\IeC {\"u}r Kaffeekannen}{5}{chapter.4}
 \contentsline {chapter}{\numberline {5}\IeC {\"U}berblick der Bauteile}{7}{chapter.5}
 \contentsline {section}{\numberline {5.1}LoRa Gateway als Empf\IeC {\"a}nger der Sensordaten}{7}{section.5.1}
-\contentsline {section}{\numberline {5.2}W\IeC {\"a}gezelle}{8}{section.5.2}
-\contentsline {section}{\numberline {5.3}Gewichtssensor}{9}{section.5.3}
+\contentsline {section}{\numberline {5.2}W\IeC {\"a}gezelle als Gewichtssensor}{8}{section.5.2}
+\contentsline {section}{\numberline {5.3}ADC zur Wandlung und Verst\IeC {\"a}rkung von Signalen}{9}{section.5.3}
 \contentsline {section}{\numberline {5.4}LoRa Node als Sender der Sensordaten}{10}{section.5.4}
 \contentsline {chapter}{\numberline {6}Gewichtsmessung mit einer W\IeC {\"a}gezelle}{11}{chapter.6}
 \contentsline {section}{\numberline {6.1}Funktionsweise der W\IeC {\"a}gezelle}{11}{section.6.1}
