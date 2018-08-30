@@ -1,8 +1,8 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {ngerman}{}
-\contentsline {figure}{\numberline {0.1}{\ignorespaces \IeC {\"U}berblick des Prototyps\relax }}{}{figure.caption.2}
+\contentsline {figure}{\numberline {0.1}{\ignorespaces \IeC {\"U}berblick \IeC {\"u}ber die Einzelteile des Prototyps\relax }}{}{figure.caption.2}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Use-Case mit den Akteuren Kunde und Kellner und den Komponenten Kaffeekanne und Web-Server\relax }}{1}{figure.caption.6}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Use-Case mit den Akteuren Kunde und Gastronomie-Personal und den Komponenten Kaffeekanne und Web-Server\relax }}{1}{figure.caption.6}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Projektplan\relax }}{3}{figure.caption.7}
 \addvspace {10\p@ }
@@ -28,7 +28,7 @@
 \contentsline {figure}{\numberline {6.12}{\ignorespaces Force Sensitive Resistor\relax }}{22}{figure.caption.25}
 \contentsline {figure}{\numberline {6.13}{\ignorespaces Piezoelektrischer Sensor\relax }}{22}{figure.caption.26}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces \IeC {\"U}bersicht eines Beispiel LoRa-Netzwerks\relax }}{23}{figure.caption.27}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces \IeC {\"U}bersicht eines Beispiel-LoRa-Netzwerks\relax }}{23}{figure.caption.27}
 \contentsline {figure}{\numberline {7.2}{\ignorespaces \IeC {\"U}bersicht der registrierten Gateways im TheThingsNetwork\relax }}{24}{figure.caption.28}
 \contentsline {figure}{\numberline {7.3}{\ignorespaces \IeC {\"U}bersicht der erstellten Applikationen im TheThingsNetwork\relax }}{25}{figure.caption.29}
 \contentsline {figure}{\numberline {7.4}{\ignorespaces Formular zur Erstellung einer Applikation\relax }}{25}{figure.caption.30}
@@ -38,7 +38,7 @@
 \contentsline {figure}{\numberline {7.8}{\ignorespaces Beispielcode\relax }}{27}{figure.caption.41}
 \contentsline {figure}{\numberline {7.9}{\ignorespaces Spezifikationen f\IeC {\"u}r das UART-Interface des RN2483\relax }}{28}{figure.caption.42}
 \contentsline {figure}{\numberline {7.10}{\ignorespaces RN2483 Boot Time unterteilt in die einzelnen Funktionen und der ben\IeC {\"o}tigten Zeit in ms\relax }}{29}{figure.caption.43}
-\contentsline {figure}{\numberline {7.11}{\ignorespaces Tabelle mit verschiedenen Spreading Factors und die zugeh\IeC {\"o}rige Bitrate\relax }}{30}{figure.caption.44}
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Tabelle mit verschiedenen Spreading Factors und die zugeh\IeC {\"o}rige Bitrate\relax }}{31}{figure.caption.44}
 \contentsline {figure}{\numberline {7.12}{\ignorespaces Verschl\IeC {\"u}sselung und Datensicherheit bei der Kommunikation zwischen verschiedenen LoRa-Ger\IeC {\"a}ten\relax }}{32}{figure.caption.45}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {8.1}{\ignorespaces \IeC {\"U}bersicht der F\IeC {\"u}llst\IeC {\"a}nde der einzelnen Kaffeemaschinen auf der Webseite\relax }}{34}{figure.caption.46}

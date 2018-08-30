@@ -13,9 +13,10 @@ In dem folgenden Bild erkennt man unseren ersten fertigen Prototypen und die ein
 \begin{figure}[H]
     \center
     \includegraphics[width=9cm]{Bilder/einleitung.jpg}\\
-    \caption{Überblick des Prototyps}
+    \caption{Überblick über die Einzelteile des Prototyps}
     \label{fig:Einleitung}
 \end{figure}
+\noindent 
 Das Ziel dieser Dokumentation ist, dass klar und verständlich erklärt wird, wie der erste Prototyp funktioniert, welche Stärken dieser besitzt und wie man diesen verbessern könnte. 
 \newpage
 
@@ -28,7 +29,7 @@ Der daraus resultierende Use-Case:
 \begin{figure}[ht]
     \center
     \includegraphics[width=15cm]{Bilder/usecase-1.png}\\
-    \caption{Use-Case mit den Akteuren Kunde und Kellner und den Komponenten Kaffeekanne und Web-Server}
+    \caption{Use-Case mit den Akteuren Kunde und Gastronomie-Personal und den Komponenten Kaffeekanne und Web-Server}
     \label{fig:Use-Case}
 \end{figure}
 \\
@@ -47,7 +48,7 @@ Um die Kernfunktionalität im Einsatz zu testen und die Idee zu validieren, besc
 \\ 
  Damit das System funktioniert, werden die Kaffeekannen auf einer Plattform abgestellt und durch Wäge-Sensoren gewogen. Die gemessenen Werte und die daraus entstandenen Informationen werden visualisiert und dem Personal über eine Webseite angezeigt. Bei niedrigem Füllstand (oder zu niedriger Temperatur, weil schon zu lange in der Kanne) können sie damit schnell reagieren. Die komplette drahtlose Kommunikation basiert dabei auf LoRa-Nodes, die sehr energiesparend sind. Bei konstanter täglicher Nutzung des Systems ist bei entsprechender Akkugröße eine Laufzeit von einem Jahr möglich. Trotzdem ist zusätzliches Optimierungspotential vorhanden. Denn werden die LoRa-Nodes nach dem Senden der Zeit- und Gewichtsinformationen in einen Sleep-Mode versetzt, zusätzlich der Sende-Zyklus verlängert und serverseitig ein besserer Abstraktionsalgorithmus implementiert, sind bei gleichem Akku Laufzeiten bis zu drei Jahren denkbar.
 \\
-Am Anfang des Projektes erstellten wir Bauteildiagramme und diskutierten über Kommunikationswege zwischen den Bauteilen. Danach teilten wir Schwerpunkte beziehungsweise Bauteile auf unsere Teammitglieder auf, welche dann nochmal tiefer vom zugewiesenen Teammitglied recherchiert wurden. Die Zusammensetzung der Bauteile erfolgte zunächst um schnelle Validierungstests und Hardwareänderungen durchführen zu können. Nach erfolgreichen Tests auf unserer Entwicklungsplattform wechselten wird die Hardware auf eine selbst konzeptionierten Platine. Mit dem letzten validen Test und nach der offiziellen Präsentation dokumentierten wir unsere Ergebnisse.
+Am Anfang des Projektes erstellten wir Bauteildiagramme und diskutierten über Kommunikationswege zwischen den Bauteilen. Danach teilten wir Schwerpunkte beziehungsweise Bauteile auf unsere Teammitglieder auf, welche dann nochmal tiefer vom zugewiesenen Teammitglied recherchiert wurden. Die Zusammensetzung der Bauteile erfolgte zunächst um schnelle Validierungstests und Hardwareänderungen durchführen zu können. Nach erfolgreichen Tests auf unserer zuvor zusammengesetzten Entwicklungsplattform wechselten wir die Hardware auf eine selbst konzeptionierte Platine. Mit dem letzten validen Test und nach der offiziellen Präsentation dokumentierten wir unsere Ergebnisse.
 
 \begin{figure}[ht]
     \center
@@ -71,11 +72,12 @@ Am Anfang des Projektes erstellten wir Bauteildiagramme und diskutierten über K
     LoRa-Gateway iC880A-SPI + Antenne + Pigtail cable + Raspberry Pi 2 B & 167.90 \euro \\ \hline
     LoRa-Node Data Link LoRa RN2483 + Antenne & Ca. 70 \euro \\ \hline
     Wägezelle + HX711 & 10.71 \euro \\ \hline
-    Mikrocontroller Atmega 644PA & 4.24 \euro \\ \hline
+    Mikrocontroller ATmega644PA & 4.24 \euro \\ \hline
     \end{tabular}
 \end{table}
-Für unseren ersten Prototyp benötigten wir das LoRa-Node Modul mit Antenne, um Daten an das Gateway (Server) verschicken zu können. Außerdem haben wir eine Wägezelle mit einem AD-Wandler (HX711) an einen Mikrocontroller (Atmega 644PA) angeschlossen, um damit das Gewicht von der Wägezelle messen und übertragen zu können.\\
-Als Vorgriff vor dem Resultat, sei hier an dieser Stelle zu erwähnen, dass während der Validierungstests der Mikrocontroller oder das Steuergerät für die Wägezelle (HX711) als verzichtbar erkannt wurde. Das würde den Preis etwas verringern. Der Grund ist, dass mögliche Sensor-Informationen sich direkt über die Ein- und Ausgangskanäle des LoRa-Moduls (RN2483) ohne Zwischenschritt auf dem Mikrocontroller übertragen lassen. Im weiteren Dokumentationsverlauf wird der Mikrocontroller jedoch weiterhin eingesetzt. \\
+\noindent
+Für unseren ersten Prototyp benötigten wir das LoRa-Node Modul mit Antenne, um Daten an das Gateway (Server) verschicken zu können. Außerdem haben wir eine Wägezelle mit einem AD-Wandler (HX711) an einen Mikrocontroller (ATmega644PA) angeschlossen, um damit das Gewicht von der Wägezelle messen und übertragen zu können.\\
+Als Vorgriff vor dem Resultat, sei hier an dieser Stelle zu erwähnen, dass während der Validierungstests der Mikrocontroller oder das Steuergerät für die Wägezelle (HX711) als verzichtbar erkannt wurde. Das würde den Preis etwas verringern. Der Grund ist, dass mögliche Sensor-Informationen sich direkt über die Ein- und Ausgangskanäle des LoRa-Moduls (RN2483) ohne Zwischenschritt auf dem Mikrocontroller übertragen lassen. Im weiteren Dokumentationsverlauf wird der Mikrocontroller in Kombination mit dem Steuergerät (HX711) jedoch weiterhin eingesetzt. \\
 
 \chapter{Komponentenmodell des Wägesystems für Kaffeekannen}
 Auf dem nachfolgenden Komponentenmodell sind die angedachten Kommunikationswege der einzelnen Module aufgebaut. 
@@ -85,11 +87,12 @@ Auf dem nachfolgenden Komponentenmodell sind die angedachten Kommunikationswege 
     \caption{Komponentenmodell, erstellt mit \url{https://www.draw.io/}}
     \label{fig:Komponentenmodell}
 \end{figure}
+\noindent
 Die Herausforderung bestand dabei, die verteilten Informationen bis hin zum Client zu liefern. Da in der Gruppe die Arbeitspakete gleichzeitig abgearbeitet wurden, waren wir gezwungen für die einzelnen Testphasen Dummydaten zu erstellen, die das jeweils andere bzw. zuliefernde Modul ersetzt.
 Das Gehäuse (hier 'Case') beinhaltet alle Komponenten für den Prozess des Wiegens einer Kaffee-Kanne. Der darin enthaltene LoRa-Knoten (hier: LoRa-Node) übermittelt mit Hilfe des LoRaWAN-Protokolls die jeweiligen Sensordaten mit Adresse und Zeitstempel an das LoRa-Gateway, welches alle Knoten in Empfang nimmt.
 
 \chapter{Überblick der Bauteile}
-\section{LoRa Gateway als Empfänger der Sensordaten}
+\section{LoRa-Gateway als Empfänger der Sensordaten}
 \begin{figure}[ht]
     \center
     \includegraphics[width=15cm]{Bilder/mounted-boards.jpg}\\
@@ -116,7 +119,7 @@ Das Gehäuse (hier 'Case') beinhaltet alle Komponenten für den Prozess des Wieg
     \label{fig:Gewichtssensor}
 \end{figure}
 \newpage
-\section{LoRa Node als Sender der Sensordaten}
+\section{LoRa-Node als Sender der Sensordaten}
 \begin{figure}[ht]
     \center
     \includegraphics[width=14cm]{Bilder/lora-node.jpg}\\
@@ -144,6 +147,7 @@ Bei Auflage von Gewicht bzw. Verformung der Wägezelle messen zwei Dehnmessstrei
     \caption{Funktionsweise einer Wägezelle bei Gewichtsmessung }
     \begin{flushleft} \quelle\url{https://learn.sparkfun.com/tutorials/getting-started-with-load-cells} \end{flushleft}
 \end{figure}
+\noindent
 Um die Widerstandsveränderungen der Dehnungsmessstreifen messen zu können, sind die Dehnungsmessstreifen innerhalb der Wägezelle in einer Wheatstone-Brücken-Formation geschalten.
 
 \newpage
@@ -164,6 +168,7 @@ Wenn gilt \[\frac{R1}{R2}=\frac{R3}{R4}\]dann misst man 0V an Out. Falls sich ei
     \caption{Verschaltung der Dehnmessstreifen mit Spannungsmessung}
     \begin{flushleft} \quelle\url{https://learn.sparkfun.com/tutorials/getting-started-with-load-cells} \end{flushleft}
 \end{figure}
+\noindent
 Die an \textit{Vout} gemessene Spannung ist sehr klein und analog, deshalb benutzen wir den HX711, welcher das Signal verstärkt und in digitale Werte [0 bis 16777217] umwandelt. 
 \newpage
 
@@ -175,7 +180,7 @@ Die Wägezelle wurde an zwei gegenüberliegenden Punkten an zwei Holzplatten ges
     \includegraphics[width=15cm]{Bilder/waegezelle.jpg}\\
     \caption{20Kg Wägezelle zwischen zwei Spanholzplatten befestigt}
 \end{figure}\\
-Die Wägezelle wurde wie folgt an das HX711-9Modul angeschlossen: 
+Die Wägezelle wurde wie folgt an das HX711-Modul angeschlossen: 
 \begin{itemize}
     \item Rot an E+ (Excitation+/Vin+) 
     \item Schwarz an E- (Excitation-/Vin-) 
@@ -184,7 +189,7 @@ Die Wägezelle wurde wie folgt an das HX711-9Modul angeschlossen:
 \end{itemize}
 
 \newpage
-
+\noindent
 Veranschaulichung der Verdrahtung (Achtung! Gelbe Verbindung ist bei uns weiß):\\
 \begin{figure}[ht]
     \center
@@ -198,8 +203,8 @@ Die rechte Seite des HX711 wird wie folgt angeschlossen:
 \begin{itemize}
     \item GND an Ground 
     \item VCC an Versorgungsspannung in unserem Fall 5V 
-    \item SCK an PD5 unseres Microcontrollers/Atmega 644PA 
-    \item DT (Data) an PD6 unseres Microcontrollers/Atmega 644PA 
+    \item SCK an PD5 unseres Microcontrollers/ATmega644PA 
+    \item DT (Data) an PD6 unseres Microcontrollers/ATmega644PA 
 \end{itemize}
 \begin{figure}[ht]
     \center
@@ -290,12 +295,12 @@ Unser LoRa-Gateway hat im Prinzip die Funktion eines WLAN-Routers. Alle Clients 
 \begin{figure}[ht]
     \center
     \includegraphics[width=15cm]{Bilder/lora-schaubild.jpg}\\
-    \caption{Übersicht eines Beispiel LoRa-Netzwerks}
+    \caption{Übersicht eines Beispiel-LoRa-Netzwerks}
     \begin{center} \quelle\url{http://www.mstanley.co.uk/blog/wp-content/uploads/2015/11/Enabling-world-wide-mobility-for-the-IoT-image-2.jpg} \end{center}
     \label{fig:lora-schaubild}
 \end{figure}\\
-Realisiert wird das alles durch ein „iC880A-SPI Concentrator Board“, das mit Hilfe einer Antenne mit den LoRa-Nodes Daten austauscht. Diese Daten werden durch ein Raspberry Pi, der an das Serial Peripheral Interface (SPI) des Concentrator Boards angeschlossen ist, ins Internet versendet.\\
-\textbf{ACHTUNG!} Es ist sehr wichtig, dass alles korrekt angeschlossen ist und schon eine Antenne an das Concentrator Board angeschlossen ist, da es sonst zu Schäden an den Bauteilen kommen kann. \\
+Realisiert wird unser Gateway durch ein „iC880A-SPI Concentrator Board“, das mit Hilfe einer Antenne mit den LoRa-Nodes Daten austauscht. Das Gateway, also das Concentrator Board, ist über ein Serial Peripheral Inface (SPI) an einen Raspberry Pi angeschlossen. Dieser Einplatinen-Computer versendet nun die Daten der LoRa-Nodes, empfangen über das Gateway, ins Internet.\\
+Damit nun die gesendeten Daten nicht nur lose in der großen weiten Welt des Internets ziellos umher irren, benötigt das Gateway eine Adresse, über die Datenpakete identifiziert werden können. Doch vor der Adress-Konfiguration der Hardware, sollten die Komponenten beschafft und lokal richtig installiert werden damit sie miteinander funktionieren.\\
 Auf dem Wiki der GitHub-Seite von The Things Network Zurich (\url{https://github.com/ttn-zh/ic880a-gateway/wiki}) kann man nachlesen welche Bauteile man benötigt, wie man die Pins verbinden soll, das Betriebssystem aufsetzt und anschließend das Gateway im TheThingsNetwork registriert.\\
 Nachdem man die Anweisungen zum Konfigurieren befolgt hat, sollte es auf der Webseite für Gateways von TheThingsNetwork zu sehen sein.
 \begin{figure}[ht]
@@ -320,10 +325,11 @@ Damit wir jetzt auch mit den verschlüsselten Daten, die wir empfangen, etwas an
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
 \end{figure}
 \newpage
-\paragraph{Application ID:} Sollte einzigartig und eindeutig sein.
+\paragraph{Application ID:} Muss einzigartig und eindeutig sein.
 \paragraph{Description:} Eine kurze, aber aussagekräftige Beschreibung der Applikation.
-\paragraph{Handler registration:} Sollte passend zum Standort gewählt werden.\\
-Nachdem man nun eine Applikation erstellt hat, sollte man nun auch ein Gerät zu dieser Applikation hinzufügen.
+\paragraph{Handler registration:} Wurde passend zum Standort gewählt.\\
+\\
+Nachdem man nun eine Applikation erstellt hat, fügt man nun auch ein Gerät zu dieser Applikation hinzu.
 \begin{figure}[ht]
     \center
     \includegraphics[width=16cm]{Bilder/lora-4.png}\\
@@ -336,13 +342,15 @@ Nachdem man nun eine Applikation erstellt hat, sollte man nun auch ein Gerät zu
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
 \end{figure}
 \newpage
-\paragraph{Device ID:} Sollte einzigartig und am besten aussagekräftig gewählt werden, damit man diese ID später einem Gerät zuordnen kann.
+\paragraph{Device ID:} Muss einzigartig sein und am besten aussagekräftig, damit man diese ID später einem Gerät zuordnen kann.
 
 \paragraph{Device EUI:} Kann man selber bestimmen oder generieren lassen, indem man das Zufällig-Icon bzw. den Stift-Icon anklickt, um es umzuschalten. Dies wird später benötigt, um das Gerät richtig zu konfigurieren!
 
 \paragraph{App Key:} Kann man selber bestimmen oder generieren lassen, indem man das Zufällig-Icon bzw. den Stift-Icon anklickt um es umzuschalten. Dies wird später benötigt um das Gerät richtig zu konfigurieren!
 
-\paragraph{App EUI:} Es sollte schon eine vorgewählt sein. Nachdem wir ein Gerät erstellt haben, sollten wir die Aktivierungsmethode ändern:\\
+\paragraph{App EUI:} Wird automatisch generiert von der Webseite.\\
+\\
+Nachdem wir ein Gerät erstellt haben, sollten wir die Aktivierungsmethode ändern:\\
 Dazu gehen wir in $Application \rightarrow application\_id \rightarrow devices \rightarrow device\_id \rightarrow Settings$. Darin kann man die Activation Method von OTAA zu ABP ändern.
 \begin{figure}[ht]
     \center
@@ -350,7 +358,7 @@ Dazu gehen wir in $Application \rightarrow application\_id \rightarrow devices \
     \caption{Aktivierungsmethoden: links Over-the-Air Activation (OTAA), rechts Activation By Personalization (ABP)}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
 \end{figure}\\
-Wenn wir die Änderungen speichern, sollten wir wieder auf die Seite des Geräts kommen. Scrollen wir ganz nach unten, dann sehen wir ein Codebeispiel.
+Wenn wir die Änderungen speichern, kommen wir wieder auf die Seite des Geräts. Scrollen wir ganz nach unten, dann sehen wir ein Codebeispiel.
 \begin{figure}[ht]
     \center
     \includegraphics[width=11cm]{Bilder/lora-7.png}\\
@@ -358,10 +366,10 @@ Wenn wir die Änderungen speichern, sollten wir wieder auf die Seite des Geräts
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
     \label{fig:beispielcode}
 \end{figure}\\
-Diesen Codeausschnitt sollten wir entweder irgendwo speichern oder uns einfach merken, dass er auf der Seite des Geräts ist, da wir ihn später zum Konfigurieren des Nodes wieder brauchen werden. 
+Diesen Codeausschnitt speichern wir oder wir merken uns, dass er auf der Seite des Geräts ist, da wir ihn später zum Konfigurieren des Nodes wieder brauchen werden. 
 \section{Aufsetzen eines Clients (LoRa-Node)} \label{mac-commands}
-Bevor wir die LoRa-Nodes mit Strom versorgen, sollten wir erstmal eine Antenne an den RFH (Radio Frequency High Band – PIN 23) Anschluss befestigen.\\
-Unser LoRa-Node ist über die serielle Schnittstelle UART (PIN 6 + 7 am RN2483) an den Mikrocontroller Atmega644PA (PD0 bzw. PIN 14 + PD1 bzw. PIN 15) angeschlossen und kommuniziert so mit dem Mikrochip. Die Baudrate für die UART Verbindung beträgt standardmäßig 57600 bps, kann aber auch mit einer gewissen Character Folge geändert werden. (Siehe folgende Abbildung \ref{fig:UART})
+Bevor wir die LoRa-Nodes mit Strom versorgen, befestigen wir erstmal eine Antenne an den RFH (Radio Frequency High Band – PIN 23) Anschluss.\\
+Unser LoRa-Node ist über die serielle Schnittstelle UART (PIN 6 + 7 am RN2483) an den Mikrocontroller ATmega644PA (PD0 bzw. PIN 14 + PD1 bzw. PIN 15) angeschlossen und kommuniziert so mit dem Mikrochip. Die Baudrate für die UART Verbindung beträgt standardmäßig 57600 bps, kann aber auch mit einer gewissen Character Folge geändert werden. (Siehe folgende Abbildung \ref{fig:UART})
 \begin{figure}[ht]
     \center
     \includegraphics[width=11cm]{Bilder/lora-8.png}\\
@@ -371,10 +379,13 @@ Unser LoRa-Node ist über die serielle Schnittstelle UART (PIN 6 + 7 am RN2483) 
 \end{figure}\\
 Kommen wir nun zur Initialisierung des RN2483, wenn dieser nun am Microchip hängt und soweit ansprechbar ist:\\
 
+\noindent
 Folgende Methoden haben wir von der Drotek RN2483 Library (\url{https://github.com/drotek/RN2483}) für Arduino genommen und für den AVR angepasst und umgeschrieben. Außerdem haben wir einen Teil von der UART-Library von unserem Betreuer Ulrich Straus übernommen.\\
 
+\noindent
 Zu aller erst setzen wir den RN2483 zurück, indem wir per UART die Befehle „\textbf{sys factoryRESET}“ und „\textbf{sys reset}“ senden und jeweils mit einem Break- und New-Line-Character bestätigen. (ASCII: Break = 0x0D; New-Line = 0x0A).\\
 
+\noindent
 Als nächstes füttern wir den RN2483 mit den Daten, die wir beim Erstellen des Geräts im Applikations-Server erhalten haben. Dazu werden folgende Befehle benötigt:
 \begin{itemize}
     \item \textbf{mac set devaddr <address>}
@@ -386,7 +397,8 @@ Also mit dem Beispielcode von Abbildung \ref{fig:beispielcode} wäre dann:\\
 \textbf{<nwksesskey> = FEDC44AB0EED5686F0A43523612ECE23;}\\
 \textbf{<appSesskey> = DAF11CBE2CE9E1345BA1715CE3407D25}\\
 
-Nun müssen wir noch den SpreadingFactor (kurz: SF) festlegen und anschließend die Konfiguration speichern und dem Netzwerk beitreten.\\
+\noindent
+Nun müssen wir noch den \textit{Spreading Factor (siehe Kapitel \ref{sec:spreadingfactor})} festlegen und anschließend die Konfiguration speichern und dem Netzwerk beitreten.\\
 Dies wird wie folgt gemacht: 
 
 \begin{itemize}
@@ -395,6 +407,7 @@ Dies wird wie folgt gemacht:
     \item \textbf{mac join abp}
 \end{itemize}
 
+\noindent
 Nach jedem Befehl benutzen wir derzeit noch eine Delay-Funktion um dem RN2483 Chip Zeit zum Bearbeiten und Antworten zu lassen. Die aufgerundeten Delay-Zeiten bzw. Berechnungszeiten sieht man im folgenden Diagramm.
 
 \begin{figure}[ht]
@@ -403,6 +416,7 @@ Nach jedem Befehl benutzen wir derzeit noch eine Delay-Funktion um dem RN2483 Ch
     \caption{RN2483 Boot Time unterteilt in die einzelnen Funktionen und der benötigten Zeit in ms}
     \label{fig:boot-time}
 \end{figure}
+\noindent
 Jetzt ist der RN2483 fertig konfiguriert und wir können mit dem Befehl „\textbf{mac tx <type> <portno> <data>}“ Nachrichten versenden. Dabei ist:\\
 
 \textbf{<type>} = cnf (confirmed) oder uncnf (unconfirmed);\\
@@ -410,29 +424,40 @@ Jetzt ist der RN2483 fertig konfiguriert und wir können mit dem Befehl „\text
 \textbf{<portno>} = Portnummer zwischen einschließlich 1 und 223;\\
 
 \textbf{<data>} = Die Nachricht als Hexadezimal Wert.\\
-
+\noindent
 Die vollständige Kommandoliste mit Syntax und Rückgabewerten findet man im RN2483 LoRa Technology Module Command Reference User’s Guide: \url{http://ww1.microchip.com/downloads/en/DeviceDoc/40001784F.pdf}\\
 Wir benötigen aus dieser Liste nur die System Commands aus Kapitel 2.3 und die MAC Commands aus Kapitel 2.4
 
-\section{Spreading Factor}
-Spreading Factor (kurz SF) ist, wie der Begriff teilweise schon verrät, ein Faktor, der angibt wie weit sich eine versendete Nachricht ausbreitet, also was für eine Reichweite sie hat. Umso höher dieser Faktor, desto höher die Reichweite. Jedoch leidet die Geschwindigkeit der Übertragung darunter. Man kann sich merken: kleinerer SF = höhere Bitrate, nicht so hohe Reichweite. Hoher SF = niedrigere Bitrate, höhere Reichweite. In der folgenden Tabelle ist dies sehr gut erkennbar. 
-\begin{figure}[ht]
+\section{Spreading Factor} \label{sec:spreadingfactor}
+Der LoRa-Knoten (LoRa-Node) ist nun bereit die Gewichtsinformationen über die Kaffeekanne entgegenzunehmen und als Nachricht verpackt zu senden.
+Nun geht es um die Feinabstimmung der Konfiguration, um die Reichweite und die Bandbreite des LoRa-Knotens zu bestimmen.\\
+Spreading Factor (kurz: SF) ist, wie der Begriff teilweise schon verrät, ein Faktor, der angibt wie weit sich eine versendete Nachricht ausbreitet, also was für eine Reichweite sie hat. Umso höher dieser Faktor, desto höher die Reichweite. Jedoch leidet die Geschwindigkeit der Übertragung darunter. Man kann sich merken: 
+\begin{itemize}
+    \item kleiner SF = hohe Bitrate, nicht so hohe Reichweite;
+    \item hoher SF = niedrige Bitrate, hohe Reichweite.
+\end{itemize} 
+In der folgenden Tabelle ist dies sehr gut erkennbar. 
+\begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/lora-10.png}\\
     \caption{Tabelle mit verschiedenen Spreading Factors und die zugehörige Bitrate}
     \begin{center} \quelle\url{https://witekio.com/wp-content/uploads/2018/01/lora-wan-spreading-factor.png} \end{center}
         \label{fig:spreading-factor}
-\end{figure}\\
+\end{figure}
+\noindent
 Derzeit sind unsere Payloads (Nachrichten) durchschnittlich nur 2 Bytes lang, da wir nur den Füllstand übermitteln. Beim SF7 könnten wir 647 Nachrichten am Tag senden, wenn wir unter dem 30 Sekunden Sendelimit bleiben wollen.\\
 
+\noindent
 Die genaue Berechnung und weitere Infos zum Spreading Factor findet man auf folgender Google Docs Tabelle: \url{https://docs.google.com/spreadsheets/d/1QvcKsGeTTPpr9icj4XkKXq4r2zTc2j0gsHLrnplzM3I/edit}
 
 \section{Security / Datensicherheit}
-Jedes gute System sollte vor Angreifern geschützt sein. Und das ist auch bei LoRaWAN von TheThingsNetwork der Fall. Die Nachrichten werden vor dem Versenden verschlüsselt und werden beim Empfänger mit Hilfe des App-Session-Key entschlüsselt. Da die Nachrichten sowieso abgefangen werden können, weil ein Radio-Protokoll benutzt wird, kann der Angreifer diese Nachricht nicht lesen, da sie verschlüsselt ist. Er könnte aber diese Nachricht erneut senden (Replay-Angriff). Als Maßnahme, um gegen diese Art von Angriff zu schützen, wird ein Frame Counter eingesetzt der jedes Mal, wenn eine Nachricht versendet wird sich um 1 erhöht. So werden alle alten Nachrichten ignoriert und man ist vor Replay-Angriffen geschützt.\\
+Jedes gute System sollte vor Angreifern geschützt sein. Und das ist auch bei LoRaWAN von TheThingsNetwork der Fall. Die Nachrichten werden vor dem Versenden verschlüsselt und beim Empfänger mit Hilfe des App-Session-Key entschlüsselt. Nachrichten von LoRa-Knoten werden als lesbare digitale Daten über ein Frequenzband übermittelt. Da die Frequenzen bekannt sind, kann jeder die Nachrichten abfangen und mitlesen. Die Mitleser sind aber durch die Verschlüsselung nicht in der Lage den Inhalt zu verstehen. Über einen Replay-Angriff (siehe Wikipedia \url{https://de.wikipedia.org/wiki/Replay-Angriff}) könnte der Interessent sich beim Empfänger aber als jemand anderen ausgeben und so die Entschlüsselung erfahren. Als Maßnahme, um gegen diese Art von Angriff zu schützen, wird ein Frame Counter eingesetzt der jedes Mal, wenn eine Nachricht versendet wird sich um 1 erhöht. So werden alle alten Nachrichten ignoriert und man ist vor Replay-Angriffen geschützt.\\
 
+\noindent
 Weitere Infos hierzu gibt es auf der TheThingsNetwork Seite zu Security: \url{https://www.thethingsnetwork.org/docs/lorawan/security.html}\\
 
-Folgende Abbildung zeigt auch wie die Komponenten (LoRa-Nodes und LoRa-Gateway) mit den Daten umgehen.
+\noindent
+Folgende Abbildung zeigt wie die Komponenten (LoRa-Nodes und LoRa-Gateway) mit den Daten umgehen.
 \begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/lora-11.png}\\
@@ -440,7 +465,9 @@ Folgende Abbildung zeigt auch wie die Komponenten (LoRa-Nodes und LoRa-Gateway) 
     \begin{center} \quelle\url{http://ww1.microchip.com/downloads/en/DeviceDoc/40001784F.pdf, Kapitel 1.1, Seite 1} \end{center}
         \label{fig:security}
 \end{figure}
-\section{RN2483- und UART-Methoden und ihre Funktionalität}
+\section{Methoden und Funktionen zur Kommunikation mit dem LoRa-Modul (UART \& Modul RN2483)}
+Nachdem die LoRa-Kommunikation nun sicher ist, wurde der reibungslose Ablauf im LoRa-Knoten, also zwischen dem LoRa-Modul (RN2483) und dem Mikrocontroller (ATmega644PA), sichergestellt.
+Die serielle Schnittstelle (UART), die zwischen beiden Bauteilen besteht, implementiert die Methoden des RN2483 für die getaktete Übertragung zum Gateway.
 \subsection{RN2483.c}
 \begin{itemize}
     \item \textbf{RN2483\_init():} Initialisiert / Konfiguriert das RN2483 Modul wie im Codebeispiel \ref{lst:payload} zu sehen ist.
@@ -457,22 +484,27 @@ Folgende Abbildung zeigt auch wie die Komponenten (LoRa-Nodes und LoRa-Gateway) 
     \item \textbf{sendHex2(char *s):} Konvertiert das gegebene Char-Array in Hexadezimal ASCII Code und sendet es über die sendString() Methode.
 \end{itemize}
 \newpage
-\chapter{Application Server}
+\chapter{Webserver für die Visualisierung}
 \section{Visualisierung der empfangenen Daten mit Angular CLI}
-Das Front-End ist die Ansicht, auf welche der Kunde blickt, um die Füllstände aller Behälter zu sehen. Es ist minimalistisch gehalten, sodass keine Überladung entsteht und das menschliche Auge die relevante Information schneller erkennt. \\
-\begin{figure}[ht]
+Mit dem aufgesetzten Gateway, welches die Gewichtsdaten/Füllstände über verschlüsselte Kanäle ins Internet überträgt, fehlt noch die Komponente der Visualisierung. Der Webserver, der den Clients die Weboberfläche (das Front-End) zur Verfügung stellt, übernimmt die Aufgabe der Aufbereitung und Darstellung der übermittelten Daten.
+Das Front-End ist die Ansicht, auf welche der Kunde blickt, um die Füllstände aller Behälter zu sehen. Sie ist minimalistisch gehalten, sodass keine Überladung entsteht und das menschliche Auge die relevante Information schneller erkennt. \\
+\begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/front-end-1.png}\\
     \caption{Übersicht der Füllstände der einzelnen Kaffeemaschinen auf der Webseite}
+    \label{fig:front-end-1}
 \end{figure}
-
-Wie auf dem Bild zu sehen ist, gibt es zwei Seiten, auf die man blicken kann. Auf der Haupt- / Startseite (Dashboard) kann man die Zylinder mit Ihren Inhalten sehen. Jeder aktive Node wird hier mit ihren aktuellen Füllständen angezeigt. Die zweite Seite (Statistiken) zeigt auf einem größeren Diagramm die historischen Werte bis zum aktuellen Zeitpunkt an. Die Historischen Werte zeigen jedoch nur die Daten des Vortags bis zum neuesten Stand an. 
+\noindent
+Die Webseite (siehe Abbildung \ref{fig:front-end-1}) zeigt links oben zwei Buttons, die zwischen zwei Anzeigen hin- und herschalten lassen. Die eigentliche Haupt- bzw. Startseite (Dashboard - siehe Abbildung \ref{fig:front-end-1}) mit den Zylindern und deren Inhalten
+- jeder aktive Node wird hier mit seinem aktuellen Füllstand angezeigt. Und die Statistik-Seite (siehe Abbildung \ref{fig:front-end-2}), die auf einem größeren Diagramm die historischen Werte
+bis zum aktuellen Zeitpunkt anzeigt.
 \begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/front-end-2.png}\\
     \caption{Füllstand-Verlauf einer Kaffeemaschine von 12:00 Uhr bis 15:00 Uhr}
+    \label{fig:front-end-2}
 \end{figure}
-
+\noindent
 Die Visualisierung ist mithilfe des Front-End-Frameworks Angular CLI geschrieben worden. Die Programmiersprache von Angular ist TypeScript, eine Weiterentwicklung von JavaScript, mit einigen Verbesserungen wie die Typisierung von Variablen. Weiterhin wurden die Zylinder-Behälter mit der „AmCharts“ Angular-Bibliothek implementiert. Diese Bibliothek bietet die Möglichkeit diese Diagramme mit Hilfe einer „create“ Funktion zu erstellen und einer „update“ Funktion mit neuen Daten zu versorgen und damit das Diagramm in Echtzeit zu verändern. Darüber hinaus wurden die Statistikdiagramme mit Hilfe der gleichen Bibliothek erstellt. Diese Diagramme bieten die gleichen Funktionen wie die Zylinderdiagramme.
 
 \section{NodeJS Server für die Verarbeitung der Datenpakete}
@@ -535,8 +567,10 @@ Der Schaltplan wurde mit dem Programm Fritzing (\url{http://fritzing.org/home}) 
     \label{fig:schaltplan}
 \end{figure}
 \newpage
-Als Mikrocontroller haben wir im Schaltplan einen ATMega644 statt einem ATMega644PA verwendet, da diese fast gleich sind. Ausgehend vom Mikrocontroller werden an den Pins XTAL1 und XTAL2 der Quarz angeschlossen. An Pin PA0 bis PA7 werden die Pins für das LCD-Display angeschlossen. An PC0 wird eine rote LED und davor der Widerstand R2 mit 390 Ohm angeschlossen. Der Wäge Sensor wird mit den Pins PD5 und PD6 angeschlossen. Hierbei wurde für den Sensor einfach ein Platzhalter mit vier Pins genommen, da kein passendes Teil für unsere Wägezelle gefunden wurde. Das LoRa-Modul wird an PD1 angeschlossen und es wurde ebenso eine Platzhalterkomponente mit drei Pins verwendet. Zudem haben wir einen Taster auf PD0 und an PD5 – PD7 einen ISP-Anschluss angelötet. Die Platine und dessen Bauteile werden mit zwei in Reihe geschalteten Akkus versorgt die jeweils ca. 3,6V liefern. Dazwischen geschaltet ist ein DC-DC Wandler, der den Stromkreis mit konstanten 5V versorgt. Dann haben wir anhand unseres Schaltplans unsere Platine verlötet.\\
+\noindent
+Als Mikrocontroller haben wir im Schaltplan einen ATmega644 statt einem ATmega644PA verwendet, da diese fast gleich sind. Ausgehend vom Mikrocontroller werden an den Pins XTAL1 und XTAL2 der Quarz angeschlossen. An Pin PA0 bis PA7 werden die Pins für das LCD-Display angeschlossen. An PC0 wird eine rote LED und davor der Widerstand R2 mit 390 Ohm angeschlossen. Der Wäge Sensor wird mit den Pins PD5 und PD6 angeschlossen. Hierbei wurde für den Sensor einfach ein Platzhalter mit vier Pins genommen, da kein passendes Teil für unsere Wägezelle gefunden wurde. Das LoRa-Modul wird an PD1 angeschlossen und es wurde ebenso eine Platzhalterkomponente mit drei Pins verwendet. Zudem haben wir einen Taster auf PD0 und an PD5 – PD7 einen ISP-Anschluss angelötet. Die Platine und dessen Bauteile werden mit zwei in Reihe geschalteten Akkus versorgt die jeweils ca. 3,6V liefern. Dazwischen geschaltet ist ein DC-DC Wandler, der den Stromkreis mit konstanten 5V versorgt. Dann haben wir anhand unseres Schaltplans unsere Platine verlötet.\\
 
+\noindent
 Unsere Platine sieht im Moment so aus:
 \begin{figure}[ht]
     \center
@@ -557,30 +591,32 @@ Dem Taster wurde eine Tar-Funktion zugewiesen, mit der das Gewicht genullt werde
 \begin{itemize}
     \item Firmware vom \textbf{RN2483} updaten
     \item Gebrauch von der sleep Funktion „sys sleep <length>“ machen um Strom zu sparen
-    \item Beim Ausschalten den Frame-Counter mit „mac get upctr“ auslesen und in den EEPROM vom Atmega644PA speichern. Beim Einschalten den Frame Counter aus dem EEPROM auslesen und mit „mac set upctr <fCntUp>“ wieder neu setzen, damit man nicht jedes Mal den Frame Counter in der Konsole von TheThingsNetwork zurücksetzen muss. 
-    \item Empfang von Nachrichten oder Befehlen vom Gateway ermöglichen und durch UART-Receive diese Nachrichten bzw. Befehle im Mikrochip auslesen. 
-    \item Delays mit Interrupts ersetzen, so dass das Programm weiterarbeiten kann, während es auf ein Ereignis wartet.
-    \item Verschiedene Profile oder Modis passend zu den Spreading Factors programmieren z.B.: niedrige Reichweite + hohe Bandbreite, hohe Reichweite + niedrige Bandbreite, etc.
+    \item Beim Ausschalten den Frame-Counter mit „mac get upctr“ auslesen und in den EEPROM vom ATmega644PA speichern. Beim Einschalten den Frame Counter aus dem EEPROM auslesen und mit „mac set upctr <fCntUp>“ wieder neu setzen, damit man nicht jedes Mal den Frame Counter in der Konsole von TheThingsNetwork zurücksetzen muss. 
+    \item Empfang von Nachrichten oder Befehlen vom Gateway ermöglichen und durch UART-Receive diese Nachrichten bzw. Befehle im Mikrocontroller auslesen. 
+    \item Delays durch Interrupts ersetzen, so dass das Programm weiterarbeiten kann, während es auf ein Ereignis wartet.
+    \item Verschiedene Profile oder Modis passend zu den \textit{Spreading Factors (siehe Kapitel \ref{sec:spreadingfactor})} programmieren z.B.: niedrige Reichweite + hohe Bandbreite, hohe Reichweite + niedrige Bandbreite, etc.
 \end{itemize} 
 \section{Front-End Lizenzkosten vermeiden}
-Das Frontend hat das Problem, dass es die "AmCharts" Bibliothek nutzt. Die Bibliothek ist für Open-Source und nicht kommerzielle Projekte frei verfügbar. Die Lizenz (Stand 06.07.2018) kostet für ein Jahr 4590 \euro. Darin sind die Diagramme in den Seiten Dashboard und Statistik enthalten. In Zukunft sollen selbstgeschriebene Diagramme verwendet werden, um Lizenzkosten zu vermeiden.
+Das Frontend hat das Problem, dass es die "AmCharts" Bibliothek nutzt. Die Bibliothek ist für Open-Source- und nicht-kommerzielle Projekte frei verfügbar. Die Lizenz (Stand 06.07.2018) kostet für ein Jahr 4590 \euro. Darin sind die Diagramme in den Seiten Dashboard und Statistik enthalten. In Zukunft sollen selbstentwickelte Diagramme verwendet werden, um Lizenzkosten zu vermeiden.
 \newpage
 \section{Erstellen eines wasserfesten Gehäuses}
-In naher Zukunft ist es außerdem noch wichtig, dass sich die Platine und die nötige Hardware in einem Gehäuse befinden, da es sonst nicht im Kommerziellen nutzbar wäre. Zudem sollte das Gehäuse wasserfest sein, da sonst Kaffee oder ähnliches hindurchkommen und etwas beschädigen könnte.\\
+In naher Zukunft ist es außerdem noch wichtig, dass sich die Platine und die nötige Hardware in einem Gehäuse befinden, da es sonst nicht im kommerziellen Umfeld nutzbar wäre. Zudem sollte das Gehäuse wasserfest sein, da sonst Kaffee oder ähnliches hindurchkommen und etwas beschädigen könnte.\\
 
+\noindent
 Dadurch wird unser Produkt deutlich kompakter und nutzvoller für Hotels. Unser erster Ansatz wäre ein Prototyp mit einem 3D-Drucker zu erstellen. 
 \section{Kommerzialisierung und mögliches Geschäftsmodell}
 Die nächsten nötigen Schritte zur Kommerzialisierung sind:
 \begin{enumerate}
     \item Kundengespräche:\\
-    Wir müssen Gespräche mit unseren potenziellen Kunden, beispielsweise Hotels oder Restaurants führen, damit wir abschätzen können, wie hoch die Nachfrage sein könnte. Hierbei bekommen wir direktes Feedback zu unseren Prototypen, sodass darauf reagiert werden kann. Außerdem müssen wir Kundengruppen erschließen, damit wir eingrenzen können, in welchen Branchen das Produkt nutzbar wäre.
+    Wir müssen Gespräche mit unseren potenziellen Kunden, beispielsweise Hotels oder Restaurants führen, damit wir abschätzen können, wie hoch die Nachfrage sein könnte. Hierbei bekommen wir direktes Feedback zu unseren Prototypen, sodass darauf reagiert werden kann. Außerdem müssen wir Kundengruppen erschließen, damit wir eingrenzen können, in welchen Branchen das Produkt nutzbar ist.
     \item Optimierung des Prototyps:\\
     Wir müssen ein wasserdichtes Gehäuse erstellen, damit die Technik verpackt werden kann. Zudem muss das Design des Gehäuses angepasst werden, sodass es in der Gastronomie verwendbar ist. Des Weiteren werden wir den Prototypen verbessern, indem wir einen Sleep-Mode einführen, damit die Laufzeit verlängert wird, den Taster verbessern und unnötige Komponenten entfernen.
     \item Erstellen von Business-Plan, Strategie und Dokumente für Unternehmensgründung:\\
     Für eine erfolgreiche Start-Up-Gründung benötigen wir einen Business-Plan, damit wir einen seriösen roten Faden haben und wir damit Investoren überzeugen können. Zudem müssen wir uns Strategien überlegen und die nächsten Schritte planen. Dazu benötigen wir noch weitere Dokumente und Berechnungen für die Unternehmensgründung.
 \end{enumerate}
 
- Mögliches Geschäftsmodell: \\
+\noindent
+Mögliches Geschäftsmodell: \\
 Um den Aufwand für Gastronomiebetreiber möglichst klein zu halten, sollten Geräte- und Softwarewartung möglichst outsourced werden. Gastronomiebetreiber sollten nach diesem Modell monatlich oder jährlich einen Festbetrag bezahlen um Installation und Wartung weiter leiten zu können. So könnte zum Beispiel die Software auf einem Cloudserver laufen und Geräte regelmäßig ausgetauscht, geupdatet und gewartet werden.
 
 \nocite{online:getting-started-load-cells}

@@ -649,8 +649,6 @@ INPUT ./Bilder/lora-schaubild.jpg
 INPUT Bilder/lora-1.png
 INPUT ./Bilder/lora-1.png
 INPUT ./Bilder/lora-1.png
-INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/ekb8a.vf
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ekb8r.tfm
 INPUT Bilder/lora-2.png
 INPUT ./Bilder/lora-2.png
 INPUT ./Bilder/lora-2.png
@@ -672,6 +670,8 @@ INPUT ./Bilder/lora-7.png
 INPUT Bilder/lora-8.png
 INPUT ./Bilder/lora-8.png
 INPUT ./Bilder/lora-8.png
+INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/ekb8a.vf
+INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ekb8r.tfm
 INPUT Bilder/lora-9.png
 INPUT ./Bilder/lora-9.png
 INPUT ./Bilder/lora-9.png
