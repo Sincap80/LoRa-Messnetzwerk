@@ -577,7 +577,10 @@ Unsere Platine sieht im Moment so aus:
 \end{figure}\\
 Dem Taster wurde eine Tar-Funktion zugewiesen, mit der das Gewicht genullt werden kann. Softwareseitig ist es auch möglich dem Taster andere Funktionen zuzuweisen, wie beispielsweise das An- und Ausschalten des Gerätes oder mit Verbund eines Displays zwischen verschiedenen Anzeigemodi zu Wechseln.
 
-\chapter{Ausblick}
+\chapter{Fazit der prototypischen Umsetzung eines Wägesystems für den Gastronomie-Betrieb via LoRaWAN}
+
+
+\chapter{Ausblick auf die Kommerzialisierung}
 \section{LoRaWAN Modul Code verbessern}
 \begin{itemize}
     \item Firmware vom \textbf{RN2483} updaten
@@ -588,7 +591,7 @@ Dem Taster wurde eine Tar-Funktion zugewiesen, mit der das Gewicht genullt werde
     \item Verschiedene Profile oder Modis passend zu den \textit{Spreading Factors (siehe Kapitel \ref{sec:spreadingfactor})} programmieren z.B.: niedrige Reichweite + hohe Bandbreite, hohe Reichweite + niedrige Bandbreite, etc.
 \end{itemize} 
 \section{Front-End Lizenzkosten vermeiden}
-Das Frontend hat das Problem, dass es die "AmCharts" Bibliothek nutzt. Die Bibliothek ist für Open-Source- und nicht-kommerzielle Projekte frei verfügbar. Die Lizenz (Stand 06.07.2018) kostet für ein Jahr 4590 \euro. Darin sind die Diagramme in den Seiten Dashboard und Statistik enthalten. In Zukunft sollen selbstentwickelte Diagramme verwendet werden, um Lizenzkosten zu vermeiden.
+Das Frontend hat das Problem, dass es die \textit{amCharts-Bibliothek} nutzt. Die Bibliothek ist für Open-Source- und nicht-kommerzielle Projekte frei verfügbar. Die Lizenz (Stand 06.07.2018) kostet für ein Jahr 4590 \euro. Darin sind die Diagramme in den Seiten Dashboard und Statistik enthalten. In Zukunft sollen selbstentwickelte Diagramme verwendet werden, um Lizenzkosten zu vermeiden.
 \newpage
 \section{Erstellen eines wasserfesten Gehäuses}
 In naher Zukunft ist es außerdem noch wichtig, dass sich die Platine und die nötige Hardware in einem Gehäuse befinden, da es sonst nicht im kommerziellen Umfeld nutzbar wäre. Zudem sollte das Gehäuse wasserfest sein, da sonst Kaffee oder ähnliches hindurchkommen und etwas beschädigen könnte.\\
@@ -608,7 +611,9 @@ Die nächsten nötigen Schritte zur Kommerzialisierung sind:
 
 \noindent
 Mögliches Geschäftsmodell: \\
-Um den Aufwand für Gastronomiebetreiber möglichst klein zu halten, sollten Geräte- und Softwarewartung möglichst outsourced werden. Gastronomiebetreiber sollten nach diesem Modell monatlich oder jährlich einen Festbetrag bezahlen um Installation und Wartung weiter leiten zu können. So könnte zum Beispiel die Software auf einem Cloudserver laufen und Geräte regelmäßig ausgetauscht, geupdatet und gewartet werden.
+Um den Aufwand für Gastronomiebetreiber möglichst klein zu halten, sollten Geräte- und Softwarewartung möglichst outgesourct sein. 
+Gastronomiebetreiber bezahlen monatlich/jährlich für die Nutzung des Systems eine festgelegte Summe. 
+Darin sind Installationen und Wartungsarbeiten enthalten. Für Erweiterungen und/oder Updates fallen weitere Einmalgebühren und eventuell Aufschläge im jährlichen Turnus an. Der Server wird im cloudbasierten Betrieb realisiert, was Wartung und Updates der lokalen Installationen vereinfacht. Lediglich der Austausch und die initiale Installation vor Ort macht einen Besuch nötig.
 
 \nocite{online:getting-started-load-cells}
 \nocite{doc:getting-started}

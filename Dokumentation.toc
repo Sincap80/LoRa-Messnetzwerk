@@ -49,8 +49,9 @@
 \contentsline {section}{\numberline {8.4}Inaktivit\IeC {\"a}t der Beh\IeC {\"a}lter}{37}{section.8.4}
 \contentsline {section}{\numberline {8.5}Voraussetzungen und Nutzung des Node-Servers}{37}{section.8.5}
 \contentsline {chapter}{\numberline {9}Schaltplan und Verl\IeC {\"o}ten der Platine}{38}{chapter.9}
-\contentsline {chapter}{\numberline {10}Ausblick}{41}{chapter.10}
-\contentsline {section}{\numberline {10.1}LoRaWAN Modul Code verbessern}{41}{section.10.1}
-\contentsline {section}{\numberline {10.2}Front-End Lizenzkosten vermeiden}{41}{section.10.2}
-\contentsline {section}{\numberline {10.3}Erstellen eines wasserfesten Geh\IeC {\"a}uses}{42}{section.10.3}
-\contentsline {section}{\numberline {10.4}Kommerzialisierung und m\IeC {\"o}gliches Gesch\IeC {\"a}ftsmodell}{42}{section.10.4}
+\contentsline {chapter}{\numberline {10}Fazit der prototypischen Umsetzung eines W\IeC {\"a}gesystems f\IeC {\"u}r den Gastronomie-Betrieb via LoRaWAN}{41}{chapter.10}
+\contentsline {chapter}{\numberline {11}Ausblick auf die Kommerzialisierung}{42}{chapter.11}
+\contentsline {section}{\numberline {11.1}LoRaWAN Modul Code verbessern}{42}{section.11.1}
+\contentsline {section}{\numberline {11.2}Front-End Lizenzkosten vermeiden}{42}{section.11.2}
+\contentsline {section}{\numberline {11.3}Erstellen eines wasserfesten Geh\IeC {\"a}uses}{43}{section.11.3}
+\contentsline {section}{\numberline {11.4}Kommerzialisierung und m\IeC {\"o}gliches Gesch\IeC {\"a}ftsmodell}{43}{section.11.4}
