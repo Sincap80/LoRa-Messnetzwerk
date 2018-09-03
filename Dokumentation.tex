@@ -454,17 +454,8 @@ Die genaue Berechnung und weitere Infos zum Spreading Factor findet man auf folg
 Jedes gute System sollte vor Angreifern geschützt sein. Und das ist auch bei LoRaWAN von TheThingsNetwork der Fall. Die Nachrichten werden vor dem Versenden verschlüsselt und beim Empfänger mit Hilfe des App-Session-Key entschlüsselt. Nachrichten von LoRa-Knoten werden als lesbare digitale Daten über ein Frequenzband übermittelt. Da die Frequenzen bekannt sind, kann jeder die Nachrichten abfangen und mitlesen. Die Mitleser sind aber durch die Verschlüsselung nicht in der Lage den Inhalt zu verstehen. Über einen Replay-Angriff (siehe Wikipedia \url{https://de.wikipedia.org/wiki/Replay-Angriff}) könnte der Interessent sich beim Empfänger aber als jemand anderen ausgeben und so die Entschlüsselung erfahren. Als Maßnahme, um gegen diese Art von Angriff zu schützen, wird ein Frame Counter eingesetzt der jedes Mal, wenn eine Nachricht versendet wird sich um 1 erhöht. So werden alle alten Nachrichten ignoriert und man ist vor Replay-Angriffen geschützt.\\
 
 \noindent
-Weitere Infos hierzu gibt es auf der TheThingsNetwork Seite zu Security: \url{https://www.thethingsnetwork.org/docs/lorawan/security.html}\\
+Weitere Infos hierzu gibt es auf der TheThingsNetwork Seite zu Security: \url{https://www.thethingsnetwork.org/docs/lorawan/security.html}
 
-\noindent
-Folgende Abbildung zeigt wie die Komponenten (LoRa-Nodes und LoRa-Gateway) mit den Daten umgehen.
-\begin{figure}[H]
-    \center
-    \includegraphics[width=15cm]{Bilder/lora-11.png}\\
-    \caption{Verschlüsselung und Datensicherheit bei der Kommunikation zwischen verschiedenen LoRa-Geräten}
-    \begin{center} \quelle\url{http://ww1.microchip.com/downloads/en/DeviceDoc/40001784F.pdf, Kapitel 1.1, Seite 1} \end{center}
-        \label{fig:security}
-\end{figure}
 \section{Methoden und Funktionen zur Kommunikation mit dem LoRa-Modul (UART \& Modul RN2483)}
 Nachdem die LoRa-Kommunikation nun sicher ist, wurde der reibungslose Ablauf im LoRa-Knoten, also zwischen dem LoRa-Modul (RN2483) und dem Mikrocontroller (ATmega644PA), sichergestellt.
 Die serielle Schnittstelle (UART), die zwischen beiden Bauteilen besteht, implementiert die Methoden des RN2483 für die getaktete Übertragung zum Gateway.

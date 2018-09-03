@@ -1,8 +1,8 @@
-PWD c:/DEV/LaTeX Kaffee/LoRa-Messnetzwerk
+PWD c:/DEV/LaTeX Kaffee/LoRa-Messnetzwerk-1
 INPUT c:/texlive/2018/texmf.cnf
 INPUT c:/texlive/2018/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/DEV/LaTeX Kaffee/LoRa-Messnetzwerk/Dokumentation.tex
+INPUT c:/DEV/LaTeX Kaffee/LoRa-Messnetzwerk-1/Dokumentation.tex
 OUTPUT Dokumentation.log
 INPUT Package/Packages.tex
 INPUT Package/Packages.tex
@@ -678,9 +678,6 @@ INPUT ./Bilder/lora-9.png
 INPUT Bilder/lora-10.png
 INPUT ./Bilder/lora-10.png
 INPUT ./Bilder/lora-10.png
-INPUT Bilder/lora-11.png
-INPUT ./Bilder/lora-11.png
-INPUT ./Bilder/lora-11.png
 INPUT Bilder/front-end-1.png
 INPUT ./Bilder/front-end-1.png
 INPUT ./Bilder/front-end-1.png

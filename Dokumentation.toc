@@ -40,8 +40,8 @@
 \contentsline {section}{\numberline {7.4}Spreading Factor}{30}{section.7.4}
 \contentsline {section}{\numberline {7.5}Security / Datensicherheit}{31}{section.7.5}
 \contentsline {section}{\numberline {7.6}Methoden und Funktionen zur Kommunikation mit dem LoRa-Modul (UART \& Modul RN2483)}{32}{section.7.6}
-\contentsline {subsection}{\numberline {7.6.1}RN2483.c}{33}{subsection.7.6.1}
-\contentsline {subsection}{\numberline {7.6.2}uart.c}{33}{subsection.7.6.2}
+\contentsline {subsection}{\numberline {7.6.1}RN2483.c}{32}{subsection.7.6.1}
+\contentsline {subsection}{\numberline {7.6.2}uart.c}{32}{subsection.7.6.2}
 \contentsline {chapter}{\numberline {8}Webserver f\IeC {\"u}r die Visualisierung}{34}{chapter.8}
 \contentsline {section}{\numberline {8.1}Visualisierung der empfangenen Daten mit Angular CLI}{34}{section.8.1}
 \contentsline {section}{\numberline {8.2}NodeJS Server f\IeC {\"u}r die Verarbeitung der Datenpakete}{35}{section.8.2}
