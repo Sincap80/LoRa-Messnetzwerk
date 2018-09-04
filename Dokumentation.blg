@@ -1,18 +1,18 @@
 [0] Config.pm:302> INFO - This is Biber 2.11
-[0] Config.pm:305> INFO - Logfile is 'Dokumentation.blg'
-[25] biber-MSWIN32:313> INFO - === 
-[56] Biber.pm:371> INFO - Reading 'Dokumentation.bcf'
-[163] Biber.pm:857> INFO - Found 13 citekeys in bib section 0
-[174] Biber.pm:3976> INFO - Processing section 0
-[185] Biber.pm:4136> INFO - Looking for bibtex format file 'Package/literatur.bib' for section 0
-[187] bibtex.pm:1500> INFO - LaTeX decoding ...
-[197] bibtex.pm:1316> INFO - Found BibTeX data source 'Package/literatur.bib'
-[224] Utils.pm:193> WARN - year field '2015-2017' in entry 'doc:rn2483' is not an integer - this will probably not sort properly.
-[226] Utils.pm:193> WARN - year field '2015-2017' in entry 'doc:lora-documentation' is not an integer - this will probably not sort properly.
-[244] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[244] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[244] Biber.pm:3804> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[244] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
-[258] bbl.pm:617> INFO - Writing 'Dokumentation.bbl' with encoding 'UTF-8'
-[263] bbl.pm:720> INFO - Output to Dokumentation.bbl
-[266] Biber.pm:110> INFO - WARNINGS: 2
+[1] Config.pm:305> INFO - Logfile is 'Dokumentation.blg'
+[125] biber-MSWIN32:313> INFO - === 
+[196] Biber.pm:371> INFO - Reading 'Dokumentation.bcf'
+[663] Biber.pm:857> INFO - Found 13 citekeys in bib section 0
+[734] Biber.pm:3976> INFO - Processing section 0
+[789] Biber.pm:4136> INFO - Looking for bibtex format file 'Package/literatur.bib' for section 0
+[796] bibtex.pm:1500> INFO - LaTeX decoding ...
+[855] bibtex.pm:1316> INFO - Found BibTeX data source 'Package/literatur.bib'
+[1044] Utils.pm:193> WARN - year field '2015-2017' in entry 'doc:rn2483' is not an integer - this will probably not sort properly.
+[1056] Utils.pm:193> WARN - year field '2015-2017' in entry 'doc:lora-documentation' is not an integer - this will probably not sort properly.
+[1120] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1121] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1121] Biber.pm:3804> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[1121] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
+[1174] bbl.pm:617> INFO - Writing 'Dokumentation.bbl' with encoding 'UTF-8'
+[1191] bbl.pm:720> INFO - Output to Dokumentation.bbl
+[1192] Biber.pm:110> INFO - WARNINGS: 2

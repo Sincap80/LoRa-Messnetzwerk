@@ -1,8 +1,8 @@
-PWD c:/DEV/LaTeX Kaffee/LoRa-Messnetzwerk-1
+PWD c:/Users/Mase/Documents/LoRa-Mess/LoRa-Messnetzwerk
 INPUT c:/texlive/2018/texmf.cnf
 INPUT c:/texlive/2018/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/DEV/LaTeX Kaffee/LoRa-Messnetzwerk-1/Dokumentation.tex
+INPUT c:/Users/Mase/Documents/LoRa-Mess/LoRa-Messnetzwerk/Dokumentation.tex
 OUTPUT Dokumentation.log
 INPUT Package/Packages.tex
 INPUT Package/Packages.tex
@@ -89,6 +89,8 @@ INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT c:/texlive/2018/texmf-dist/tex/generic/unicode-data/UnicodeData.txt
 INPUT c:/texlive/2018/texmf-dist/tex/generic/unicode-data/UnicodeData.txt
+INPUT nul
+INPUT nul
 INPUT c:/texlive/2018/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 INPUT c:/texlive/2018/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 INPUT c:/texlive/2018/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
