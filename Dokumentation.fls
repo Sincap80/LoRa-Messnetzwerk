@@ -693,6 +693,8 @@ INPUT ./Bilder/schaltplan-2.jpg
 INPUT Bilder/schaltplan-3.jpg
 INPUT ./Bilder/schaltplan-3.jpg
 INPUT ./Bilder/schaltplan-3.jpg
+INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/ek8a.vf
+INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ek8r.tfm
 INPUT Dokumentation.aux
 INPUT Package/Titleanbindung.aux
 INPUT Package/Titleanbindung.aux

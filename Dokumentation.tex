@@ -550,8 +550,9 @@ Sobald ein Gerät inaktiv wird (d.h. eine Stunde ohne Nachrichtenempfang), ist e
 \end{itemize} 
 \newpage
 \chapter{Schaltplan und Verlöten der Platine}
+Nachdem alle Komponenten nun miteinander interagieren, wurde zum Abschluss der LoRa-Knoten, der bisher aus Entwicklungsboards und Modulen zusammengesteckt war, in eine eigene Platine verwandelt. Ein designter Schaltplan half die Einzelteile auf einer Lochrasterplatine zu verlöten.\\
 Der Schaltplan wurde mit dem Programm Fritzing (\url{http://fritzing.org/home}) erstellt.
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/schaltplan-1.png}\\
     \caption{Schaltplan, erstellt mit Fritzing}
@@ -559,22 +560,23 @@ Der Schaltplan wurde mit dem Programm Fritzing (\url{http://fritzing.org/home}) 
 \end{figure}
 \newpage
 \noindent
-Als Mikrocontroller haben wir im Schaltplan einen ATmega644 statt einem ATmega644PA verwendet, da diese fast gleich sind. Ausgehend vom Mikrocontroller werden an den Pins XTAL1 und XTAL2 der Quarz angeschlossen. An Pin PA0 bis PA7 werden die Pins für das LCD-Display angeschlossen. An PC0 wird eine rote LED und davor der Widerstand R2 mit 390 Ohm angeschlossen. Der Wäge Sensor wird mit den Pins PD5 und PD6 angeschlossen. Hierbei wurde für den Sensor einfach ein Platzhalter mit vier Pins genommen, da kein passendes Teil für unsere Wägezelle gefunden wurde. Das LoRa-Modul wird an PD1 angeschlossen und es wurde ebenso eine Platzhalterkomponente mit drei Pins verwendet. Zudem haben wir einen Taster auf PD0 und an PD5 – PD7 einen ISP-Anschluss angelötet. Die Platine und dessen Bauteile werden mit zwei in Reihe geschalteten Akkus versorgt die jeweils ca. 3,6V liefern. Dazwischen geschaltet ist ein DC-DC Wandler, der den Stromkreis mit konstanten 5V versorgt. Dann haben wir anhand unseres Schaltplans unsere Platine verlötet.\\
+Als Mikrocontroller haben wir im Schaltplan einen ATmega644 statt einem ATmega644PA verwendet, da diese fast gleich sind. Ausgehend vom Mikrocontroller werden an den Pins XTAL1 und XTAL2 der Quarz angeschlossen. Die Pins PA0 bis PA7 sind für ein LCD Display reserviert, auf dem Gewichtsinformationen, aber auch Debug-Meldungen ausgegeben werden können. Der Wägesensor ist mit den Pins PD5 und PD6 verbunden. Wobei hier noch die notwendigen Pullup-Widerstände für die I\textsuperscript{2}C- (Two-Wire-) Schnittstelle fehlen. Für das Wägesensor-Bauteil (im Schaltplan fälschlicherweise als Compass, HMC betitelt) wurde ein Platzhalter-Bauteil mit vier Pins verwendet, da kein passendes Layout für unseren Wägesensor gefunden wurde. Das LoRa-Modul wird an PD1 angeschlossen und es wurde ebenso eine Platzhalterkomponente mit drei Pins verwendet. Zudem haben wir einen Taster auf PD0 für die direkte Kommunikation mit dem Wäge-Modul und an PD5 – PD7 einen ISP-Anschluss für die Programmierung angelötet. Die Platine und dessen Bauteile werden mit zwei in Reihe geschalteten Akkus versorgt die jeweils eine Spannung von ca. 3,6 Volt haben und damit eine Gesamtspannung von 7,2 Volt liefern. Dazwischen geschaltet ist ein DC-DC Wandler, der den Stromkreis auf konstante 5V versorgt.\\
 
 \noindent
-Unsere Platine sieht im Moment so aus:
-\begin{figure}[ht]
+Die Rückseite der gelöteten Platine:
+\begin{figure}[H]
     \center
     \includegraphics[width=10cm]{Bilder/schaltplan-2.jpg}\\
     \caption{Rückseite der verlöteten Platine unseres ersten Prototyps}
     \label{fig:schaltplan-rueckseite}
-\end{figure}\\
-\begin{figure}[ht]
+\end{figure}
+\begin{figure}[H]
     \center
     \includegraphics[width=10cm]{Bilder/schaltplan-3.jpg}\\
     \caption{Vorderseite der verlöteten Platine unseres ersten Prototyps}
     \label{fig:schaltplan-vorderseite}
-\end{figure}\\
+\end{figure}
+\noindent
 Dem Taster wurde eine Tar-Funktion zugewiesen, mit der das Gewicht genullt werden kann. Softwareseitig ist es auch möglich dem Taster andere Funktionen zuzuweisen, wie beispielsweise das An- und Ausschalten des Gerätes oder mit Verbund eines Displays zwischen verschiedenen Anzeigemodi zu Wechseln.
 
 \chapter{Fazit der prototypischen Umsetzung eines Wägesystems für den Gastronomie-Betrieb via LoRaWAN}
