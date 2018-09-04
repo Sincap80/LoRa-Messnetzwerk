@@ -139,7 +139,14 @@ Wägezellen sind Sensoren, die das Gewicht über Verformung ihres Materials mit 
     \caption{Aufbaubeschreibung einer Wägezelle}
     \begin{flushleft} \quelle\url{https://learn.sparkfun.com/tutorials/getting-started-with-load-cells} \end{flushleft}
 \end{figure}\\
-Bei Auflage von Gewicht bzw. Verformung der Wägezelle messen zwei Dehnmessstreifen die Kompression und die anderen zwei die Spannung. Bei Kompression des Dehnmessstreifens werden die Leiter dicker (höherer Leiterquerschnitt) und kürzer (geringere Leiterlänge). Laut der Formel für den Leiterwiderstand \[R=p \cdot \frac{I}{A}\] \[Leiterwiderstand=\textit{spezifischer Widerstand} \cdot \frac{\textit{Leiterlänge}}{Leiterquerschnitt}\] verringert sich der Widerstand des Dehnungsmessstreifens. Bei Spannung des Dehnmessstreifens werden die Leiter dünner und länger, somit erhöht sich auch der Widerstand des Dehnungsmessstreifens. 
+Bei Auflage von Gewicht bzw. Verformung der Wägezelle messen zwei Dehnmessstreifen die Kompression und die anderen zwei die Spannung. Bei Kompression des Dehnmessstreifens werden die Leiter dicker (höherer Leiterquerschnitt) und kürzer (geringere Leiterlänge). Laut der Formel für den Leiterwiderstand 
+\begin{equation}
+    R=p \cdot \frac{I}{A}
+\end{equation}
+\begin{equation}
+    Leiterwiderstand=\textit{spezifischer Widerstand} \cdot \frac{\textit{Leiterlänge}}{Leiterquerschnitt}
+\end{equation}
+verringert sich der Widerstand des Dehnungsmessstreifens. Bei Spannung des Dehnmessstreifens werden die Leiter dünner und länger, somit erhöht sich auch der Widerstand des Dehnungsmessstreifens. 
 \newpage
 \begin{figure}[ht]
     \center
@@ -155,21 +162,33 @@ Um die Widerstandsveränderungen der Dehnungsmessstreifen messen zu können, sin
 \begin{figure}[ht]
     \center
     \includegraphics[width=5cm]{Bilder/waegezelle-verschaltung.jpg}\\
-    \caption{Verschaltung der Dehnmessstreifen}
+    \caption{Verschaltung der Dehnmessstreifen, wobei die Widerstände R1-R4 die jeweiligen Dehnmessstreifen darstellen.}
     \begin{flushleft} \quelle\url{https://learn.sparkfun.com/tutorials/getting-started-with-load-cells} \end{flushleft}
+    \label{fig:waegezelle-verschaltung}
 \end{figure}
-Wenn gilt \[\frac{R1}{R2}=\frac{R3}{R4}\]dann misst man 0V an Out. Falls sich ein Widerstand verändern sollte, zum Beispiel durch Verformung eines Dehnmessstreifens, lässt sich eine Spannung an Out laut dieser Formel messen: \\
+\noindent
+Wenn für die Verschaltung der Dehnungsmessstreifen gilt: 
+\begin{equation}
+    \frac{R1}{R2}=\frac{R3}{R4}
+\end{equation}
+dann misst man 0V an Out (siehe Abb. \ref{fig:waegezelle-verschaltung}). Falls sich ein Widerstand verändern sollte, zum Beispiel durch Verformung eines Dehnmessstreifens (d.h. stellt man eine Kaffeekanne auf die Wägezelle), lässt sich eine Spannung an Out laut dieser Formel messen: \\
 %Formel:
-\[Vout=(\frac{R3}{(R3+R4)}-\frac{R2}{(R1+R2)}) \cdot Vin\]
+\begin{equation}
+    Vout=(\frac{R3}{(R3+R4)}-\frac{R2}{(R1+R2)}) \cdot Vin
+\end{equation}
 
-\begin{figure}[ht]
+\noindent
+In Abbildung \ref{fig:waegezelle-full} sind die verschalteten Dehnungsmessstreifen unter Wirkungseinfluss zu sehen und damit die Auslenkung der jeweiligen Streifen.
+
+\begin{figure}[H]
     \center
     \includegraphics[width=9cm]{Bilder/waegezelle-full.png}\\
     \caption{Verschaltung der Dehnmessstreifen mit Spannungsmessung}
     \begin{flushleft} \quelle\url{https://learn.sparkfun.com/tutorials/getting-started-with-load-cells} \end{flushleft}
+    \label{fig:waegezelle-full}
 \end{figure}
 \noindent
-Die an \textit{Vout} gemessene Spannung ist sehr klein und analog, deshalb benutzen wir den HX711, welcher das Signal verstärkt und in digitale Werte [0 bis 16777217] umwandelt. 
+Die nun an \textit{Out} (siehe Abb. \ref{fig:waegezelle-verschaltung}) oder an \textit{V} (siehe Abb. \ref{fig:waegezelle-full}) gemessene analoge Spannung ist sehr klein. Für eine Abbildung der analogen Spannung auf digitale Werte ist ein Analog-Digital-Wandler (AD-Wandler) nötig, welcher nicht nur die Signale verstärkt, sondern auch die digitalen Werte repräsentiert. Der zu unserer Wägezelle angebotene integrierte Schaltkreis (englisch \textit{integrated circuit}, kurz IC, siehe Wikipedia \url{https://de.wikipedia.org/wiki/Integrierter_Schaltkreis}) war der HX711, der die gemessenen Spannungen bis zu 128fach verstärkt und mit einer Präzession von 24 Bit [0 bis 16777217] wandelt.
 \newpage
 
 
@@ -191,12 +210,13 @@ Die Wägezelle wurde wie folgt an das HX711-Modul angeschlossen:
 \newpage
 \noindent
 Veranschaulichung der Verdrahtung (Achtung! Gelbe Verbindung ist bei uns weiß):\\
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=9cm]{Bilder/waegezelle-verdrahtung.jpg}\\
     \caption{Verdrahtung der Wägezelle }
     \begin{flushleft} \quelle\url{https://learn.sparkfun.com/tutorials/load-cell-amplifier-hx711-breakout-hookup-guide} \end{flushleft}
 \end{figure}
+\noindent
 Die A-Anschlüsse und B-Anschlüsse sind für verschiedene Verstärkungskanäle. Der A-Kanal hat einen programmierbaren Verstärkungsfaktor von 128 oder 64 und der B-Kanal hat einen festen Verstärkungsfaktor von 32.
 \newpage
 Die rechte Seite des HX711 wird wie folgt angeschlossen: 
@@ -206,14 +226,14 @@ Die rechte Seite des HX711 wird wie folgt angeschlossen:
     \item SCK an PD5 unseres Microcontrollers/ATmega644PA 
     \item DT (Data) an PD6 unseres Microcontrollers/ATmega644PA 
 \end{itemize}
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=9cm]{Bilder/waegezelle-adc.jpg}\\
     \caption{HX711 ADC-Wandler, Ansicht auf Bauteil}
     \quelle\url{https://tinyurl.com/y8grwwdb}
 \end{figure}
 \section{Programmlogik unseres Microchips}
-Das Programm basiert auf getsiddd's HX711 AVR Bibliothek (\url{https://github.com/getsiddd/HX711}). Die wichtigsten Additionen von uns sind die Möglichkeit, negative Gewichtsveränderungen wahrnehmen zu können, auf Tastendruck eine Tar-Funktion auszuführen und der Gewichts-Sende-Algorithmus in Verbindung mit dem LoRa-Modul. 
+Nach dem Aufbau unseres Systems geht es nun an die Gewichtsmessung. Das Programm zur Gewichtsmessung mittels dem HX711 basiert auf getsiddd's HX711 AVR Bibliothek (\url{https://github.com/getsiddd/HX711}). Die wichtigsten Additionen von uns sind die Möglichkeit, negative Gewichtsveränderungen wahrnehmen zu können, auf Tastendruck eine Tar-Funktion auszuführen und der Gewichts-Sende-Algorithmus in Verbindung mit dem LoRa-Modul. 
 \subsection{Vereinfachte Funktionsweise für momentane Gewichtsmessung}
 Beim vom HX711 gelesenem Gewicht wird das getarte Gewicht (Tar Funktion/Gewichtnullung) abgezogen und durch die Kalibration dividiert, um einen lesbaren Wert in Kilogramm zu erhalten.
 \subsection{Algorithmus für Rausch- und Driftunterdrückung}
@@ -235,7 +255,8 @@ Die Art von uns verwendeter Wägezelle wird unter anderem in diesen Bereichen ve
 \end{itemize}
 \newpage
 \section{Alternative Bauformen von Wägezellen}
-Wägezellen werden in verschieden Bauformen hergestellt, hier werden diese aufgezählt und untersucht um die richtige Wägezelle bei Änderung der Projektanforderungen auswählen zu können
+Es gibt überhaupt viele Möglichkeiten zu wiegen. Neben den Wägezellen sind auch andere technische Lösungen möglich, auf die wir in Kapitel \ref{sec:alternative-gewichtssensoren} kurz eingehen.\\
+Wägezellen gibt es in verschiedensten Bauformen. Die folgende Aufzählung zeigt die meisten davon. Einige haben wir auch auf unsere Anforderungen hin untersucht, um für unser Projekt und entpsrechende Folgeprojekte die richtigen auswählen zu können.
 \subsection{Disk-Wägezellen}
 Disk-Wägezellen haben eine runde Form und sind kompakter gebaut.
 \begin{figure}[ht]
@@ -272,6 +293,7 @@ Diese Art von Wägezellen sind nur in Kompression belastbar.
 \end{figure}
 \newpage
 \section{Alternative Gewichtssensoren}
+\label{sec:alternative-gewichtssensoren}
 \subsection{Force Sensitive Resistor (FSR)}
 Bei Kraftzunahme beziehungsweise Kompression des Sensors verringert sich der Abstand zwischen den Sensorfolien, die voneinander mit einer speziellen Tinte getrennt sind, und somit auch ihr Widerstand. Diese Sensoren sind sehr platzsparend, aber auch ungenauer als Wägezellen, weshalb sie nicht sehr gut für die Gewichtsmessung geeignet sind.
 \begin{figure}[ht]
@@ -577,7 +599,7 @@ Die Rückseite der gelöteten Platine:
     \label{fig:schaltplan-vorderseite}
 \end{figure}
 \noindent
-Dem Taster wurde eine Tar-Funktion zugewiesen, mit der das Gewicht genullt werden kann. Softwareseitig ist es auch möglich dem Taster andere Funktionen zuzuweisen, wie beispielsweise das An- und Ausschalten des Gerätes oder mit Verbund eines Displays zwischen verschiedenen Anzeigemodi zu Wechseln.
+Dem Taster wurde eine Tar-Funktion zugewiesen, mit der das Gewicht genullt werden kann. Softwareseitig ist es auch möglich dem Taster andere Funktionen zuzuweisen, wie beispielsweise das An- und Ausschalten des Gerätes oder mit Verbund eines Displays zwischen verschiedenen Anzeigemodi zu wechseln.
 
 \chapter{Fazit der prototypischen Umsetzung eines Wägesystems für den Gastronomie-Betrieb via LoRaWAN}
 
