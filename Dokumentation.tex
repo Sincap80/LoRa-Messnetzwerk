@@ -26,13 +26,13 @@ Das Ziel dieser Dokumentation ist, dass klar und verständlich erklärt wird, wi
 Wir haben uns in der Veranstaltung Embedded Systems des Studiengangs Software-Engineering bei Prof. Dr. Jürgen Doneit und Herr Ulrich Straus im Sommersemester 2018 für das Projekt LoRa-Messnetzwerk entschieden. Die Aufgabe bestand darin, ein Messnetzwerk aufzubauen, welches Sensordaten entgegennimmt und diese über ein Long Range Wide Area Network, kurz LoRaWAN, verschickt.\\
 \\
 Der daraus resultierende Use-Case:
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/usecase-1.png}\\
     \caption{Use-Case mit den Akteuren Kunde und Gastronomie-Personal und den Komponenten Kaffeekanne und Web-Server}
     \label{fig:Use-Case}
 \end{figure}
-\\
+\noindent
 In einem Restaurant wird der Inhalt einer Kaffeekanne durch das Gewicht bestimmt. Um die Gewichtsmessung für alle Kannen durchzuführen, werden sie auf einer Plattform abgestellt, in der ein Wäge-Sensor-System integriert ist. Das Sensor-System, welches über einen Akku betrieben wird, besteht aus einem Wäge-Sensor, einem Mikrocontroller und einem Transmitter (dem LoRa-Node). Die Messdaten werden jeweils ausgelesen und an den angeschlossenen LoRa-Node übertragen. Die Gesamtheit aller LoRa-Nodes kommunizieren mit einem Empfänger, dem LoRa-Gateway. Das LoRa-Gateway, angeschlossen ans Internet, empfängt die Sensorgewichtsdaten und leitet diese auf einen Web-Server weiter. Das Server-System verarbeitet die Daten, um die Füllstände der Kaffeekannen schlussendlich auf einer Webseite zu visualisieren. Der plattformübergreifende Zugriff über diverse Endgeräte ist somit möglich.
 
 \chapter{Ausgangssituation / Beweggründe für die Umsetzung}
@@ -50,7 +50,7 @@ Um die Kernfunktionalität im Einsatz zu testen und die Idee zu validieren, besc
 \\
 Am Anfang des Projektes erstellten wir Bauteildiagramme und diskutierten über Kommunikationswege zwischen den Bauteilen. Danach teilten wir Schwerpunkte beziehungsweise Bauteile auf unsere Teammitglieder auf, welche dann nochmal tiefer vom zugewiesenen Teammitglied recherchiert wurden. Die Zusammensetzung der Bauteile erfolgte zunächst um schnelle Validierungstests und Hardwareänderungen durchführen zu können. Nach erfolgreichen Tests auf unserer zuvor zusammengesetzten Entwicklungsplattform wechselten wir die Hardware auf eine selbst konzeptionierte Platine. Mit dem letzten validen Test und nach der offiziellen Präsentation dokumentierten wir unsere Ergebnisse.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/projektplan.png}\\
     \caption{Projektplan}
@@ -93,7 +93,7 @@ Das Gehäuse (hier 'Case') beinhaltet alle Komponenten für den Prozess des Wieg
 
 \chapter{Überblick der Bauteile}
 \section{LoRa-Gateway als Empfänger der Sensordaten}
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/mounted-boards.jpg}\\
     \caption{iC880A-SPI Concentrator Board (links) und Raspberry Pi Model 2B (rechts) bilden zusammen das Gateway, welches die Sensordaten der LoRa-Nodes entgegennimmt und zu einem Web-Server weiterleitet.}
@@ -104,7 +104,7 @@ Das Gehäuse (hier 'Case') beinhaltet alle Komponenten für den Prozess des Wieg
 \end{figure}
 \newpage
 \section{Wägezelle als Gewichtssensor}
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/waegezelle.jpg}\\
     \caption{Eine 20Kg Wägezelle wird für die Gewichtsmessung zwischen zwei Spanholzplatten befestigt. Während der Gewichtsmessung liegt die untere Spanholzplatte am Boden an und auf der oberen Spanholzplatte wird das zu messene Gewicht aufgelegt.}
@@ -112,7 +112,7 @@ Das Gehäuse (hier 'Case') beinhaltet alle Komponenten für den Prozess des Wieg
 \end{figure}
 \newpage
 \section{ADC zur Wandlung und Verstärkung von Signalen}
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=14cm]{Bilder/gewichtssensor.jpg}\\
     \caption{Ein HX711 24-Bit ADC zur Analog-Digital-Wandlung und Verstärkung des Signals zwischen Gewichtssensor und Mikrocontroller}
@@ -120,7 +120,7 @@ Das Gehäuse (hier 'Case') beinhaltet alle Komponenten für den Prozess des Wieg
 \end{figure}
 \newpage
 \section{LoRa-Node als Sender der Sensordaten}
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=14cm]{Bilder/lora-node.jpg}\\
     \caption{Data Link LoRa RN2483 als LoRa-Node, das zum Senden der Sensordaten über das LoRaWAN-Protokoll verwendet wird.}
@@ -131,14 +131,16 @@ Das Gehäuse (hier 'Case') beinhaltet alle Komponenten für den Prozess des Wieg
 \end{figure}
 
 \chapter{Gewichtsmessung mit einer Wägezelle}
+Um die Kaffeekanne und deren Füllstand zu messen, entschied sich das Team nach Sondierung mehrerer Alternativen (Drucksensoren, visuelle Sensoren) für die Gewichtsmessung. Dazu soll die Technik einer Wägezelle zum Einsatz kommen. In Personen- oder Küchenwagen sind sie in millionenfacher Ausführung verbaut, was beweist, dass sie valide genutzt werden können. Weitere Alternativen, nicht nur zum Einsatz, sondern auch in der Bauform sind in Kapitel \ref{sec:use-cases-straight-bar-waegezellen} ff. zu finden.
 \section{Funktionsweise der Wägezelle}
 Wägezellen sind Sensoren, die das Gewicht über Verformung ihres Materials mit Hilfe von Dehnungsmessstreifen messen können. Es sind vier Dehnungsmesstreifen, wie im Bild unten zu sehen, an der Wägezelle angebracht.
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/waegezelle-aufbaubeschreibung.jpg}\\
     \caption{Aufbaubeschreibung einer Wägezelle}
     \begin{flushleft} \quelle\url{https://learn.sparkfun.com/tutorials/getting-started-with-load-cells} \end{flushleft}
-\end{figure}\\
+\end{figure}
+\noindent
 Bei Auflage von Gewicht bzw. Verformung der Wägezelle messen zwei Dehnmessstreifen die Kompression und die anderen zwei die Spannung. Bei Kompression des Dehnmessstreifens werden die Leiter dicker (höherer Leiterquerschnitt) und kürzer (geringere Leiterlänge). Laut der Formel für den Leiterwiderstand 
 \begin{equation}
     R=p \cdot \frac{I}{A}
@@ -148,7 +150,7 @@ Bei Auflage von Gewicht bzw. Verformung der Wägezelle messen zwei Dehnmessstrei
 \end{equation}
 verringert sich der Widerstand des Dehnungsmessstreifens. Bei Spannung des Dehnmessstreifens werden die Leiter dünner und länger, somit erhöht sich auch der Widerstand des Dehnungsmessstreifens. 
 \newpage
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/waegezelle-funktionsweise.png}\\
     \caption{Funktionsweise einer Wägezelle bei Gewichtsmessung }
@@ -156,10 +158,11 @@ verringert sich der Widerstand des Dehnungsmessstreifens. Bei Spannung des Dehnm
 \end{figure}
 \noindent
 Um die Widerstandsveränderungen der Dehnungsmessstreifen messen zu können, sind die Dehnungsmessstreifen innerhalb der Wägezelle in einer Wheatstone-Brücken-Formation geschalten.
+Die Wägezelle wird mit vier Dehnungsmessstreifen ausgestattet. Diese sind in ihrer Form, in der Länge und der geometrischen Anordnung genau gleich.
 
 \newpage
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=5cm]{Bilder/waegezelle-verschaltung.jpg}\\
     \caption{Verschaltung der Dehnmessstreifen, wobei die Widerstände R1-R4 die jeweiligen Dehnmessstreifen darstellen.}
@@ -194,11 +197,11 @@ Die nun an \textit{Out} (siehe Abb. \ref{fig:waegezelle-verschaltung}) oder an \
 
 \section{Versuchsaufbau zur Gewichtsmessung}
 Die Wägezelle wurde an zwei gegenüberliegenden Punkten an zwei Holzplatten geschraubt, damit sich das Gewicht auf alle Dehnungsmesstreifen auswirkt.\\
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/waegezelle.jpg}\\
     \caption{20Kg Wägezelle zwischen zwei Spanholzplatten befestigt}
-\end{figure}\\
+\end{figure}
 Die Wägezelle wurde wie folgt an das HX711-Modul angeschlossen: 
 \begin{itemize}
     \item Rot an E+ (Excitation+/Vin+) 
@@ -217,7 +220,7 @@ Veranschaulichung der Verdrahtung (Achtung! Gelbe Verbindung ist bei uns weiß):
     \begin{flushleft} \quelle\url{https://learn.sparkfun.com/tutorials/load-cell-amplifier-hx711-breakout-hookup-guide} \end{flushleft}
 \end{figure}
 \noindent
-Die A-Anschlüsse und B-Anschlüsse sind für verschiedene Verstärkungskanäle. Der A-Kanal hat einen programmierbaren Verstärkungsfaktor von 128 oder 64 und der B-Kanal hat einen festen Verstärkungsfaktor von 32.
+Die A-Anschlüsse und B-Anschlüsse des HX711 (siehe Abbildung \ref{fig:waegezelle-adc} HX711 linke Kontaktseite) sind für verschiedene Verstärkungskanäle. Der A-Kanal hat einen programmierbaren Verstärkungsfaktor von 128 oder 64 und der B-Kanal hat einen festen Verstärkungsfaktor von 32.
 \newpage
 Die rechte Seite des HX711 wird wie folgt angeschlossen: 
 \begin{itemize}
@@ -231,35 +234,45 @@ Die rechte Seite des HX711 wird wie folgt angeschlossen:
     \includegraphics[width=9cm]{Bilder/waegezelle-adc.jpg}\\
     \caption{HX711 ADC-Wandler, Ansicht auf Bauteil}
     \quelle\url{https://tinyurl.com/y8grwwdb}
+    \label{fig:waegezelle-adc}
 \end{figure}
 \section{Programmlogik unseres Microchips}
-Nach dem Aufbau unseres Systems geht es nun an die Gewichtsmessung. Das Programm zur Gewichtsmessung mittels dem HX711 basiert auf getsiddd's HX711 AVR Bibliothek (\url{https://github.com/getsiddd/HX711}). Die wichtigsten Additionen von uns sind die Möglichkeit, negative Gewichtsveränderungen wahrnehmen zu können, auf Tastendruck eine Tar-Funktion auszuführen und der Gewichts-Sende-Algorithmus in Verbindung mit dem LoRa-Modul. 
+Nach dem Aufbau unseres Systems geht es nun an die Gewichtsmessung. Das Programm zur Gewichtsmessung mittels dem HX711 basiert auf getsiddd's HX711 AVR Bibliothek (\url{https://github.com/getsiddd/HX711}). Die wichtigsten Erweiterungen von uns sind die Möglichkeit, negative Gewichtsveränderungen wahrnehmen zu können, auf Tastendruck eine Tar-Funktion auszuführen und der Gewichts-Sende-Algorithmus in Verbindung mit dem LoRa-Modul. 
 \subsection{Vereinfachte Funktionsweise für momentane Gewichtsmessung}
 Beim vom HX711 gelesenem Gewicht wird das getarte Gewicht (Tar Funktion/Gewichtnullung) abgezogen und durch die Kalibration dividiert, um einen lesbaren Wert in Kilogramm zu erhalten.
 \subsection{Algorithmus für Rausch- und Driftunterdrückung}
 Das Differenzgewicht von der letzten und der momentanen Gewichtsmessung wird mit einer vorher gewählten Veränderungsrate verglichen. Wenn das Differenzgewicht höher als die gewählte Veränderungsrate ist, wird der momentan gemessene Wert verwendet und angezeigt, im anderen Fall wird der Wert verworfen, weil er vermutlich durch Rauschen oder Drift verursacht wurde.\\
 Der Veränderungswert gibt auch die kleinstmögliche messbare Veränderung an. Am Beispiel unseres Projektes könnte bei einem Veränderungswert von ca. 5g, jemand mit einem Strohhalm Flüssigkeit aus dem Behältnis saugen, ohne dass das Programm die Gewichtsveränderung wahrnimmt.
 \subsection{Algorithmus für Gewichtssendung mit dem LoRa-Modul}
-Mit Hilfe eines Interrupts, wird jede Sekunde eine Gewichtsmessung durchgeführt. Beim Ablauf des Sendeintervalls (in unserem Projekt momentan eingestellt auf fünfzehn Sekunden), wird in der Menge der Gewichtsmessungen (in unserem Fall fünfzehn Messungen, jede Sekunde eine), nach den letzten fünf Gewichtsmessungen gesucht, die den gleichen Wert haben. Wenn die Messungen diese Bedingung nicht erfüllen, wird kein Wert gesendet.
+Die gemessenen Gewichtsdaten müssen nun an die Sammelstelle (den Gateway) gesendet werden. Der Sendevorgang basiert auf dem LoRa-Protokoll, welches vom LoRa-Modul in Empfang und in regelmäßigen Abständen zum LoRa-Gateway gesendet wird (vgl. \ref{fig:Komponentenmodell} Komponentenmodell). Mit Hilfe eines Interrupts, wird jede Sekunde eine Gewichtsmessung durchgeführt. Beim Ablauf des Sendeintervalls (in unserem Projekt momentan eingestellt auf fünfzehn Sekunden), wird in der Menge der Gewichtsmessungen (in unserem Fall fünfzehn Messungen, jede Sekunde eine), nach den letzten fünf Gewichtsmessungen gesucht, die den gleichen Wert haben. Wenn die Messungen diese Bedingung nicht erfüllen, wird kein Wert gesendet.
 
 \section{Demonstration der Gewichtsmessung}
 Hier eine Demo zur Gewichtsmessung, die wir auch in der Zwischenpräsentation gezeigt haben:\\
 \url{https://streamable.com/ycxf3}\\
 Alternativ: \url{https://www.youtube.com/watch?v=2tk0ydRsXgg}
 
-\section{Use-Cases von Straight bar Wägezellen}
-Die Art von uns verwendeter Wägezelle wird unter anderem in diesen Bereichen verwendet:
+\section{Alternative Use-Cases von “Straight bar”-Wägezellen}
+\label{sec:use-cases-straight-bar-waegezellen}
+Die Art, der von uns verwendeten Wägezellen, wird unter anderem in diesen Bereichen verwendet:
 \begin{itemize}
     \item Küchenwaagen
     \item Industrielle Gewichtsmessung, die an einem Punkt erfolgt
+    \item Personenwaagen
+    \item (geeichte) Handelswaagen für Obst, Fleisch, Käse, Gemüse
 \end{itemize}
 \newpage
 \section{Alternative Bauformen von Wägezellen}
 Es gibt überhaupt viele Möglichkeiten zu wiegen. Neben den Wägezellen sind auch andere technische Lösungen möglich, auf die wir in Kapitel \ref{sec:alternative-gewichtssensoren} kurz eingehen.\\
 Wägezellen gibt es in verschiedensten Bauformen. Die folgende Aufzählung zeigt die meisten davon. Einige haben wir auch auf unsere Anforderungen hin untersucht, um für unser Projekt und entpsrechende Folgeprojekte die richtigen auswählen zu können.
 \subsection{Disk-Wägezellen}
-Disk-Wägezellen haben eine runde Form und sind kompakter gebaut.
-\begin{figure}[ht]
+Disk-Wägezellen haben eine runde Form und sind kompakter gebaut.\\
+Mögliche Einsatzgebiete sind:
+\begin{itemize}
+    \item Industrie bei sehr großen Gewichtsmessungen 1 - 50 Tonnen, verteilte Aufnahme der Gewichtseinwirkung
+    \item Umgebungen mit wenig Platz, da sehr platzsparend einsetzbar, jedoch mit sehr hoher Ungenauigkeit. In diesem Fall liegt die Nicht-Widerholpräzision bei über 0,5\%
+\end{itemize}
+
+\begin{figure}[H]
     \center
     \includegraphics[width=4cm]{Bilder/waegezelle-disk.jpg}\\
     \caption{Disk-Wägezelle}
@@ -268,7 +281,7 @@ Disk-Wägezellen haben eine runde Form und sind kompakter gebaut.
 \newpage
 \subsection{Wägesensoren}
 Wägesensoren besitzen nur einen Dehnmessstreifen anstatt herkömmliche, die vier besitzen. Man kann vier Wägesensoren in einer Wheatstone-Bridge-Formation zusammen schalten und wie eine Straight-Bar-Wägezelle betreiben. Dabei kann man die einzelnen Wägesensoren auf einer größeren Fläche betreiben und sie als Personenwaage, Fahrzeugwaage oder allgemein als Waage für große Objekte verwenden.
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=4cm]{Bilder/waegezelle-waegesensor.jpg}\\
     \caption{Wägesensor}
@@ -276,7 +289,7 @@ Wägesensoren besitzen nur einen Dehnmessstreifen anstatt herkömmliche, die vie
 \end{figure}
 \subsection{S-Typ-Wägezellen}
 Diese Wägezellen lassen sich, dank ihrer S-Form, in Spannungs- und Kompressionsbetrieb betreiben.
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=4cm]{Bilder/waegezelle-s_typ.jpg}\\
     \caption{S-Typ-Wägezelle}
@@ -284,8 +297,8 @@ Diese Wägezellen lassen sich, dank ihrer S-Form, in Spannungs- und Kompressions
 \end{figure}
 \newpage
 \subsection{Kompressions-Wägezellen}
-Diese Art von Wägezellen sind nur in Kompression belastbar.
-\begin{figure}[ht]
+Diese Art von Wägezellen sind nur in Kompressionsumgebungen einsetzbar und gehören auch zur Familie der Disk-Wägezellen. Ihr Einsatzgebiet ist in hocheffizienten Industrieanwendungen, mit meist deutlich über 1Kg als Minimalgewicht.
+\begin{figure}[H]
     \center
     \includegraphics[width=7cm]{Bilder/waegezelle-kompression.jpg}\\
     \caption{Kompressions-Wägezelle}
@@ -296,7 +309,7 @@ Diese Art von Wägezellen sind nur in Kompression belastbar.
 \label{sec:alternative-gewichtssensoren}
 \subsection{Force Sensitive Resistor (FSR)}
 Bei Kraftzunahme beziehungsweise Kompression des Sensors verringert sich der Abstand zwischen den Sensorfolien, die voneinander mit einer speziellen Tinte getrennt sind, und somit auch ihr Widerstand. Diese Sensoren sind sehr platzsparend, aber auch ungenauer als Wägezellen, weshalb sie nicht sehr gut für die Gewichtsmessung geeignet sind.
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=4cm]{Bilder/waegezelle-force.jpg}\\
     \caption{Force Sensitive Resistor}
@@ -304,7 +317,7 @@ Bei Kraftzunahme beziehungsweise Kompression des Sensors verringert sich der Abs
 \end{figure}
 \subsection{Piezoelektrischer Sensor}
 Bei Krafteinwirkung produzieren diese Sensoren eine elektrische Ladung, die gemessen werden kann. Sie sind eher für dynamische Anwendungen geeignet, da Signale nur bei Kraftänderungen gemessen werden können, beziehungsweise die Ladung sehr schnell wieder gegen Null geht. Es gibt spezielle Varianten, die ihre Ladung bis zu einer Minute halten können, diese weisen jedoch einen hohen Drift auf. 
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=4cm]{Bilder/waegezelle-ring.png}\\
     \caption{Piezoelektrischer Sensor}
@@ -314,18 +327,19 @@ Bei Krafteinwirkung produzieren diese Sensoren eine elektrische Ladung, die geme
 \chapter{Drahtlose Verbindung zwischen den Komponenten mit dem LoRaWAN-Protokoll}
 \section{Aufsetzen eines Servers (LoRa-Gateway)}
 Unser LoRa-Gateway hat im Prinzip die Funktion eines WLAN-Routers. Alle Clients (LoRa-Nodes) melden sich an dem Gateway an und kommunizieren mit dem Gateway. Wie der Begriff „Gateway“ schon andeutet, ist dies ein Tor, das zum Internet führt (siehe folgende Abbildung \ref{fig:lora-schaubild}).
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/lora-schaubild.jpg}\\
     \caption{Übersicht eines Beispiel-LoRa-Netzwerks}
     \begin{center} \quelle\url{http://www.mstanley.co.uk/blog/wp-content/uploads/2015/11/Enabling-world-wide-mobility-for-the-IoT-image-2.jpg} \end{center}
     \label{fig:lora-schaubild}
-\end{figure}\\
+\end{figure}
+\noindent
 Realisiert wird unser Gateway durch ein „iC880A-SPI Concentrator Board“, das mit Hilfe einer Antenne mit den LoRa-Nodes Daten austauscht. Das Gateway, also das Concentrator Board, ist über ein Serial Peripheral Inface (SPI) an einen Raspberry Pi angeschlossen. Dieser Einplatinen-Computer versendet nun die Daten der LoRa-Nodes, empfangen über das Gateway, ins Internet.\\
 Damit nun die gesendeten Daten nicht nur lose in der großen weiten Welt des Internets ziellos umher irren, benötigt das Gateway eine Adresse, über die Datenpakete identifiziert werden können. Doch vor der Adress-Konfiguration der Hardware, sollten die Komponenten beschafft und lokal richtig installiert werden damit sie miteinander funktionieren.\\
 Auf dem Wiki der GitHub-Seite von The Things Network Zurich (\url{https://github.com/ttn-zh/ic880a-gateway/wiki}) kann man nachlesen welche Bauteile man benötigt, wie man die Pins verbinden soll, das Betriebssystem aufsetzt und anschließend das Gateway im TheThingsNetwork registriert.\\
 Nachdem man die Anweisungen zum Konfigurieren befolgt hat, sollte es auf der Webseite für Gateways von TheThingsNetwork zu sehen sein.
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/lora-1.png}\\
     \caption{Übersicht der registrierten Gateways im TheThingsNetwork}
@@ -334,13 +348,13 @@ Nachdem man die Anweisungen zum Konfigurieren befolgt hat, sollte es auf der Web
 \newpage
 \section{Erstellen einer LoRa-Applikation zum Abrufen der Daten}
 Damit wir jetzt auch mit den verschlüsselten Daten, die wir empfangen, etwas anfangen können, müssen wir erstmal eine Applikation in der Konsole von TheThingsNetwork erstellen. 
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/lora-2.png}\\
     \caption{Übersicht der erstellten Applikationen im TheThingsNetwork}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
 \end{figure}
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/lora-3.png}\\
     \caption{Formular zur Erstellung einer Applikation}
@@ -352,12 +366,12 @@ Damit wir jetzt auch mit den verschlüsselten Daten, die wir empfangen, etwas an
 \paragraph{Handler registration:} Wurde passend zum Standort gewählt.\\
 \\
 Nachdem man nun eine Applikation erstellt hat, fügt man nun auch ein Gerät zu dieser Applikation hinzu.
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/lora-4.png}\\
     \caption{Übersicht der registrierten Geräte}
 \end{figure}
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/lora-5.png}\\
     \caption{Formular zur Registrierung eines Geräts}
@@ -374,31 +388,34 @@ Nachdem man nun eine Applikation erstellt hat, fügt man nun auch ein Gerät zu 
 \\
 Nachdem wir ein Gerät erstellt haben, sollten wir die Aktivierungsmethode ändern:\\
 Dazu gehen wir in $Application \rightarrow application\_id \rightarrow devices \rightarrow device\_id \rightarrow Settings$. Darin kann man die Activation Method von OTAA zu ABP ändern.
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=4cm]{Bilder/lora-6.png}\\
     \caption{Aktivierungsmethoden: links Over-the-Air Activation (OTAA), rechts Activation By Personalization (ABP)}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
-\end{figure}\\
+\end{figure}
+\noindent
 Wenn wir die Änderungen speichern, kommen wir wieder auf die Seite des Geräts. Scrollen wir ganz nach unten, dann sehen wir ein Codebeispiel.
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=11cm]{Bilder/lora-7.png}\\
     \caption{Beispielcode}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
     \label{fig:beispielcode}
-\end{figure}\\
+\end{figure}
+\noindent
 Diesen Codeausschnitt speichern wir oder wir merken uns, dass er auf der Seite des Geräts ist, da wir ihn später zum Konfigurieren des Nodes wieder brauchen werden. 
 \section{Aufsetzen eines Clients (LoRa-Node)} \label{mac-commands}
 Bevor wir die LoRa-Nodes mit Strom versorgen, befestigen wir erstmal eine Antenne an den RFH (Radio Frequency High Band – PIN 23) Anschluss.\\
 Unser LoRa-Node ist über die serielle Schnittstelle UART (PIN 6 + 7 am RN2483) an den Mikrocontroller ATmega644PA (PD0 bzw. PIN 14 + PD1 bzw. PIN 15) angeschlossen und kommuniziert so mit dem Mikrochip. Die Baudrate für die UART Verbindung beträgt standardmäßig 57600 bps, kann aber auch mit einer gewissen Character Folge geändert werden. (Siehe folgende Abbildung \ref{fig:UART})
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=11cm]{Bilder/lora-8.png}\\
     \caption{Spezifikationen für das UART-Interface des RN2483}
     \begin{center} \quelle\url{http://ww1.microchip.com/downloads/en/DeviceDoc/40001784F.pdf} \end{center}
         \label{fig:UART}
-\end{figure}\\
+\end{figure}
+\noindent
 Kommen wir nun zur Initialisierung des RN2483, wenn dieser nun am Microchip hängt und soweit ansprechbar ist:\\
 
 \noindent
@@ -432,7 +449,7 @@ Dies wird wie folgt gemacht:
 \noindent
 Nach jedem Befehl benutzen wir derzeit noch eine Delay-Funktion um dem RN2483 Chip Zeit zum Bearbeiten und Antworten zu lassen. Die aufgerundeten Delay-Zeiten bzw. Berechnungszeiten sieht man im folgenden Diagramm.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \center
     \includegraphics[width=11cm]{Bilder/lora-9.png}\\
     \caption{RN2483 Boot Time unterteilt in die einzelnen Funktionen und der benötigten Zeit in ms}
