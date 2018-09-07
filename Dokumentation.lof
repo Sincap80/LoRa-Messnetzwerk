@@ -21,30 +21,30 @@
 \contentsline {figure}{\numberline {6.5}{\ignorespaces 20Kg W\IeC {\"a}gezelle zwischen zwei Spanholzplatten befestigt\relax }}{16}{figure.caption.18}
 \contentsline {figure}{\numberline {6.6}{\ignorespaces Verdrahtung der W\IeC {\"a}gezelle \relax }}{17}{figure.caption.19}
 \contentsline {figure}{\numberline {6.7}{\ignorespaces HX711 ADC-Wandler, Ansicht auf Bauteil\relax }}{18}{figure.caption.20}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Disk-W\IeC {\"a}gezelle\relax }}{20}{figure.caption.21}
-\contentsline {figure}{\numberline {6.9}{\ignorespaces W\IeC {\"a}gesensor\relax }}{21}{figure.caption.22}
-\contentsline {figure}{\numberline {6.10}{\ignorespaces S-Typ-W\IeC {\"a}gezelle\relax }}{21}{figure.caption.23}
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Kompressions-W\IeC {\"a}gezelle\relax }}{22}{figure.caption.24}
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Force Sensitive Resistor\relax }}{23}{figure.caption.25}
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Piezoelektrischer Sensor\relax }}{23}{figure.caption.26}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Disk-W\IeC {\"a}gezelle\relax }}{21}{figure.caption.21}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces W\IeC {\"a}gesensor\relax }}{22}{figure.caption.22}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces S-Typ-W\IeC {\"a}gezelle\relax }}{22}{figure.caption.23}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Kompressions-W\IeC {\"a}gezelle\relax }}{23}{figure.caption.24}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Force Sensitive Resistor\relax }}{24}{figure.caption.25}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Piezoelektrischer Sensor\relax }}{24}{figure.caption.26}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces \IeC {\"U}bersicht eines Beispiel-LoRa-Netzwerks\relax }}{24}{figure.caption.27}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces \IeC {\"U}bersicht der registrierten Gateways im TheThingsNetwork\relax }}{25}{figure.caption.28}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces \IeC {\"U}bersicht der erstellten Applikationen im TheThingsNetwork\relax }}{26}{figure.caption.29}
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Formular zur Erstellung einer Applikation\relax }}{26}{figure.caption.30}
-\contentsline {figure}{\numberline {7.5}{\ignorespaces \IeC {\"U}bersicht der registrierten Ger\IeC {\"a}te\relax }}{27}{figure.caption.34}
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Formular zur Registrierung eines Ger\IeC {\"a}ts\relax }}{27}{figure.caption.35}
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Aktivierungsmethoden: links Over-the-Air Activation (OTAA), rechts Activation By Personalization (ABP)\relax }}{28}{figure.caption.40}
-\contentsline {figure}{\numberline {7.8}{\ignorespaces Beispielcode\relax }}{28}{figure.caption.41}
-\contentsline {figure}{\numberline {7.9}{\ignorespaces Spezifikationen f\IeC {\"u}r das UART-Interface des RN2483\relax }}{29}{figure.caption.42}
-\contentsline {figure}{\numberline {7.10}{\ignorespaces RN2483 Boot Time unterteilt in die einzelnen Funktionen und der ben\IeC {\"o}tigten Zeit in ms\relax }}{30}{figure.caption.43}
-\contentsline {figure}{\numberline {7.11}{\ignorespaces Tabelle mit verschiedenen Spreading Factors und die zugeh\IeC {\"o}rige Bitrate\relax }}{32}{figure.caption.44}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces \IeC {\"U}bersicht eines Beispiel-LoRa-Netzwerks\relax }}{25}{figure.caption.27}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces \IeC {\"U}bersicht der registrierten Gateways im TheThingsNetwork\relax }}{26}{figure.caption.28}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces \IeC {\"U}bersicht der erstellten Applikationen im TheThingsNetwork\relax }}{27}{figure.caption.29}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Formular zur Erstellung einer Applikation\relax }}{27}{figure.caption.30}
+\contentsline {figure}{\numberline {7.5}{\ignorespaces \IeC {\"U}bersicht der registrierten Ger\IeC {\"a}te\relax }}{28}{figure.caption.34}
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Formular zur Registrierung eines Ger\IeC {\"a}ts\relax }}{28}{figure.caption.35}
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Aktivierungsmethoden: links Over-the-Air Activation (OTAA), rechts Activation By Personalization (ABP)\relax }}{29}{figure.caption.40}
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Beispielcode\relax }}{29}{figure.caption.41}
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Spezifikationen f\IeC {\"u}r das UART-Interface des RN2483\relax }}{30}{figure.caption.42}
+\contentsline {figure}{\numberline {7.10}{\ignorespaces RN2483 Boot Time unterteilt in die einzelnen Funktionen und der ben\IeC {\"o}tigten Zeit in ms\relax }}{31}{figure.caption.43}
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Tabelle mit verschiedenen Spreading Factors und die zugeh\IeC {\"o}rige Bitrate\relax }}{33}{figure.caption.44}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces \IeC {\"U}bersicht der F\IeC {\"u}llst\IeC {\"a}nde der einzelnen Kaffeemaschinen auf der Webseite\relax }}{35}{figure.caption.45}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces F\IeC {\"u}llstand-Verlauf einer Kaffeemaschine von 12:00 Uhr bis 15:00 Uhr\relax }}{36}{figure.caption.46}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces \IeC {\"U}bersicht der F\IeC {\"u}llst\IeC {\"a}nde der einzelnen Kaffeemaschinen auf der Webseite\relax }}{36}{figure.caption.45}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces F\IeC {\"u}llstand-Verlauf einer Kaffeemaschine von 12:00 Uhr bis 15:00 Uhr\relax }}{37}{figure.caption.46}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Schaltplan, erstellt mit Fritzing\relax }}{40}{figure.caption.47}
-\contentsline {figure}{\numberline {9.2}{\ignorespaces R\IeC {\"u}ckseite der verl\IeC {\"o}teten Platine unseres ersten Prototyps\relax }}{42}{figure.caption.48}
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Vorderseite der verl\IeC {\"o}teten Platine unseres ersten Prototyps\relax }}{43}{figure.caption.49}
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Schaltplan, erstellt mit Fritzing\relax }}{41}{figure.caption.47}
+\contentsline {figure}{\numberline {9.2}{\ignorespaces R\IeC {\"u}ckseite der verl\IeC {\"o}teten Platine unseres ersten Prototyps\relax }}{43}{figure.caption.48}
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Vorderseite der verl\IeC {\"o}teten Platine unseres ersten Prototyps\relax }}{44}{figure.caption.49}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -158,7 +158,7 @@ verringert sich der Widerstand des Dehnungsmessstreifens. Bei Spannung des Dehnm
 \end{figure}
 \noindent
 Um die Widerstandsveränderungen der Dehnungsmessstreifen messen zu können, sind die Dehnungsmessstreifen innerhalb der Wägezelle in einer Wheatstone-Brücken-Formation geschalten.
-Die Wägezelle wird mit vier Dehnungsmessstreifen ausgestattet. Diese sind in ihrer Form, in der Länge und der geometrischen Anordnung genau gleich.
+Die Wägezelle wird mit vier Dehnungsmessstreifen ausgestattet. Diese sind in ihrer Form, in der Länge und der geometrischen Anordnung genau gleich. [vgl. Al-Mutlaq, Sarah: Getting Started with Load Cells, URL: \url{https://learn.sparkfun.com/tutorials/getting-started-with-load-cells}, (Stand 06.07.2018)]
 
 \newpage
 
@@ -237,9 +237,15 @@ Die rechte Seite des HX711 wird wie folgt angeschlossen:
     \label{fig:waegezelle-adc}
 \end{figure}
 \section{Programmlogik unseres Microchips}
-Nach dem Aufbau unseres Systems geht es nun an die Gewichtsmessung. Das Programm zur Gewichtsmessung mittels dem HX711 basiert auf getsiddd's HX711 AVR Bibliothek (\url{https://github.com/getsiddd/HX711}). Die wichtigsten Erweiterungen von uns sind die Möglichkeit, negative Gewichtsveränderungen wahrnehmen zu können, auf Tastendruck eine Tar-Funktion auszuführen und der Gewichts-Sende-Algorithmus in Verbindung mit dem LoRa-Modul. 
+Nach dem Aufbau unseres Systems geht es nun an die Gewichtsmessung. Das Programm zur Gewichtsmessung mittels dem HX711 basiert auf getsiddd's HX711 AVR Bibliothek (\url{https://github.com/getsiddd/HX711}).\\ 
+Die wichtigsten Erweiterungen von uns sind:\\
+\begin{itemize}
+    \item die Möglichkeit, negative Gewichtsveränderungen wahrnehmen zu können, siehe Funktion weightStuff() in RN2483.c, Zeile 246-254
+    \item auf Tastendruck eine Tar-Funktion auszuführen, siehe Funktion weightStuff() in RN2483.c, Zeile 312-316
+    \item Gewichts-Sende-Algorithmus in Verbindung mit dem LoRa-Modul, siehe Funktion ISR(TIMER0\_COMPA\_vect) in RN2483.c, Zeile 146-194
+\end{itemize}
 \subsection{Vereinfachte Funktionsweise für momentane Gewichtsmessung}
-Beim vom HX711 gelesenem Gewicht wird das getarte Gewicht (Tar Funktion/Gewichtnullung) abgezogen und durch die Kalibration dividiert, um einen lesbaren Wert in Kilogramm zu erhalten.
+Beim vom HX711 gelesenem Gewicht wird das getarte Gewicht (Tar Funktion/Gewichtnullung) abgezogen und durch eine Kalibrationsvariable (fest codierter Parameter welcher durch ``Trial und Error'' ertestet wird, um Imperfektionen zwischen Wägezellen auszugleichen. In unserem Fall wird ein bekanntes Gewicht auf die Wägezelle gelegt und der Kalibrationswert in Richtung des gesuchten Gewichtes angepasst) dividiert, um einen lesbaren Wert in Kilogramm zu erhalten.
 \subsection{Algorithmus für Rausch- und Driftunterdrückung}
 Das Differenzgewicht von der letzten und der momentanen Gewichtsmessung wird mit einer vorher gewählten Veränderungsrate verglichen. Wenn das Differenzgewicht höher als die gewählte Veränderungsrate ist, wird der momentan gemessene Wert verwendet und angezeigt, im anderen Fall wird der Wert verworfen, weil er vermutlich durch Rauschen oder Drift verursacht wurde.\\
 Der Veränderungswert gibt auch die kleinstmögliche messbare Veränderung an. Am Beispiel unseres Projektes könnte bei einem Veränderungswert von ca. 5g, jemand mit einem Strohhalm Flüssigkeit aus dem Behältnis saugen, ohne dass das Programm die Gewichtsveränderung wahrnimmt.
