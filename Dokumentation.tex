@@ -530,6 +530,8 @@ Die serielle Schnittstelle (UART), die zwischen beiden Bauteilen besteht, implem
     \item \textbf{sendHex2(char *s):} Konvertiert das gegebene Char-Array in Hexadezimal ASCII Code und sendet es über die sendString() Methode.
 \end{itemize}
 \newpage
+
+
 \chapter{Webserver für die Visualisierung}
 \section{Visualisierung der empfangenen Daten mit Angular CLI}
 Mit dem aufgesetzten Gateway, welches die Gewichtsdaten/Füllstände über verschlüsselte Kanäle ins Internet überträgt, fehlt noch die Komponente der Visualisierung. Der Webserver, der den Clients die Weboberfläche (das Front-End) zur Verfügung stellt, übernimmt die Aufgabe der Aufbereitung und Darstellung der übermittelten Daten.
@@ -553,13 +555,17 @@ bis zum aktuellen Zeitpunkt anzeigt.
 \noindent
 Die Visualisierung ist mithilfe des Front-End-Frameworks Angular CLI geschrieben worden. Die Programmiersprache von Angular ist TypeScript, eine Weiterentwicklung von JavaScript, mit einigen Verbesserungen wie die Typisierung von Variablen. Weiterhin wurden die Zylinder-Behälter mit der „AmCharts“ Angular-Bibliothek implementiert. Diese Bibliothek bietet die Möglichkeit diese Diagramme mit Hilfe einer „create“ Funktion zu erstellen und einer „update“ Funktion mit neuen Daten zu versorgen und damit das Diagramm in Echtzeit zu verändern. Darüber hinaus wurden die Statistikdiagramme mit Hilfe der gleichen Bibliothek erstellt. Diese Diagramme bieten die gleichen Funktionen wie die Zylinderdiagramme.
 
-\section{NodeJS Server für die Verarbeitung der Datenpakete}
-Der Server ist in der Programmiersprache NodeJS geschrieben. Darin wurde ein Express Server implementiert. Dieser Express Server nutzt ein Websocket, um die Verbindung zwischen Server und Client herzustellen. Diese Verbindung wird von dem NPM (Node Package Manager) Modul „ttn“ genutzt. Hierbei ist ttn eine Bibliothek des Networkservers „The Things Network“. Durch das ttn Modul bekommt der Server die Nachrichten vom Network Server und damit kann das Paket verarbeitet und per Websocket an den Client weitergeleitet werden. Während der Weiterverarbeitung erfolgt auch die Speicherung einkommender Daten.
-
 \section{The Things Network}
-Das TTN Modul (SDK) ist die Schnittstelle zwischen dem Express Server und dem Network Server. Die Verbindung wird automatisch hergestellt. Damit jedoch eine Verbindung hergestellt werden kann, müssen im Voraus zwei Werte vorhanden sein. Der erste ist die Application ID. Diese ID beschreibt das Projekt, welches vorher bei der TheThingsNetwork-Webseite festgelegt wurde. In diesem Fall ist die Application ID: lora\_measure\_network. Der zweite Wert ist der accessKey. Dieser ist für die Authentifizierung des SDK’s mit dem Network Server erforderlich. Der Key muss vorher über die Webseite generiert werden. Die Nachrichten, zwischen Network Server und SDK, sind in einem bestimmten Format:\\
+Das Things Network ist ein globales, freies und dezentrales Internet der Dinge Netzwerk. Es hat sich zum Ziel gesetzt, ein weltweit offenes und unabhängiges Internet der Dinge Netzwerk aufzubauen.
 
-\begin{lstlisting}[caption=Payload,label=lst:payload]
+\section{NodeJS Server für die Verarbeitung der Datenpakete}
+Um die Daten, die an das ``TheThingsNetwork'' geschickt werden, in unserem Webserver überhaupt zu empfangen, ist die Verbindung zwischen den beiden unerlässlich. Dazu wurde ein Server aufgesetzt, der in der Programmiersprache Node.js geschrieben ist und in direktem Kontakt mit TheThingsNetwork steht. Dieser Webserver setzt das Server-Framework ``Express.js'' ein und nutzt einen Websocket, um die übertragenen Messdaten von TheThingsNetwork zu erhalten. Während der Verarbeitung der Daten, übernimmt der Webserver außerdem den Prozess der Persistierung.\\
+
+\noindent
+Damit eine Verbindung zwischen den beiden Servern hergestellt werden kann, müssen im Voraus zwei Werte vorhanden sein. Der erste Wert ist die Application ID. Diese ID beschreibt das Projekt, welches vorher bei der TheThingsNetwork Webseite festgelegt wurde. In diesem Fall ist die Application ID: \textit{lora\_measure\_network}. Der zweite Wert ist der \textit{accessKey}. Dieser Wert ist für die Authentifizierung mit dem Netzwerkserver erforderlich. Der \textit{accessKey} muss vorher über die Webseite generiert werden. Dabei folgen die Nachrichten zwischen den Servern einem bestimmten Format:\\
+
+
+\begin{lstlisting}[caption=Einkommender Messdatensatz,label=lst:payload]
     { 
         app_id: 'lora_measure_network',
         dev_id: 'rn2483_node1',
@@ -582,9 +588,13 @@ Das TTN Modul (SDK) ist die Schnittstelle zwischen dem Express Server und dem Ne
 \end{itemize} 
 \newpage
 \section{Inaktivität der Behälter}
-Sobald ein Gerät inaktiv wird (d.h. eine Stunde ohne Nachrichtenempfang), ist es für die Nutzer in der UI nicht mehr möglich, das Gerät zu sehen. Diese Inaktivität würde bei einem Thermobehälter die Abkühlung bedeuten. Das Limit basiert auf dem Resultat einer Gesprächsrunde innerhalb der Entwickler. Sobald jedoch das Gerät wieder sendet, wird es in der UI eingeblendet. Dieses Limit hat den Hintergrund, dass ein Gerät unerwartet vom Netz genommen wird. Wenn dieser Fall eintreten würde, könnte man in der Visualisierung nicht erkennen, ob das Gerät überhaupt noch existiert.
-\section{Voraussetzungen und Nutzung des Node-Servers}
+Sobald ein Gerät inaktiv wird (d.h. eine Stunde ohne Nachrichtenempfang), ist es für die Nutzer in der UI nicht mehr möglich, das Gerät zu sehen. Diese Inaktivität würde bei einem Thermobehälter die Abkühlung bedeuten. Diese Zeitbeschränkung wurde nach einer Gesprächsrunde innerhalb der Entwickler festgesetzt.\\
+Falls das Gerät unerwartet vom Netz genommen wird, kann das in der Visualisierung für Verwirrung sorgen. Tritt dieser Fall ein, könnte man auf der Webseite, auf der die Behältnisse angezeigt werden, nicht erkennen, ob das Gerät überhaupt noch existiert. Deshalb wird das Gerät, sobald es wieder im Netz ist, mit den aktuellen Messwerten in der UI eingeblendet. 
+
+\section{Voraussetzungen und Nutzung des Webservers}
+%-------------------------------------------Bild das aufzeigt wie die server zueinander stehen--------------------------------------------------------------------------------%
 \textbf{Unterstützte Betriebssystem}
+%Überleitung wie in Kommentar von ulli
 \begin{itemize}
     \item Windows
     \item Linux

@@ -44,10 +44,10 @@
 \contentsline {subsection}{\numberline {7.6.2}uart.c}{34}{subsection.7.6.2}
 \contentsline {chapter}{\numberline {8}Webserver f\IeC {\"u}r die Visualisierung}{36}{chapter.8}
 \contentsline {section}{\numberline {8.1}Visualisierung der empfangenen Daten mit Angular CLI}{36}{section.8.1}
-\contentsline {section}{\numberline {8.2}NodeJS Server f\IeC {\"u}r die Verarbeitung der Datenpakete}{37}{section.8.2}
-\contentsline {section}{\numberline {8.3}The Things Network}{37}{section.8.3}
+\contentsline {section}{\numberline {8.2}The Things Network}{37}{section.8.2}
+\contentsline {section}{\numberline {8.3}NodeJS Server f\IeC {\"u}r die Verarbeitung der Datenpakete}{37}{section.8.3}
 \contentsline {section}{\numberline {8.4}Inaktivit\IeC {\"a}t der Beh\IeC {\"a}lter}{39}{section.8.4}
-\contentsline {section}{\numberline {8.5}Voraussetzungen und Nutzung des Node-Servers}{39}{section.8.5}
+\contentsline {section}{\numberline {8.5}Voraussetzungen und Nutzung des Webservers}{39}{section.8.5}
 \contentsline {chapter}{\numberline {9}Schaltplan und Verl\IeC {\"o}ten der Platine}{40}{chapter.9}
 \contentsline {chapter}{\numberline {10}Fazit der prototypischen Umsetzung eines W\IeC {\"a}gesystems f\IeC {\"u}r den Gastronomie-Betrieb via LoRaWAN}{45}{chapter.10}
 \contentsline {chapter}{\numberline {11}Ausblick auf die Kommerzialisierung}{46}{chapter.11}
