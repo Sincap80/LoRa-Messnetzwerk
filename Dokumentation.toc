@@ -16,8 +16,8 @@
 \contentsline {subsection}{\numberline {6.3.1}Vereinfachte Funktionsweise f\IeC {\"u}r momentane Gewichtsmessung}{18}{subsection.6.3.1}
 \contentsline {subsection}{\numberline {6.3.2}Algorithmus f\IeC {\"u}r Rausch- und Driftunterdr\IeC {\"u}ckung}{19}{subsection.6.3.2}
 \contentsline {subsection}{\numberline {6.3.3}Algorithmus f\IeC {\"u}r Gewichtssendung mit dem LoRa-Modul}{19}{subsection.6.3.3}
-\contentsline {section}{\numberline {6.4}Demonstration der Gewichtsmessung}{19}{section.6.4}
-\contentsline {section}{\numberline {6.5}Alternative Use-Cases von \IeC {\textquotedblleft }Straight bar\IeC {\textquotedblright }-W\IeC {\"a}gezellen}{19}{section.6.5}
+\contentsline {section}{\numberline {6.4}Demonstration der Gewichtsmessung}{20}{section.6.4}
+\contentsline {section}{\numberline {6.5}Alternative Use-Cases von \IeC {\textquotedblleft }Straight bar\IeC {\textquotedblright }-W\IeC {\"a}gezellen}{20}{section.6.5}
 \contentsline {section}{\numberline {6.6}Alternative Bauformen von W\IeC {\"a}gezellen}{21}{section.6.6}
 \contentsline {subsection}{\numberline {6.6.1}Disk-W\IeC {\"a}gezellen}{21}{subsection.6.6.1}
 \contentsline {subsection}{\numberline {6.6.2}W\IeC {\"a}gesensoren}{22}{subsection.6.6.2}

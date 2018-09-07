@@ -245,7 +245,17 @@ Die wichtigsten Erweiterungen von uns sind:\\
     \item Gewichts-Sende-Algorithmus in Verbindung mit dem LoRa-Modul, siehe Funktion ISR(TIMER0\_COMPA\_vect) in RN2483.c, Zeile 146-194
 \end{itemize}
 \subsection{Vereinfachte Funktionsweise für momentane Gewichtsmessung}
-Beim vom HX711 gelesenem Gewicht wird das getarte Gewicht (Tar Funktion/Gewichtnullung) abgezogen und durch eine Kalibrationsvariable (fest codierter Parameter welcher durch ``Trial und Error'' ertestet wird, um Imperfektionen zwischen Wägezellen auszugleichen. In unserem Fall wird ein bekanntes Gewicht auf die Wägezelle gelegt und der Kalibrationswert in Richtung des gesuchten Gewichtes angepasst) dividiert, um einen lesbaren Wert in Kilogramm zu erhalten.
+\noindent
+Nachdem die Bibliothek für den Baustein HX711 angepasst ist, also das Gewicht gemessen und versendet werden kann, geht es darum einen visualisierbaren Wert zu erhalten. Jedoch sind nicht alle Wägezellen perfekt gleich und ohne Rücksicht auf diese Imperfektionen würde jede Wägezelle einen anderen Messwert ergeben. 
+Um dieses Problem zu lösen, ist eine Kalibrationsvariable im Code implementiert. In unserem Fall, ist die Kalibrationsvariable ein fest codiertert Parameter, der durch ``Trial und Error'' ertestet wird, indem wir ein bekanntes Gewicht auf die Wägezelle legen und den Kalibrationswert in Richtung des gesuchten Gewichtes anpassen. Mit dem Ergebnis aus der Kalibrierung ist die Gewichtsmessung möglich.\\
+\\
+Dazu ein kurzer Programmablauf der Funktionsweise:
+\begin{itemize}
+    \item das Gewicht wird zunächst gelesen (Bsp.: 8563)
+    \item das ge'tar'te Gewicht wird davon abgezogen ($8563 - 6546 = 2017$)
+    \item anschließend wird durch das Ergebnis der Kalibrierung geteilt: ($2017 / 2000 = 1,0085$)
+    \item um am Ende einen lesbaren Kilogrammwert zu bekommen: 1,0085 Kg
+\end{itemize}
 \subsection{Algorithmus für Rausch- und Driftunterdrückung}
 Das Differenzgewicht von der letzten und der momentanen Gewichtsmessung wird mit einer vorher gewählten Veränderungsrate verglichen. Wenn das Differenzgewicht höher als die gewählte Veränderungsrate ist, wird der momentan gemessene Wert verwendet und angezeigt, im anderen Fall wird der Wert verworfen, weil er vermutlich durch Rauschen oder Drift verursacht wurde.\\
 Der Veränderungswert gibt auch die kleinstmögliche messbare Veränderung an. Am Beispiel unseres Projektes könnte bei einem Veränderungswert von ca. 5g, jemand mit einem Strohhalm Flüssigkeit aus dem Behältnis saugen, ohne dass das Programm die Gewichtsveränderung wahrnimmt.
