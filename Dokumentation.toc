@@ -44,14 +44,14 @@
 \contentsline {subsection}{\numberline {7.6.2}uart.c}{34}{subsection.7.6.2}
 \contentsline {chapter}{\numberline {8}Webserver f\IeC {\"u}r die Visualisierung}{36}{chapter.8}
 \contentsline {section}{\numberline {8.1}Visualisierung der empfangenen Daten mit Angular CLI}{36}{section.8.1}
-\contentsline {section}{\numberline {8.2}The Things Network}{37}{section.8.2}
-\contentsline {section}{\numberline {8.3}NodeJS Server f\IeC {\"u}r die Verarbeitung der Datenpakete}{37}{section.8.3}
-\contentsline {section}{\numberline {8.4}Inaktivit\IeC {\"a}t der Beh\IeC {\"a}lter}{39}{section.8.4}
-\contentsline {section}{\numberline {8.5}Voraussetzungen und Nutzung des Webservers}{39}{section.8.5}
-\contentsline {chapter}{\numberline {9}Schaltplan und Verl\IeC {\"o}ten der Platine}{40}{chapter.9}
-\contentsline {chapter}{\numberline {10}Fazit der prototypischen Umsetzung eines W\IeC {\"a}gesystems f\IeC {\"u}r den Gastronomie-Betrieb via LoRaWAN}{45}{chapter.10}
-\contentsline {chapter}{\numberline {11}Ausblick auf die Kommerzialisierung}{46}{chapter.11}
-\contentsline {section}{\numberline {11.1}LoRaWAN Modul Code verbessern}{46}{section.11.1}
-\contentsline {section}{\numberline {11.2}Front-End Lizenzkosten vermeiden}{46}{section.11.2}
-\contentsline {section}{\numberline {11.3}Erstellen eines wasserfesten Geh\IeC {\"a}uses}{47}{section.11.3}
-\contentsline {section}{\numberline {11.4}Kommerzialisierung und m\IeC {\"o}gliches Gesch\IeC {\"a}ftsmodell}{47}{section.11.4}
+\contentsline {section}{\numberline {8.2}The Things Network}{38}{section.8.2}
+\contentsline {section}{\numberline {8.3}Verarbeitung der Datenpakete}{38}{section.8.3}
+\contentsline {section}{\numberline {8.4}Inaktivit\IeC {\"a}t der Beh\IeC {\"a}lter}{40}{section.8.4}
+\contentsline {section}{\numberline {8.5}Voraussetzungen und Nutzung des Webservers}{40}{section.8.5}
+\contentsline {chapter}{\numberline {9}Schaltplan und Verl\IeC {\"o}ten der Platine}{41}{chapter.9}
+\contentsline {chapter}{\numberline {10}Fazit der prototypischen Umsetzung eines W\IeC {\"a}gesystems f\IeC {\"u}r den Gastronomie-Betrieb via LoRaWAN}{46}{chapter.10}
+\contentsline {chapter}{\numberline {11}Ausblick auf die Kommerzialisierung}{47}{chapter.11}
+\contentsline {section}{\numberline {11.1}LoRaWAN Modul Code verbessern}{47}{section.11.1}
+\contentsline {section}{\numberline {11.2}Front-End Lizenzkosten vermeiden}{47}{section.11.2}
+\contentsline {section}{\numberline {11.3}Erstellen eines wasserfesten Geh\IeC {\"a}uses}{48}{section.11.3}
+\contentsline {section}{\numberline {11.4}Kommerzialisierung und m\IeC {\"o}gliches Gesch\IeC {\"a}ftsmodell}{48}{section.11.4}

@@ -65,7 +65,7 @@ Am Anfang des Projektes erstellten wir Bauteildiagramme und diskutierten über K
     \begin{tabular}{ | l |  l | }
     \hline
     Komponente & Preis \\ \hline
-    Web-Server für NodeJS  & \\
+    Web-Server für Node.js  & \\
     VPS oder Cloud Server mieten & ab 5.00 \euro / Monat \\
     oder & \\
     einen vorhandenen, netzwerkfähigen Computer benutzen & - \\ \hline
@@ -555,10 +555,18 @@ bis zum aktuellen Zeitpunkt anzeigt.
 \noindent
 Die Visualisierung ist mithilfe des Front-End-Frameworks Angular CLI geschrieben worden. Die Programmiersprache von Angular ist TypeScript, eine Weiterentwicklung von JavaScript, mit einigen Verbesserungen wie die Typisierung von Variablen. Weiterhin wurden die Zylinder-Behälter mit der „AmCharts“ Angular-Bibliothek implementiert. Diese Bibliothek bietet die Möglichkeit diese Diagramme mit Hilfe einer „create“ Funktion zu erstellen und einer „update“ Funktion mit neuen Daten zu versorgen und damit das Diagramm in Echtzeit zu verändern. Darüber hinaus wurden die Statistikdiagramme mit Hilfe der gleichen Bibliothek erstellt. Diese Diagramme bieten die gleichen Funktionen wie die Zylinderdiagramme.
 
+\newpage
 \section{The Things Network}
 Das Things Network ist ein globales, freies und dezentrales Internet der Dinge Netzwerk. Es hat sich zum Ziel gesetzt, ein weltweit offenes und unabhängiges Internet der Dinge Netzwerk aufzubauen.
 
-\section{NodeJS Server für die Verarbeitung der Datenpakete}
+\begin{figure}[H]
+    \center
+    \includegraphics[width=16cm]{Bilder/Netzwerkdiagramm.png}\\
+    \caption{Netzwerkdiagramm}
+    \label{fig:Netzwerkdiagramm}
+\end{figure}
+
+\section{Verarbeitung der Datenpakete}
 Um die Daten, die an das ``TheThingsNetwork'' geschickt werden, in unserem Webserver überhaupt zu empfangen, ist die Verbindung zwischen den beiden unerlässlich. Dazu wurde ein Server aufgesetzt, der in der Programmiersprache Node.js geschrieben ist und in direktem Kontakt mit TheThingsNetwork steht. Dieser Webserver setzt das Server-Framework ``Express.js'' ein und nutzt einen Websocket, um die übertragenen Messdaten von TheThingsNetwork zu erhalten. Während der Verarbeitung der Daten, übernimmt der Webserver außerdem den Prozess der Persistierung.\\
 
 \noindent
@@ -592,7 +600,9 @@ Sobald ein Gerät inaktiv wird (d.h. eine Stunde ohne Nachrichtenempfang), ist e
 Falls das Gerät unerwartet vom Netz genommen wird, kann das in der Visualisierung für Verwirrung sorgen. Tritt dieser Fall ein, könnte man auf der Webseite, auf der die Behältnisse angezeigt werden, nicht erkennen, ob das Gerät überhaupt noch existiert. Deshalb wird das Gerät, sobald es wieder im Netz ist, mit den aktuellen Messwerten in der UI eingeblendet. 
 
 \section{Voraussetzungen und Nutzung des Webservers}
-%-------------------------------------------Bild das aufzeigt wie die server zueinander stehen--------------------------------------------------------------------------------%
+Um den Webserver, der für die Kommunikation hin zu den Knoten-Daten und die Visualisierung für die Gastro-Mitarbeiter, im realen Umfeld betreiben zu können, sind für das Aufsetzen folgende Systeme/Software notwendig.\\
+
+\noindent
 \textbf{Unterstützte Betriebssystem}
 %Überleitung wie in Kommentar von ulli
 \begin{itemize}
@@ -602,15 +612,15 @@ Falls das Gerät unerwartet vom Netz genommen wird, kann das in der Visualisieru
 \end{itemize} 
 \textbf{Benötigte Software}
 \begin{itemize}
-    \item NodeJS (inkl. NPM)
+    \item Node.js
     \item Angular
 \end{itemize} 
 \textbf{Nutzung}
 \begin{itemize}
-    \item Starte zwei Kommandozeilenprogramme
+    \item Starte zwei Kommandozeilenprogramme und führe die Befehle aus:
     \begin{itemize}
-        \item Konsole 1 im Ordner „server“: node server.js 
-        \item Konsole 2 im Ordner „client“: ng serve --open 
+        \item Konsole 1 im Ordner „server“: \textit{node server.js} 
+        \item Konsole 2 im Ordner „client“: \textit{ng serve --open}
     \end{itemize}
 \end{itemize} 
 \newpage
