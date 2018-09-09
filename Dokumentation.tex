@@ -378,7 +378,7 @@ Bei Krafteinwirkung produzieren diese Sensoren eine elektrische Ladung, die geme
 \chapter{Drahtlose Verbindung zwischen den Komponenten mit dem LoRaWAN-Protokoll}
 Nachdem wir nun zuverlässig die Sensordaten (in unserem Fall: das Gewicht und somit den Füllstand) messen und verarbeiten können, geht es in diesem Kapitel nun um das Versenden und Empfangen der Sensordaten über die drahtlose Verbindungstechnologie LoRa.
 \section{Aufsetzen eines Servers (LoRa-Gateway)}
-Damit wir überhaupt überprüfen können ob die Daten die wir versenden vollständig und zuverlässig ankommen, benötigen wir erstmal einen Empfänger.
+Damit wir überhaupt überprüfen können ob die Daten die wir versenden vollständig und zuverlässig ankommen, benötigen wir zunächst einen Empfänger.
 Dieser Empfänger wird als LoRa-Gateway bezeichnet und hat im Prinzip die Funktion eines WLAN-Routers. Alle Clients (LoRa-Nodes) melden sich an dem Gateway an und kommunizieren mit dem Gateway. Wie der Begriff „Gateway“ schon andeutet, ist dies ein Tor, das zum Internet führt (siehe folgende Abbildung \ref{fig:lora-schaubild}).
 \begin{figure}[H]
     \center
@@ -402,7 +402,7 @@ Nachdem man die Anweisungen zum Konfigurieren befolgt hat, sollte es auf der Web
 \newpage
 \section{Erstellen einer LoRa-Applikation zum Abrufen der Daten}
 Nachdem unser Gateway nun empfangsbereit ist könnten wir eigentlich schon ein LoRa-Node in Betrieb setzen um Daten an den Gateway zu senden.
-Da diese Daten aber verschlüsselt sind, müssen wir aber erstmal eine Applikation erstellen um lesbare Daten zu erhalten und sie zu einem Sender zuordnen zu können.
+Da diese Daten aber verschlüsselt sind, müssen wir zunächst eine Applikation erstellen um lesbare Daten zu erhalten und sie zu einem Sender zuordnen zu können.
 Eine Applikation können wir in der Konsole von TheThingsNetwork erstellen (siehe folgende Abbildungen \ref{fig:lora-2} und \ref{fig:lora-3}).
 \begin{figure}[H]
     \center
@@ -468,7 +468,7 @@ Wenn wir die Änderungen speichern, kommen wir wieder auf die Seite des Geräts.
 Diesen Codeausschnitt speichern wir oder wir merken uns, dass er auf der Seite des Geräts ist, da wir ihn später zum Konfigurieren des Nodes wieder brauchen werden. 
 \section{Aufsetzen eines Clients (LoRa-Node)} \label{mac-commands}
 Da unser Gateway jetzt funktionsfähig ist und wir durch die Applikation lesbare Daten erhalten können, konfigurieren wir nun die Sender (LoRa-Nodes).
-Bevor wir die LoRa-Nodes mit Strom versorgen, befestigen wir erstmal eine Antenne an den RFH (Radio Frequency High Band – PIN 23) Anschluss der unsere Antenne mit 868 MHz betreiben wird.\\
+Bevor wir die LoRa-Nodes mit Strom versorgen, befestigen wir zunächst eine Antenne an den RFH (Radio Frequency High Band – PIN 23) Anschluss der unsere Antenne mit 868 MHz betreiben wird.\\
 Unser LoRa-Node ist über die serielle Schnittstelle UART (PIN 6 + 7 am RN2483) an den Mikrocontroller ATmega644PA (PD0 bzw. PIN 14 + PD1 bzw. PIN 15) angeschlossen und kommuniziert so mit dem Mikrochip. Die Baudrate für die UART Verbindung beträgt standardmäßig 57600 bps, kann aber auch mit einer gewissen Character Folge geändert werden (siehe folgende Abbildung \ref{fig:UART}).
 \begin{figure}[H]
     \center
