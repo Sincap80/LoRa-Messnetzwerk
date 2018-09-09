@@ -26,32 +26,32 @@
 \contentsline {section}{\numberline {6.7}Alternative Gewichtssensoren}{24}{section.6.7}
 \contentsline {subsection}{\numberline {6.7.1}Force Sensitive Resistor (FSR)}{24}{subsection.6.7.1}
 \contentsline {subsection}{\numberline {6.7.2}Piezoelektrischer Sensor}{24}{subsection.6.7.2}
-\contentsline {chapter}{\numberline {7}Drahtlose Verbindung zwischen den Komponenten mit dem LoRaWAN-Protokoll}{25}{chapter.7}
-\contentsline {section}{\numberline {7.1}Aufsetzen eines Servers (LoRa-Gateway)}{25}{section.7.1}
-\contentsline {section}{\numberline {7.2}Erstellen einer LoRa-Applikation zum Abrufen der Daten}{28}{section.7.2}
-\contentsline {paragraph}{\nonumberline Application ID:}{29}{section*.31}
-\contentsline {paragraph}{\nonumberline Description:}{29}{section*.32}
-\contentsline {paragraph}{\nonumberline Handler registration:}{29}{section*.33}
-\contentsline {paragraph}{\nonumberline Device ID:}{30}{section*.36}
-\contentsline {paragraph}{\nonumberline Device EUI:}{30}{section*.37}
-\contentsline {paragraph}{\nonumberline App Key:}{30}{section*.38}
-\contentsline {paragraph}{\nonumberline App EUI:}{30}{section*.39}
-\contentsline {section}{\numberline {7.3}Aufsetzen eines Clients (LoRa-Node)}{31}{section.7.3}
-\contentsline {section}{\numberline {7.4}Spreading Factor}{33}{section.7.4}
-\contentsline {section}{\numberline {7.5}Security / Datensicherheit}{35}{section.7.5}
-\contentsline {section}{\numberline {7.6}Methoden und Funktionen zur Kommunikation mit dem LoRa-Modul (UART \& Modul RN2483)}{35}{section.7.6}
-\contentsline {subsection}{\numberline {7.6.1}RN2483.c}{35}{subsection.7.6.1}
-\contentsline {subsection}{\numberline {7.6.2}uart.c}{36}{subsection.7.6.2}
-\contentsline {chapter}{\numberline {8}Webserver f\IeC {\"u}r die Visualisierung}{37}{chapter.8}
-\contentsline {section}{\numberline {8.1}Visualisierung der empfangenen Daten mit Angular CLI}{37}{section.8.1}
-\contentsline {section}{\numberline {8.2}The Things Network}{39}{section.8.2}
-\contentsline {section}{\numberline {8.3}Verarbeitung der Datenpakete}{39}{section.8.3}
-\contentsline {section}{\numberline {8.4}Inaktivit\IeC {\"a}t der Beh\IeC {\"a}lter}{41}{section.8.4}
-\contentsline {section}{\numberline {8.5}Voraussetzungen und Nutzung des Webservers}{41}{section.8.5}
-\contentsline {chapter}{\numberline {9}Schaltplan und Verl\IeC {\"o}ten der Platine}{42}{chapter.9}
-\contentsline {chapter}{\numberline {10}Fazit der prototypischen Umsetzung eines W\IeC {\"a}gesystems f\IeC {\"u}r den Gastronomie-Betrieb via LoRaWAN}{47}{chapter.10}
-\contentsline {chapter}{\numberline {11}Ausblick auf die Kommerzialisierung}{48}{chapter.11}
-\contentsline {section}{\numberline {11.1}LoRaWAN Modul Code verbessern}{48}{section.11.1}
-\contentsline {section}{\numberline {11.2}Front-End Lizenzkosten vermeiden}{48}{section.11.2}
-\contentsline {section}{\numberline {11.3}Erstellen eines wasserfesten Geh\IeC {\"a}uses}{49}{section.11.3}
-\contentsline {section}{\numberline {11.4}Kommerzialisierung und m\IeC {\"o}gliches Gesch\IeC {\"a}ftsmodell}{49}{section.11.4}
+\contentsline {chapter}{\numberline {7}Drahtlose Verbindung zwischen den Komponenten mit dem LoRaWAN-Protokoll}{26}{chapter.7}
+\contentsline {section}{\numberline {7.1}Aufsetzen eines Servers (LoRa-Gateway)}{26}{section.7.1}
+\contentsline {section}{\numberline {7.2}Erstellen einer LoRa-Applikation zum Abrufen der Daten}{29}{section.7.2}
+\contentsline {paragraph}{\nonumberline Application ID:}{30}{section*.31}
+\contentsline {paragraph}{\nonumberline Description:}{30}{section*.32}
+\contentsline {paragraph}{\nonumberline Handler registration:}{30}{section*.33}
+\contentsline {paragraph}{\nonumberline Device ID:}{31}{section*.36}
+\contentsline {paragraph}{\nonumberline Device EUI:}{31}{section*.37}
+\contentsline {paragraph}{\nonumberline App Key:}{31}{section*.38}
+\contentsline {paragraph}{\nonumberline App EUI:}{31}{section*.39}
+\contentsline {section}{\numberline {7.3}Aufsetzen eines Clients (LoRa-Node)}{32}{section.7.3}
+\contentsline {section}{\numberline {7.4}Spreading Factor}{34}{section.7.4}
+\contentsline {section}{\numberline {7.5}Security / Datensicherheit}{36}{section.7.5}
+\contentsline {section}{\numberline {7.6}Methoden und Funktionen zur Kommunikation mit dem LoRa-Modul (UART \& Modul RN2483)}{36}{section.7.6}
+\contentsline {subsection}{\numberline {7.6.1}RN2483.c}{36}{subsection.7.6.1}
+\contentsline {subsection}{\numberline {7.6.2}uart.c}{37}{subsection.7.6.2}
+\contentsline {chapter}{\numberline {8}Webserver f\IeC {\"u}r die Visualisierung}{38}{chapter.8}
+\contentsline {section}{\numberline {8.1}Visualisierung der empfangenen Daten mit Angular CLI}{38}{section.8.1}
+\contentsline {section}{\numberline {8.2}The Things Network}{40}{section.8.2}
+\contentsline {section}{\numberline {8.3}Verarbeitung der Datenpakete}{40}{section.8.3}
+\contentsline {section}{\numberline {8.4}Inaktivit\IeC {\"a}t der Beh\IeC {\"a}lter}{42}{section.8.4}
+\contentsline {section}{\numberline {8.5}Voraussetzungen und Nutzung des Webservers}{42}{section.8.5}
+\contentsline {chapter}{\numberline {9}Schaltplan und Verl\IeC {\"o}ten der Platine}{43}{chapter.9}
+\contentsline {chapter}{\numberline {10}Fazit der prototypischen Umsetzung eines W\IeC {\"a}gesystems f\IeC {\"u}r den Gastronomie-Betrieb via LoRaWAN}{48}{chapter.10}
+\contentsline {chapter}{\numberline {11}Ausblick auf die Kommerzialisierung}{49}{chapter.11}
+\contentsline {section}{\numberline {11.1}LoRaWAN Modul Code verbessern}{49}{section.11.1}
+\contentsline {section}{\numberline {11.2}Front-End Lizenzkosten vermeiden}{49}{section.11.2}
+\contentsline {section}{\numberline {11.3}Erstellen eines wasserfesten Geh\IeC {\"a}uses}{50}{section.11.3}
+\contentsline {section}{\numberline {11.4}Kommerzialisierung und m\IeC {\"o}gliches Gesch\IeC {\"a}ftsmodell}{50}{section.11.4}
