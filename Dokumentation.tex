@@ -96,7 +96,7 @@ Das Gehäuse (hier 'Case') beinhaltet alle Komponenten für den Prozess des Wieg
 \begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/mounted-boards.jpg}\\
-    \caption{iC880A-SPI Concentrator Board (links) und Raspberry Pi Model 2B (rechts) bilden zusammen das Gateway, welches die Sensordaten der LoRa-Nodes entgegennimmt und zu einem Web-Server weiterleitet.}
+    \caption{iC880A-SPI Concentrator Board (links) und Raspberry Pi Model 2B (rechts) bilden zusammen das Gateway, welches die Sensordaten der LoRa-Nodes empfängt und zu einem Web-Server weiterleitet.}
     \begin{flushleft}
         \quelle\url{https://raw.githubusercontent.com/ttn-zh/ic880a-gateway/spi/images/mounted-boards.jpg}
     \end{flushleft}
@@ -131,7 +131,7 @@ Das Gehäuse (hier 'Case') beinhaltet alle Komponenten für den Prozess des Wieg
 \end{figure}
 
 \chapter{Gewichtsmessung mit einer Wägezelle}
-Um die Kaffeekanne und deren Füllstand zu messen, entschied sich das Team nach Sondierung mehrerer Alternativen (Drucksensoren, visuelle Sensoren) für die Gewichtsmessung. Dazu soll die Technik einer Wägezelle zum Einsatz kommen. In Personen- oder Küchenwagen sind sie in millionenfacher Ausführung verbaut, was beweist, dass sie valide genutzt werden können. Weitere Alternativen, nicht nur zum Einsatz, sondern auch in der Bauform sind in Kapitel \ref{sec:use-cases-straight-bar-waegezellen} ff. zu finden.
+Um die Kaffeekanne und deren Füllstand zu messen, entschied sich das Team nach Sondierung mehrerer Alternativen (Drucksensoren, visuelle Sensoren) für die Gewichtsmessung. Dazu soll die Technik einer Wägezelle zum Einsatz kommen. In Personen- oder Küchenwaagen sind sie in millionenfacher Ausführung verbaut, was beweist, dass sie valide genutzt werden können. Weitere Alternativen, nicht nur zum Einsatz, sondern auch in der Bauform sind in Kapitel \ref{sec:use-cases-straight-bar-waegezellen} ff. zu finden.
 \section{Funktionsweise der Wägezelle}
 Wägezellen sind Sensoren, die das Gewicht über Verformung ihres Materials mit Hilfe von Dehnungsmessstreifen messen können. Es sind vier Dehnungsmesstreifen, wie im Bild unten zu sehen, an der Wägezelle angebracht.
 \begin{figure}[H]
@@ -191,7 +191,7 @@ In Abbildung \ref{fig:waegezelle-full} sind die verschalteten Dehnungsmessstreif
     \label{fig:waegezelle-full}
 \end{figure}
 \noindent
-Die nun an \textit{Out} (siehe Abb. \ref{fig:waegezelle-verschaltung}) oder an \textit{V} (siehe Abb. \ref{fig:waegezelle-full}) gemessene analoge Spannung ist sehr klein. Für eine Abbildung der analogen Spannung auf digitale Werte ist ein Analog-Digital-Wandler (AD-Wandler) nötig, welcher nicht nur die Signale verstärkt, sondern auch die digitalen Werte repräsentiert. Der zu unserer Wägezelle angebotene integrierte Schaltkreis (englisch \textit{integrated circuit}, kurz IC, siehe Wikipedia \url{https://de.wikipedia.org/wiki/Integrierter_Schaltkreis}) war der HX711, der die gemessenen Spannungen bis zu 128fach verstärkt und mit einer Präzession von 24 Bit [0 bis 16777217] wandelt.
+Die nun an \textit{Out} (siehe Abb. \ref{fig:waegezelle-verschaltung}) oder an \textit{V} (siehe Abb. \ref{fig:waegezelle-full}) gemessene analoge Spannung ist sehr klein. Für eine Abbildung der analogen Spannung auf digitale Werte ist ein Analog-Digital-Wandler (AD-Wandler) nötig, welcher nicht nur die Signale verstärkt, sondern auch die digitalen Werte repräsentiert. Der zu unserer Wägezelle angebotene integrierte Schaltkreis (englisch \textit{integrated circuit}, kurz IC, siehe Wikipedia \url{https://de.wikipedia.org/wiki/Integrierter_Schaltkreis}) war der HX711, der die gemessenen Spannungen bis zu 128-fach verstärkt und mit einer Präzision von 24 Bit [0 bis 16777217] wandelt.
 \newpage
 
 
@@ -237,8 +237,9 @@ Die rechte Seite des HX711 wird wie folgt angeschlossen:
     \label{fig:waegezelle-adc}
 \end{figure}
 \section{Programmlogik unseres Microchips}
-Nach dem Aufbau unseres Systems geht es nun an die Gewichtsmessung. Das Programm zur Gewichtsmessung mittels dem HX711 basiert auf getsiddd's HX711 AVR Bibliothek (\url{https://github.com/getsiddd/HX711}).\\ 
-Die wichtigsten Erweiterungen von uns sind:\\
+Nach dem Aufbau unseres Systems geht es nun an die Gewichtsmessung. Das Programm zur Gewichtsmessung mittels dem HX711 basiert auf \textit{getsiddd's HX711 AVR Bibliothek} (\url{https://github.com/getsiddd/HX711}).\\ 
+\\
+Die wichtigsten Erweiterungen von uns sind:
 \begin{itemize}
     \item die Möglichkeit, negative Gewichtsveränderungen wahrnehmen zu können, siehe Funktion weightStuff() in RN2483.c, Zeile 246-254
     \item auf Tastendruck eine Tar-Funktion auszuführen, siehe Funktion weightStuff() in RN2483.c, Zeile 312-316
@@ -341,8 +342,10 @@ Bei Krafteinwirkung produzieren diese Sensoren eine elektrische Ladung, die geme
 \end{figure}
 
 \chapter{Drahtlose Verbindung zwischen den Komponenten mit dem LoRaWAN-Protokoll}
+Nachdem wir nun zuverlässig die Sensordaten (in unserem Fall: das Gewicht und somit den Füllstand) messen und verarbeiten können, geht es in diesem Kapitel nun um das Versenden und Empfangen der Sensordaten über die drahtlose Verbindungstechnologie LoRa.
 \section{Aufsetzen eines Servers (LoRa-Gateway)}
-Unser LoRa-Gateway hat im Prinzip die Funktion eines WLAN-Routers. Alle Clients (LoRa-Nodes) melden sich an dem Gateway an und kommunizieren mit dem Gateway. Wie der Begriff „Gateway“ schon andeutet, ist dies ein Tor, das zum Internet führt (siehe folgende Abbildung \ref{fig:lora-schaubild}).
+Damit wir überhaupt überprüfen können ob die Daten die wir versenden vollständig und zuverlässig ankommen, benötigen wir erstmal einen Empfänger.
+Dieser Empfänger wird als LoRa-Gateway bezeichnet und hat im Prinzip die Funktion eines WLAN-Routers. Alle Clients (LoRa-Nodes) melden sich an dem Gateway an und kommunizieren mit dem Gateway. Wie der Begriff „Gateway“ schon andeutet, ist dies ein Tor, das zum Internet führt (siehe folgende Abbildung \ref{fig:lora-schaubild}).
 \begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/lora-schaubild.jpg}\\
@@ -354,44 +357,51 @@ Unser LoRa-Gateway hat im Prinzip die Funktion eines WLAN-Routers. Alle Clients 
 Realisiert wird unser Gateway durch ein „iC880A-SPI Concentrator Board“, das mit Hilfe einer Antenne mit den LoRa-Nodes Daten austauscht. Das Gateway, also das Concentrator Board, ist über ein Serial Peripheral Inface (SPI) an einen Raspberry Pi angeschlossen. Dieser Einplatinen-Computer versendet nun die Daten der LoRa-Nodes, empfangen über das Gateway, ins Internet.\\
 Damit nun die gesendeten Daten nicht nur lose in der großen weiten Welt des Internets ziellos umher irren, benötigt das Gateway eine Adresse, über die Datenpakete identifiziert werden können. Doch vor der Adress-Konfiguration der Hardware, sollten die Komponenten beschafft und lokal richtig installiert werden damit sie miteinander funktionieren.\\
 Auf dem Wiki der GitHub-Seite von The Things Network Zurich (\url{https://github.com/ttn-zh/ic880a-gateway/wiki}) kann man nachlesen welche Bauteile man benötigt, wie man die Pins verbinden soll, das Betriebssystem aufsetzt und anschließend das Gateway im TheThingsNetwork registriert.\\
-Nachdem man die Anweisungen zum Konfigurieren befolgt hat, sollte es auf der Webseite für Gateways von TheThingsNetwork zu sehen sein.
+Nachdem man die Anweisungen zum Konfigurieren befolgt hat, sollte es auf der Webseite für Gateways von TheThingsNetwork zu sehen sein (siehe folgende Abbildung \ref{fig:lora-1}).
 \begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/lora-1.png}\\
     \caption{Übersicht der registrierten Gateways im TheThingsNetwork}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/gateways} \end{center}
+    \label{fig:lora-1}
 \end{figure}
 \newpage
 \section{Erstellen einer LoRa-Applikation zum Abrufen der Daten}
-Damit wir jetzt auch mit den verschlüsselten Daten, die wir empfangen, etwas anfangen können, müssen wir erstmal eine Applikation in der Konsole von TheThingsNetwork erstellen. 
+Nachdem unser Gateway nun empfangsbereit ist könnten wir eigentlich schon ein LoRa-Node in Betrieb setzen um Daten an den Gateway zu senden.
+Da diese Daten aber verschlüsselt sind, müssen wir aber erstmal eine Applikation erstellen um lesbare Daten zu erhalten und sie zu einem Sender zuordnen zu können.
+Eine Applikation können wir in der Konsole von TheThingsNetwork erstellen (siehe folgende Abbildungen \ref{fig:lora-2} und \ref{fig:lora-3}).
 \begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/lora-2.png}\\
     \caption{Übersicht der erstellten Applikationen im TheThingsNetwork}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
+    \label{fig:lora-2}
 \end{figure}
 \begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/lora-3.png}\\
     \caption{Formular zur Erstellung einer Applikation}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
+    \label{fig:lora-3}
 \end{figure}
 \newpage
 \paragraph{Application ID:} Muss einzigartig und eindeutig sein.
 \paragraph{Description:} Eine kurze, aber aussagekräftige Beschreibung der Applikation.
 \paragraph{Handler registration:} Wurde passend zum Standort gewählt.\\
 \\
-Nachdem man nun eine Applikation erstellt hat, fügt man nun auch ein Gerät zu dieser Applikation hinzu.
+Nachdem man nun eine Applikation erstellt hat, fügt man nun auch ein Gerät zu dieser Applikation hinzu (siehe folgende Abbildungen \ref{fig:lora-4} und \ref{fig:lora-5}).
 \begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/lora-4.png}\\
     \caption{Übersicht der registrierten Geräte}
+    \label{fig:lora-4}
 \end{figure}
 \begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/lora-5.png}\\
     \caption{Formular zur Registrierung eines Geräts}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
+    \label{fig:lora-5}
 \end{figure}
 \newpage
 \paragraph{Device ID:} Muss einzigartig sein und am besten aussagekräftig, damit man diese ID später einem Gerät zuordnen kann.
@@ -400,18 +410,19 @@ Nachdem man nun eine Applikation erstellt hat, fügt man nun auch ein Gerät zu 
 
 \paragraph{App Key:} Kann man selber bestimmen oder generieren lassen, indem man das Zufällig-Icon bzw. den Stift-Icon anklickt um es umzuschalten. Dies wird später benötigt um das Gerät richtig zu konfigurieren!
 
-\paragraph{App EUI:} Wird automatisch generiert von der Webseite.\\
+\paragraph{App EUI:} Wird automatisch generiert.\\
 \\
 Nachdem wir ein Gerät erstellt haben, sollten wir die Aktivierungsmethode ändern:\\
-Dazu gehen wir in $Application \rightarrow application\_id \rightarrow devices \rightarrow device\_id \rightarrow Settings$. Darin kann man die Activation Method von OTAA zu ABP ändern.
+Dazu gehen wir in $Application \rightarrow application\_id \rightarrow devices \rightarrow device\_id \rightarrow Settings$. Darin kann man die Activation Method von OTAA zu ABP ändern (siehe folgende Abbildung \ref{fig:lora-6}).
 \begin{figure}[H]
     \center
     \includegraphics[width=4cm]{Bilder/lora-6.png}\\
     \caption{Aktivierungsmethoden: links Over-the-Air Activation (OTAA), rechts Activation By Personalization (ABP)}
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
+    \label{fig:lora-6}
 \end{figure}
 \noindent
-Wenn wir die Änderungen speichern, kommen wir wieder auf die Seite des Geräts. Scrollen wir ganz nach unten, dann sehen wir ein Codebeispiel.
+Wenn wir die Änderungen speichern, kommen wir wieder auf die Seite des Geräts. Scrollen wir ganz nach unten, dann sehen wir ein Codebeispiel (siehe folgende Abbildung \ref{fig:beispielcode}).
 \begin{figure}[H]
     \center
     \includegraphics[width=11cm]{Bilder/lora-7.png}\\
@@ -422,8 +433,9 @@ Wenn wir die Änderungen speichern, kommen wir wieder auf die Seite des Geräts.
 \noindent
 Diesen Codeausschnitt speichern wir oder wir merken uns, dass er auf der Seite des Geräts ist, da wir ihn später zum Konfigurieren des Nodes wieder brauchen werden. 
 \section{Aufsetzen eines Clients (LoRa-Node)} \label{mac-commands}
-Bevor wir die LoRa-Nodes mit Strom versorgen, befestigen wir erstmal eine Antenne an den RFH (Radio Frequency High Band – PIN 23) Anschluss.\\
-Unser LoRa-Node ist über die serielle Schnittstelle UART (PIN 6 + 7 am RN2483) an den Mikrocontroller ATmega644PA (PD0 bzw. PIN 14 + PD1 bzw. PIN 15) angeschlossen und kommuniziert so mit dem Mikrochip. Die Baudrate für die UART Verbindung beträgt standardmäßig 57600 bps, kann aber auch mit einer gewissen Character Folge geändert werden. (Siehe folgende Abbildung \ref{fig:UART})
+Da unser Gateway jetzt funktionsfähig ist und wir durch die Applikation lesbare Daten erhalten können, konfigurieren wir nun die Sender (LoRa-Nodes).
+Bevor wir die LoRa-Nodes mit Strom versorgen, befestigen wir erstmal eine Antenne an den RFH (Radio Frequency High Band – PIN 23) Anschluss der unsere Antenne mit 868 MHz betreiben wird.\\
+Unser LoRa-Node ist über die serielle Schnittstelle UART (PIN 6 + 7 am RN2483) an den Mikrocontroller ATmega644PA (PD0 bzw. PIN 14 + PD1 bzw. PIN 15) angeschlossen und kommuniziert so mit dem Mikrochip. Die Baudrate für die UART Verbindung beträgt standardmäßig 57600 bps, kann aber auch mit einer gewissen Character Folge geändert werden (siehe folgende Abbildung \ref{fig:UART}).
 \begin{figure}[H]
     \center
     \includegraphics[width=11cm]{Bilder/lora-8.png}\\
@@ -441,7 +453,7 @@ Folgende Methoden haben wir von der Drotek RN2483 Library (\url{https://github.c
 Zu aller erst setzen wir den RN2483 zurück, indem wir per UART die Befehle „\textbf{sys factoryRESET}“ und „\textbf{sys reset}“ senden und jeweils mit einem Break- und New-Line-Character bestätigen. (ASCII: Break = 0x0D; New-Line = 0x0A).\\
 
 \noindent
-Als nächstes füttern wir den RN2483 mit den Daten, die wir beim Erstellen des Geräts im Applikations-Server erhalten haben. Dazu werden folgende Befehle benötigt:
+Als nächstes konfigurieren wir den RN2483 mit den Daten, die wir beim Erstellen des Geräts im Applikations-Server erhalten haben. Dazu werden folgende Befehle benötigt:
 \begin{itemize}
     \item \textbf{mac set devaddr <address>}
     \item \textbf{mac set nwkskey <nwksesskey>}
@@ -463,7 +475,7 @@ Dies wird wie folgt gemacht:
 \end{itemize}
 
 \noindent
-Nach jedem Befehl benutzen wir derzeit noch eine Delay-Funktion um dem RN2483 Chip Zeit zum Bearbeiten und Antworten zu lassen. Die aufgerundeten Delay-Zeiten bzw. Berechnungszeiten sieht man im folgenden Diagramm.
+Nach jedem Befehl benutzen wir derzeit noch eine Delay-Funktion um dem RN2483 Chip Zeit zum Bearbeiten und Antworten zu lassen. Die aufgerundeten Delay-Zeiten bzw. Berechnungszeiten sieht man im folgenden Diagramm (Abbildung \ref{fig:boot-time}).
 
 \begin{figure}[H]
     \center
@@ -491,7 +503,7 @@ Spreading Factor (kurz: SF) ist, wie der Begriff teilweise schon verrät, ein Fa
     \item kleiner SF = hohe Bitrate, nicht so hohe Reichweite;
     \item hoher SF = niedrige Bitrate, hohe Reichweite.
 \end{itemize} 
-In der folgenden Tabelle ist dies sehr gut erkennbar. 
+In der folgenden Tabelle (Abbildung \ref{fig:spreading-factor}) ist dies sehr gut erkennbar. 
 \begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/lora-10.png}\\
@@ -524,7 +536,7 @@ Die serielle Schnittstelle (UART), die zwischen beiden Bauteilen besteht, implem
 \end{itemize}
 \subsection{uart.c}
 \begin{itemize}
-    \item \textbf{init\_uart():} Initialisiert die UART-Schnittstelle, d.h. setzt die Baudrate, aktiviert die RX und TX Pins und setzt den asynchronen UART Modus mit 8 Data bits, no parity, 1 stop bit. 
+    \item \textbf{init\_uart():} Initialisiert die UART-Schnittstelle im Mikrocontroller, d.h. setzt die Baudrate, aktiviert die RX und TX Pins und setzt den asynchronen UART Modus mit 8 Data bits, no parity, 1 stop bit. 
     \item \textbf{uart\_putc(unsigned char c):} Sendet einen Buchstaben über UART, wenn die Schnittstelle bereit ist.
     \item \textbf{sendString(char tempStringChar[]):} Sendet ein Char-Array über UART, indem es für jeden Char die uart\_putc() Methode aufruft. 
     \item \textbf{sendHex2(char *s):} Konvertiert das gegebene Char-Array in Hexadezimal ASCII Code und sendet es über die sendString() Methode.
@@ -656,7 +668,7 @@ Dem Taster wurde eine Tar-Funktion zugewiesen, mit der das Gewicht genullt werde
 
 \chapter{Fazit der prototypischen Umsetzung eines Wägesystems für den Gastronomie-Betrieb via LoRaWAN}
 Zusammenfassend sei zu sagen, dass der Aufbau, die Funktion und der Nutzen der angenommenen Vorteile vollumfänglich realisiert werden konnte.\\
-Alle Komponenten arbeiten nach Konfiguration und Implementierung exakt so zusammen, das der reibungslose Ablauf des Prozesses der ständigen Visualisierung von Füllstand und dem Nachfüllen der Behältnisse gewährleistet ist.\\
+Alle Komponenten arbeiten nach Konfiguration und Implementierung exakt so zusammen, dass der reibungslose Ablauf des Prozesses der ständigen Visualisierung von Füllstand und dem Nachfüllen der Behältnisse gewährleistet ist.\\
 LoRa bietet über verschiedene Kommunikationswege eine sichere, energieeffiziente Übertragung und kann alle nötigen Daten zur Visualisierung übermitteln. Die Zyklen, die zur Übermittlung zu Verfügung stehen, sind ausreichend kurz damit die nutzbaren Informationen, also Füllstände von Kaffeebehältnissen oder anderen Behältnissen, clientseitig in Echtzeit zu sehen sind. Wobei der Energieverbrauch im Einzelnen nicht untersucht wurde, konnten Beobachtungen an den verwendeten Akkupacks Rückschlüsse auf die enorm niedrigen Energiekosten zulassen.\\
 Für eine weiträumige Nutzung, konnten Tests anderer Gruppen zeigen, dass selbst in riesigen Gastro-Anlagen die nötigen Reichweiten erzielt werden können, die für eine Füllstands-Anwendung nötig sind.\\
 Zudem läuft das System plattformunabhängig, sodass man das System auf vielen verschiedenen Geräten verwenden kann. Die Visualisierung wird im Browser, beispielsweise Internet Explorer oder Google Chrome angezeigt, sodass keine weiteren Installationen nötig sind. Der Server läuft auch auf diversen Betriebssystemen wie Windows oder MacOS, sodass hier keine großen Umstellungen nötig sind. Außerdem ist es auch möglich die Visualisierung auf einem Smartphone aufzurufen, beispielsweiße auf einem iPhone, da diese auch einen Browser installiert haben, sodass man die Füllstande auch zwischendurch und schnell überprüfen kann.\\
@@ -674,7 +686,7 @@ Abschließend muss erwähnt werden, dass ein großes Verbesserungspotential vorh
     \item Verschiedene Profile oder Modis passend zu den \textit{Spreading Factors (siehe Kapitel \ref{sec:spreadingfactor})} programmieren z.B.: niedrige Reichweite + hohe Bandbreite, hohe Reichweite + niedrige Bandbreite, etc.
 \end{itemize} 
 \section{Front-End Lizenzkosten vermeiden}
-Das Frontend hat das Problem, dass es die \textit{amCharts-Bibliothek} nutzt. Die Bibliothek ist für Open-Source- und nicht-kommerzielle Projekte frei verfügbar. Die Lizenz (Stand 06.07.2018) kostet für ein Jahr 4590 \euro. Darin sind die Diagramme in den Seiten Dashboard und Statistik enthalten. In Zukunft sollen selbstentwickelte Diagramme verwendet werden, um Lizenzkosten zu vermeiden.
+Das Front-End hat das Problem, dass es die „AmCharts“-Bibliothek nutzt. Die Bibliothek ist für Open-Source- und nicht-kommerzielle Projekte frei verfügbar. Die Lizenz (Stand 06.07.2018) kostet für ein Jahr 4590 \euro. Darin sind die Diagramme in den Seiten Dashboard und Statistik enthalten. In Zukunft sollen selbstentwickelte Diagramme verwendet werden, um Lizenzkosten zu vermeiden.
 \newpage
 \section{Erstellen eines wasserfesten Gehäuses}
 In naher Zukunft ist es außerdem noch wichtig, dass sich die Platine und die nötige Hardware in einem Gehäuse befinden, da es sonst nicht im kommerziellen Umfeld nutzbar wäre. Zudem sollte das Gehäuse wasserfest sein, da sonst Kaffee oder ähnliches hindurchkommen und etwas beschädigen könnte.\\
