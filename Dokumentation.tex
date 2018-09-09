@@ -245,7 +245,7 @@ Die wichtigsten Erweiterungen von uns sind:
     \item auf Tastendruck eine Tar-Funktion auszuführen, siehe Funktion weightStuff() in RN2483.c, Zeile 312-316
     \item Gewichts-Sende-Algorithmus in Verbindung mit dem LoRa-Modul, siehe Funktion ISR(TIMER0\_COMPA\_vect) in RN2483.c, Zeile 146-194
 \end{itemize}
-\subsection{Vereinfachte Funktionsweise für momentane Gewichtsmessung}
+\subsection{Vereinfachte Funktionsweise für momentane Gewichtsmessung} \label{sec:vereinfachte-momentane-gewichtsmessung}
 \noindent
 Nachdem die Bibliothek für den Baustein HX711 angepasst ist, also das Gewicht gemessen und versendet werden kann, geht es darum einen visualisierbaren Wert zu erhalten. Jedoch sind nicht alle Wägezellen perfekt gleich und ohne Rücksicht auf diese Imperfektionen würde jede Wägezelle einen anderen Messwert ergeben. 
 Um dieses Problem zu lösen, ist eine Kalibrationsvariable im Code implementiert. In unserem Fall, ist die Kalibrationsvariable ein fest codiertert Parameter, der durch ``Trial und Error'' ertestet wird, indem wir ein bekanntes Gewicht auf die Wägezelle legen und den Kalibrationswert in Richtung des gesuchten Gewichtes anpassen. Mit dem Ergebnis aus der Kalibrierung ist die Gewichtsmessung möglich.\\
@@ -258,10 +258,43 @@ Dazu ein kurzer Programmablauf der Funktionsweise:
     \item um am Ende einen lesbaren Kilogrammwert zu bekommen: 1,0085 Kg
 \end{itemize}
 \subsection{Algorithmus für Rausch- und Driftunterdrückung}
-Das Differenzgewicht von der letzten und der momentanen Gewichtsmessung wird mit einer vorher gewählten Veränderungsrate verglichen. Wenn das Differenzgewicht höher als die gewählte Veränderungsrate ist, wird der momentan gemessene Wert verwendet und angezeigt, im anderen Fall wird der Wert verworfen, weil er vermutlich durch Rauschen oder Drift verursacht wurde.\\
-Der Veränderungswert gibt auch die kleinstmögliche messbare Veränderung an. Am Beispiel unseres Projektes könnte bei einem Veränderungswert von ca. 5g, jemand mit einem Strohhalm Flüssigkeit aus dem Behältnis saugen, ohne dass das Programm die Gewichtsveränderung wahrnimmt.
+Leider reicht die unter \ref{sec:vereinfachte-momentane-gewichtsmessung} beschriebene Gewichtsmessmethodik in einer nicht perfekten Welt mit elektrischen Interferenzen nicht aus, um eine zuverlässige kontinuierliche Gewichtsmessung durchführen zu können. Wobei für uns folgende zwei Arten von Interferenzen wichtig sind: 
+
+\subsubsection{Rauschen}
+Wenn wir das Gewicht fein genug messen, sehen wir (in Abbildung \ref{fig:waegezelle-rauschen}) dass der Gewichtswert in einem bestimmten Bereich hin und her schwankt, selbst wenn wir das Gewicht auf der Wägezelle nicht verändern. 
+\begin{figure}[H]
+    \center
+    \includegraphics[width=15cm]{Bilder/waegezelle-rauschen.png}\\
+    \caption{Gemessene Werte einer Wägezelle in einem Koordinatensystem bei konstanter Belastung}
+    \begin{center} \quelle\url{https://phidgets.wordpress.com/2014/05/12/noise-and-drift-in-load-cells/} \end{center}
+    \label{fig:waegezelle-rauschen}
+\end{figure}
+
+\subsubsection{Drift}
+Die Verschiebung des Messbereiches durch Temperaturveränderung.
+\begin{figure}[H]
+    \center
+    \includegraphics[width=15cm]{Bilder/waegezelle-drift.png}\\
+    \caption{Gemessene Werte einer Wägezelle in einem Koordinatensystem bei Temperaturveränderung}
+    \begin{center} \quelle\url{https://phidgets.wordpress.com/2014/05/12/noise-and-drift-in-load-cells/} \end{center}
+    \label{fig:waegezelle-drift}
+\end{figure}
+\noindent
+Um dieses Problem zu lösen, nutzen wir einen Algorithmus der wie folgt funktioniert:\\
+Das Differenzgewicht von der letzten und der momentanen Gewichtsmessung wird mit einer vorher gewählten Veränderungsrate (z.B. 0.005 für 5 Gramm) verglichen. Wenn das Differenzgewicht höher als die gewählte Veränderungsrate ist, wird der momentan gemessene Wert verwendet und angezeigt, im anderen Fall wird der Wert verworfen, weil er vermutlich durch Rauschen oder Drift verursacht wurde.\\
+\\
+Als Programmablauf könnte das so aussehen:
+\begin{itemize}
+    \item Alte Gewichtsmessung = 0.200 (200 Gramm)
+    \item Neue Gewichtsmessung = 0.199 (199 Gramm)
+    \item Gewichtsdifferenz: 0.200 - 0.199 = 0.001 (1 Gramm)
+    \item Veränderungsrate = 0.005 (5 Gramm)
+    \item -0.005 < 0.001 < 0.005 = true
+    \item neue Gewichtsmessung wird verworfen und alter Gewichtswert bleibt erhalten
+\end{itemize}
+Der Veränderungswert gibt auch die kleinstmögliche messbare Veränderung an. Am Beispiel unseres Projektes könnte bei einem Veränderungswert von ca. 5 Gramm, jemand mit einem Strohhalm Flüssigkeit aus dem Behältnis saugen, ohne dass das Programm die Gewichtsveränderung wahrnimmt.
 \subsection{Algorithmus für Gewichtssendung mit dem LoRa-Modul}
-Die gemessenen Gewichtsdaten müssen nun an die Sammelstelle (den Gateway) gesendet werden. Der Sendevorgang basiert auf dem LoRa-Protokoll, welches vom LoRa-Modul in Empfang und in regelmäßigen Abständen zum LoRa-Gateway gesendet wird (vgl. \ref{fig:Komponentenmodell} Komponentenmodell). Mit Hilfe eines Interrupts, wird jede Sekunde eine Gewichtsmessung durchgeführt. Beim Ablauf des Sendeintervalls (in unserem Projekt momentan eingestellt auf fünfzehn Sekunden), wird in der Menge der Gewichtsmessungen (in unserem Fall fünfzehn Messungen, jede Sekunde eine), nach den letzten fünf Gewichtsmessungen gesucht, die den gleichen Wert haben. Wenn die Messungen diese Bedingung nicht erfüllen, wird kein Wert gesendet.
+Nachdem wir nun zuverlässige Gewichtsdaten messen können, müssen diese nur noch an die Sammelstelle (den Gateway) gesendet werden. Der Sendevorgang basiert auf dem LoRa-Protokoll, welches vom LoRa-Modul in Empfang und in regelmäßigen Abständen zum LoRa-Gateway gesendet wird (vgl. \ref{fig:Komponentenmodell} Komponentenmodell). Mit Hilfe eines Interrupts, wird jede Sekunde eine Gewichtsmessung durchgeführt. Beim Ablauf des Sendeintervalls (in unserem Projekt momentan eingestellt auf fünfzehn Sekunden), wird in der Menge der Gewichtsmessungen (in unserem Fall fünfzehn Messungen, jede Sekunde eine), nach den letzten fünf Gewichtsmessungen gesucht, die den gleichen Wert haben. Wenn die Messungen diese Bedingung nicht erfüllen, wird kein Wert gesendet.
 
 \section{Demonstration der Gewichtsmessung}
 Hier eine Demo zur Gewichtsmessung, die wir auch in der Zwischenpräsentation gezeigt haben:\\
