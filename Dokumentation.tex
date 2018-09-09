@@ -548,7 +548,7 @@ Die serielle Schnittstelle (UART), die zwischen beiden Bauteilen besteht, implem
 \chapter{Webserver für die Visualisierung}
 \section{Visualisierung der empfangenen Daten mit Angular CLI}
 Mit dem aufgesetzten Gateway, welches die Gewichtsdaten/Füllstände über verschlüsselte Kanäle ins Internet überträgt, fehlt noch die Komponente der Visualisierung. Der Webserver, der den Clients die Weboberfläche (das Front-End) zur Verfügung stellt, übernimmt die Aufgabe der Aufbereitung und Darstellung der übermittelten Daten.
-Das Front-End ist die Ansicht, auf welche der Kunde blickt, um die Füllstände aller Behälter zu sehen. Sie ist minimalistisch gehalten, sodass keine Überladung entsteht und das menschliche Auge die relevante Information schneller erkennt. \\
+Das Front-End ist die Ansicht, auf welche das Gatronomie-Personal blickt, um die Füllstände aller Behälter zu sehen. Sie ist minimalistisch gehalten, sodass keine Überladung entsteht und das menschliche Auge die relevante Information schneller erkennt. \\
 \begin{figure}[H]
     \center
     \includegraphics[width=16cm]{Bilder/front-end-1.png}\\
@@ -570,7 +570,10 @@ Die Visualisierung ist mithilfe des Front-End-Frameworks Angular CLI geschrieben
 
 \newpage
 \section{The Things Network}
-Das Things Network ist ein globales, freies und dezentrales Internet der Dinge Netzwerk. Es hat sich zum Ziel gesetzt, ein weltweit offenes und unabhängiges Internet der Dinge Netzwerk aufzubauen.
+Das Things Network ist ein globales, freies und dezentrales Internet der Dinge Netzwerk. Es hat sich zum Ziel gesetzt, ein weltweit offenes und unabhängiges Internet der Dinge Netzwerk aufzubauen.\\
+
+\noindent
+Der Client sendet über das LoRa-Protokoll Füllstandsdaten an das nächstgelegene Gateway. Das Gateway sendet über das Internet die Daten an TheThingsNetwork, welches dann die Daten an den Webserver schickt. Von da an werden die Daten verarbeitet und in der Visualisierung angezeigt.
 
 \begin{figure}[H]
     \center
@@ -603,7 +606,7 @@ Damit eine Verbindung zwischen den beiden Servern hergestellt werden kann, müss
     \item \textbf{dev\_id:} Das Gerät, welches die Nachricht gesendet hat 
     \item \textbf{hardware\_serial:} Hardwarenummer des Nodes
     \item \textbf{counter:} Messagecounter der bei jeder Nachricht um 1 inkrementiert
-    \item \textbf{payload\_raw:} Die Nachricht wird vom Network Server als Hexadezimal
+    \item \textbf{payload\_raw:} Das Datenpaket von TheThingsNetwork im Hexadezimal ASCII Rohformat
     \item \textbf{metadata:} In diesem Objekt ist ein Zeitstempel enthalten. Dieser Zeitstempel ist von dem Zeitpunkt, als die Nachricht im Network Server angekommen ist.
     \item \textbf{message:} Das ist die Payload, welche vom payload\_raw geparst wurde 
 \end{itemize} 
