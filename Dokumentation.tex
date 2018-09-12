@@ -7,9 +7,9 @@
 
 \thispagestyle{plain}
 \section*{Einleitung}
-LoRa ist eine neue innovative Technologie, die sehr energiesparend ist, sodass es perfekt für unsere kommerzielle Idee geeignet ist. 
+LoRa ist eine neue innovative Technologie, die sehr energiesparend ist, sodass es perfekt für unsere Idee eines kommerziellen Füllstand-Systems geeignet ist.
 Die Arbeit zeigt unser Vorgehen und den Verlauf des Projekts innerhalb des Semesters. Hierbei gehen wir sowohl auf die Konzeptionierung, Umsetzung und auf den Ausblick ein. Zudem weiten wir dies aus, indem wir erste Gedanken zur Kommerzialisierung beschreiben. 
-In dem folgenden Bild erkennt man unseren ersten fertigen Prototypen und die einzelnen Bauteile, die verwendet wurden. Hierbei handelt es sich um die gelötete Platine, die Wägezelle, das LoRa-Modul mit der Antenne und ein LCD-Display. Detaillierte Informationen zu den einzelnen Bauteilen folgen in den nächsten Kapiteln.
+In dem folgenden Bild erkennt man unseren ersten fertigen Prototypen , der den Füllstand einer Kaffeekanne anzeigt. Die Einzelteile bestehen aus einer gelöteter Platine inkl. Controller, einer Wägezelle, dem Transmitter-(LoRa-)Modul mit Antenne und einem LCD-Display. Detaillierte Informationen zu den einzelnen Bauteilen folgen in den nächsten Kapiteln. Sicherlich ist hiermit noch kein Design-Preis zu gewinnen, denn zunächst steht die valide Funktion im Vordergrund.
 \begin{figure}[H]
     \center
     \includegraphics[width=9cm]{Bilder/einleitung.jpg}\\
@@ -17,10 +17,23 @@ In dem folgenden Bild erkennt man unseren ersten fertigen Prototypen und die ein
     \label{fig:Einleitung}
 \end{figure}
 \noindent 
-Das Ziel dieser Dokumentation ist, dass klar und verständlich erklärt wird, wie der erste Prototyp funktioniert, welche Stärken dieser besitzt und wie man diesen verbessern könnte. 
+Das Ziel dieser Dokumentation ist, dass klar und verständlich erklärt wird, wie der erste Prototyp funktioniert, welche Stärken dieser besitzt und wie man diesen für den kommerziellen Einsatz verbessert.
 \newpage
 
 \include{Package/Verzeichnisse}
+
+\chapter{Ausgangssituation / Beweggründe für die Umsetzung}
+In der Gastronomie üblich, prüft das Personal von Zeit zu Zeit ob in den Behältnissen der Gäste auf den Tischen oder am Buffet noch genügend Inhalt vorhanden ist. Das reicht von der Kaffeekanne auf dem Frühstückstisch, über das Butterbehältnis auf dem Buffett, bis hin zur Weinflasche am Abend im Restaurant. Natürlich gehört dies zum Service eines guten Gastrounternehmens. Auf der anderen Seite kostet es viel Servicekraft die Füllstände zur vollen Zufriedenheit des Kunden und jederzeit im Auge zu behalten.
+\\
+Unser Ziel ist es bei diesem Prozess eine höhere Effizienz zu erzielen. Es soll zu jeder Zeit und von überall, ohne Sichtprüfung eine klare Aussage über einen nötigen Nachfüllprozess getroffen werden können. Durch das Wegfallen der ständigen Sichtprüfung vor Ort, hat der Kunde eine ruhigere, entspanntere und damit angenehmere Atmosphäre. Er wird nur dann auf den Wunsch des Nachfüllens angesprochen, wenn das Gefäß tatsächlich leer ist. Damit werden deutlich optimalere Geschäftsabläufe gewährleistet: 
+\begin{itemize}
+    \item Produkte können bedarfsgerechter angerichtet, zubereitet oder hergestellt werden
+    \item Wartezeiten gegenüber dem Kunden lassen sich wahrnehmbar verkürzen, die Zufriedenheit steigt
+    \item und das Personal kann sich auf andere/wichtigere Themen bezüglich des Kunden konzentrieren
+\end{itemize}
+Um die Kernfunktionalität im Einsatz zu testen und die Idee zu validieren, beschränken wir uns bei der Entwicklung unseres Prototyps auf die Messung der Füllstände von Kaffeekannen.
+\\ 
+ Damit das System funktioniert, werden die Kaffeekannen auf einer Plattform abgestellt und durch Wäge-Sensoren gewogen. Die gemessenen Werte und die daraus entstandenen Informationen werden visualisiert und dem Personal über eine Webseite angezeigt. Bei niedrigem Füllstand (oder zu niedriger Temperatur, weil schon zu lange in der Kanne) können sie damit schnell reagieren. Die komplette drahtlose Kommunikation basiert dabei auf LoRa-Nodes, die sehr energiesparend sind. Bei konstanter täglicher Nutzung des Systems ist bei entsprechender Akkugröße eine Laufzeit von einem Jahr möglich. Trotzdem ist zusätzliches Optimierungspotential vorhanden. Denn werden die LoRa-Nodes nach dem Senden der Zeit- und Gewichtsinformationen in einen Sleep-Mode versetzt, zusätzlich der Sende-Zyklus verlängert und serverseitig ein besserer Abstraktionsalgorithmus implementiert, sind bei gleichem Akku Laufzeiten bis zu drei Jahren denkbar.
 
 \chapter{Projektvorstellung}
 Wir haben uns in der Veranstaltung Embedded Systems des Studiengangs Software-Engineering bei Prof. Dr. Jürgen Doneit und Herr Ulrich Straus im Sommersemester 2018 für das Projekt LoRa-Messnetzwerk entschieden. Die Aufgabe bestand darin, ein Messnetzwerk aufzubauen, welches Sensordaten entgegennimmt und diese über ein Long Range Wide Area Network, kurz LoRaWAN, verschickt.\\
@@ -35,19 +48,7 @@ Der daraus resultierende Use-Case:
 \noindent
 In einem Restaurant wird der Inhalt einer Kaffeekanne durch das Gewicht bestimmt. Um die Gewichtsmessung für alle Kannen durchzuführen, werden sie auf einer Plattform abgestellt, in der ein Wäge-Sensor-System integriert ist. Das Sensor-System, welches über einen Akku betrieben wird, besteht aus einem Wäge-Sensor, einem Mikrocontroller und einem Transmitter (dem LoRa-Node). Die Messdaten werden jeweils ausgelesen und an den angeschlossenen LoRa-Node übertragen. Die Gesamtheit aller LoRa-Nodes kommunizieren mit einem Empfänger, dem LoRa-Gateway. Das LoRa-Gateway, angeschlossen ans Internet, empfängt die Sensorgewichtsdaten und leitet diese auf einen Web-Server weiter. Das Server-System verarbeitet die Daten, um die Füllstände der Kaffeekannen schlussendlich auf einer Webseite zu visualisieren. Der plattformübergreifende Zugriff über diverse Endgeräte ist somit möglich.
 
-\chapter{Ausgangssituation / Beweggründe für die Umsetzung}
-In der Gastronomie üblich, prüft das Personal von Zeit zu Zeit ob in den Behältnissen der Gäste auf den Tischen oder am Buffet noch genügend Inhalt vorhanden ist. Das reicht von der Kaffeekanne auf dem Frühstückstisch, über das Butterbehältnis auf dem Buffett, bis hin zur Weinflasche am Abend im Restaurant. Natürlich gehört dies zum Service eines guten Gastrounternehmens. Auf der anderen Seite kostet es viel Servicekraft die Füllstände zur vollen Zufriedenheit des Kunden und jederzeit im Auge zu behalten.
-\\
-Unser Ziel ist es bei diesem Prozess eine höhere Effizienz zu erzielen. Es soll zu jeder Zeit und von überall, ohne Sichtprüfung eine klare Aussage über einen nötigen Nachfüllprozess getroffen werden können. Durch das Wegfallen der ständigen Sichtprüfung vor Ort, hat der Kunde eine ruhigere, entspanntere und damit angenehmere Atmosphäre. Er wird nur dann auf den Wunsch des Nachfüllens angesprochen, wenn das Gefäß tatsächlich leer ist. Damit werden deutlich optimalere Geschäftsabläufe gewährleistet: 
-\begin{itemize}
-    \item Produkte können bedarfsgerechter angerichtet, zubereitet oder hergestellt werden
-    \item Wartezeiten gegenüber dem Kunden lassen sich wahrnehmbar verkürzen, die Zufriedenheit steigt
-    \item und das Personal kann sich auf andere/wichtigere Themen bezüglich des Kunden konzentrieren
-\end{itemize}
-Um die Kernfunktionalität im Einsatz zu testen und die Idee zu validieren, beschränken wir uns bei der Entwicklung unseres Prototyps auf die Messung der Füllstände von Kaffeekannen.
-\\ 
- Damit das System funktioniert, werden die Kaffeekannen auf einer Plattform abgestellt und durch Wäge-Sensoren gewogen. Die gemessenen Werte und die daraus entstandenen Informationen werden visualisiert und dem Personal über eine Webseite angezeigt. Bei niedrigem Füllstand (oder zu niedriger Temperatur, weil schon zu lange in der Kanne) können sie damit schnell reagieren. Die komplette drahtlose Kommunikation basiert dabei auf LoRa-Nodes, die sehr energiesparend sind. Bei konstanter täglicher Nutzung des Systems ist bei entsprechender Akkugröße eine Laufzeit von einem Jahr möglich. Trotzdem ist zusätzliches Optimierungspotential vorhanden. Denn werden die LoRa-Nodes nach dem Senden der Zeit- und Gewichtsinformationen in einen Sleep-Mode versetzt, zusätzlich der Sende-Zyklus verlängert und serverseitig ein besserer Abstraktionsalgorithmus implementiert, sind bei gleichem Akku Laufzeiten bis zu drei Jahren denkbar.
-\\
+\section{Projektplan}
 Am Anfang des Projektes erstellten wir Bauteildiagramme und diskutierten über Kommunikationswege zwischen den Bauteilen. Danach teilten wir Schwerpunkte beziehungsweise Bauteile auf unsere Teammitglieder auf, welche dann nochmal tiefer vom zugewiesenen Teammitglied recherchiert wurden. Die Zusammensetzung der Bauteile erfolgte zunächst um schnelle Validierungstests und Hardwareänderungen durchführen zu können. Nach erfolgreichen Tests auf unserer zuvor zusammengesetzten Entwicklungsplattform wechselten wir die Hardware auf eine selbst konzeptionierte Platine. Mit dem letzten validen Test und nach der offiziellen Präsentation dokumentierten wir unsere Ergebnisse.
 
 \begin{figure}[H]
@@ -56,6 +57,7 @@ Am Anfang des Projektes erstellten wir Bauteildiagramme und diskutierten über K
     \caption{Projektplan}
     \label{fig:Projektplan}
 \end{figure}
+
 \chapter{Einkaufsliste}
 
 \begin{table}[h]
@@ -281,7 +283,7 @@ Die Verschiebung des Messbereiches durch Temperaturveränderung.
 \end{figure}
 \noindent
 Um dieses Problem zu lösen, nutzen wir einen Algorithmus der wie folgt funktioniert:\\
-Das Differenzgewicht von der letzten und der momentanen Gewichtsmessung wird mit einer vorher gewählten Veränderungsrate (z.B. 0.005 für 5 Gramm) verglichen. Wenn das Differenzgewicht höher als die gewählte Veränderungsrate ist, wird der momentan gemessene Wert verwendet und angezeigt, im anderen Fall wird der Wert verworfen, weil er vermutlich durch Rauschen oder Drift verursacht wurde.\\
+Das Differenzgewicht ~--~ von der letzten und der momentanen Gewichtsmessung ~--~ wird mit einer zuvor gewählten Veränderungsrate (z.B. 0.005 für 5 Gramm) verglichen. Wenn das Differenzgewicht höher als die gewählte Veränderungsrate ist, wird der momentan gemessene Wert verwendet und angezeigt, im anderen Fall wird der Wert verworfen, weil er vermutlich durch Rauschen oder Drift verursacht wurde.\\
 \\
 Als Programmablauf könnte das so aussehen:
 \begin{itemize}
@@ -292,7 +294,7 @@ Als Programmablauf könnte das so aussehen:
     \item -0.005 < 0.001 < 0.005 = true
     \item neue Gewichtsmessung wird verworfen und alter Gewichtswert bleibt erhalten
 \end{itemize}
-Der Veränderungswert gibt auch die kleinstmögliche messbare Veränderung an. Am Beispiel unseres Projektes könnte bei einem Veränderungswert von ca. 5 Gramm, jemand mit einem Strohhalm Flüssigkeit aus dem Behältnis saugen, ohne dass das Programm die Gewichtsveränderung wahrnimmt.
+Der Veränderungswert gibt auch die kleinstmögliche messbare Veränderung an. Am Beispiel unseres Projektes könnte bei einem Veränderungswert von ca. 5 Gramm, jemand mit einem Strohhalm Flüssigkeit aus dem Behältnis saugen, ohne dass das Programm die Gewichtsveränderung wahrnimmt ~--~ was aber in der Praxis zu vernachlässigen ist.
 \subsection{Algorithmus für Gewichtssendung mit dem LoRa-Modul}
 Nachdem wir nun zuverlässige Gewichtsdaten messen können, müssen diese nur noch an die Sammelstelle (den Gateway) gesendet werden. Der Sendevorgang basiert auf dem LoRa-Protokoll, welches vom LoRa-Modul in Empfang und in regelmäßigen Abständen zum LoRa-Gateway gesendet wird (vgl. \ref{fig:Komponentenmodell} Komponentenmodell). Mit Hilfe eines Interrupts, wird jede Sekunde eine Gewichtsmessung durchgeführt. Beim Ablauf des Sendeintervalls (in unserem Projekt momentan eingestellt auf fünfzehn Sekunden), wird in der Menge der Gewichtsmessungen (in unserem Fall fünfzehn Messungen, jede Sekunde eine), nach den letzten fünf Gewichtsmessungen gesucht, die den gleichen Wert haben. Wenn die Messungen diese Bedingung nicht erfüllen, wird kein Wert gesendet.
 
@@ -603,7 +605,7 @@ Die Visualisierung ist mithilfe des Front-End-Frameworks Angular CLI geschrieben
 
 \newpage
 \section{The Things Network}
-Das Things Network ist ein globales, freies und dezentrales Internet der Dinge Netzwerk. Es hat sich zum Ziel gesetzt, ein weltweit offenes und unabhängiges Internet der Dinge Netzwerk aufzubauen.\\
+Das Things Network ist ein globales, freies und dezentrales Internet der Dinge Netzwerk. Es wurde mit dem Ziel entwickelt, ein weltweit offenes und unabhängiges Internet der Dinge Netzwerk aufzubauen. In unserem konkreten Fall nutzen wir diese Art von Cloud, um lokal erwirtschaftete Daten zu verarbeiten und wieder zur Verfügung zu stellen.\\
 
 \noindent
 Der Client sendet über das LoRa-Protokoll Füllstandsdaten an das nächstgelegene Gateway. Das Gateway sendet über das Internet die Daten an TheThingsNetwork, welches dann die Daten an den Webserver schickt. Von da an werden die Daten verarbeitet und in der Visualisierung angezeigt.
@@ -645,8 +647,8 @@ Damit eine Verbindung zwischen den beiden Servern hergestellt werden kann, müss
 \end{itemize} 
 \newpage
 \section{Inaktivität der Behälter}
-Sobald ein Gerät inaktiv wird (d.h. eine Stunde ohne Nachrichtenempfang), ist es für die Nutzer in der UI nicht mehr möglich, das Gerät zu sehen. Diese Inaktivität würde bei einem Thermobehälter die Abkühlung bedeuten. Diese Zeitbeschränkung wurde nach einer Gesprächsrunde innerhalb der Entwickler festgesetzt.\\
-Falls das Gerät unerwartet vom Netz genommen wird, kann das in der Visualisierung für Verwirrung sorgen. Tritt dieser Fall ein, könnte man auf der Webseite, auf der die Behältnisse angezeigt werden, nicht erkennen, ob das Gerät überhaupt noch existiert. Deshalb wird das Gerät, sobald es wieder im Netz ist, mit den aktuellen Messwerten in der UI eingeblendet. 
+Sobald ein Gerät eine Stunde lang keine Nachricht bezüglich einer Gewichtsveränderung geschickt hat, wird es für den Anwender in der visualisierten Webumgebung (kurz UI ~--~ User Interface) als inaktiv gekennzeichnet. Diese Inaktivität würde bei einem Thermobehälter die Abkühlung bedeuten und sollte schnellstmöglich vom Gastronomie-Personal überprüft werden. Diese Zeitbeschränkung wurde nach einer Gesprächsrunde innerhalb der Entwickler festgesetzt.\\
+Falls das Gerät nicht in der Lage ist eine Nachricht zu versenden (beispielsweise durch einen unvorhersehbaren Defekt in einem Bauteil), kann das in der Visualisierung für Verwirrung sorgen, da die Messwerte bei Befüllung bzw. Entnahme des Behälterinhalts nicht aktualisert werden. Sobald das Gerät wieder im Netz ist und in der Lage ist Nachrichten zu versenden, wird es wieder als aktiv gekennzeichnet und mit den aktuellen Messwerten im UI eingeblendet. 
 
 \section{Voraussetzungen und Nutzung des Webservers}
 Um den Webserver, der für die Kommunikation hin zu den Knoten-Daten und die Visualisierung für die Gastro-Mitarbeiter, im realen Umfeld betreiben zu können, sind für das Aufsetzen folgende Systeme/Software notwendig.\\
@@ -684,7 +686,7 @@ Der Schaltplan wurde mit dem Programm Fritzing (\url{http://fritzing.org/home}) 
 \end{figure}
 \newpage
 \noindent
-Als Mikrocontroller haben wir im Schaltplan einen ATmega644 statt einem ATmega644PA verwendet, da diese fast gleich sind. Ausgehend vom Mikrocontroller werden an den Pins XTAL1 und XTAL2 der Quarz angeschlossen. Die Pins PA0 bis PA7 sind für ein LCD Display reserviert, auf dem Gewichtsinformationen, aber auch Debug-Meldungen ausgegeben werden können. Der Wägesensor ist mit den Pins PD5 und PD6 verbunden. Wobei hier noch die notwendigen Pullup-Widerstände für die I\textsuperscript{2}C- (Two-Wire-) Schnittstelle fehlen. Für das Wägesensor-Bauteil (im Schaltplan fälschlicherweise als Compass, HMC betitelt) wurde ein Platzhalter-Bauteil mit vier Pins verwendet, da kein passendes Layout für unseren Wägesensor gefunden wurde. Das LoRa-Modul wird an PD1 angeschlossen und es wurde ebenso eine Platzhalterkomponente mit drei Pins verwendet. Zudem haben wir einen Taster auf PD0 für die direkte Kommunikation mit dem Wäge-Modul und an PD5 – PD7 einen ISP-Anschluss für die Programmierung angelötet. Die Platine und dessen Bauteile werden mit zwei in Reihe geschalteten Akkus versorgt die jeweils eine Spannung von ca. 3,6 Volt haben und damit eine Gesamtspannung von 7,2 Volt liefern. Dazwischen geschaltet ist ein DC-DC Wandler, der den Stromkreis auf konstante 5V versorgt.\\
+Als Mikrocontroller haben wir im Schaltplan einen ATmega644 statt einem ATmega644PA verwendet, da diese fast gleich sind. Ausgehend vom Mikrocontroller werden an den Pins XTAL1 und XTAL2 der Quarz angeschlossen. Die Pins PA0 bis PA7 sind für ein LCD Display reserviert, auf dem Gewichtsinformationen, aber auch Debug-Meldungen ausgegeben werden können. Der Wägesensor ist mit den Pins PD5 und PD6 verbunden. Wobei hier noch die notwendigen Pullup-Widerstände für die I\textsuperscript{2}C- (Two-Wire-) Schnittstelle fehlen. Für das Wägesensor-Bauteil (im Schaltplan fälschlicherweise als Compass, HMC betitelt) wurde ein Platzhalter-Bauteil mit vier Pins verwendet, da kein passendes Layout für unseren Wägesensor gefunden wurde. Das LoRa-Modul wird an PD1 angeschlossen und es wurde ebenso eine Platzhalterkomponente mit drei Pins verwendet. Zudem haben wir einen Taster auf PD0 für die direkte Kommunikation mit dem Wäge-Modul und an PD5 – PD7 einen ISP-Anschluss für die Programmierung angelötet. Die Platine und dessen Bauteile werden mit zwei in Reihe geschalteten Akkus versorgt die jeweils eine Spannung von ca. 3,6 Volt haben und damit eine Gesamtspannung von 7,2 Volt liefern. Dazwischen geschaltet ist ein DC-DC Wandler, der für konstante 5V sorgt.\\
 
 \noindent
 Die Rückseite der gelöteten Platine:

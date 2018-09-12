@@ -521,14 +521,14 @@ OUTPUT Dokumentation.lof
 INPUT Dokumentation.lot
 INPUT Dokumentation.lot
 OUTPUT Dokumentation.lot
-INPUT Bilder/usecase-1.png
-INPUT ./Bilder/usecase-1.png
-INPUT ./Bilder/usecase-1.png
 INPUT c:/texlive/2018/texmf-dist/tex/latex/kerkis/omsmak.fd
 INPUT c:/texlive/2018/texmf-dist/tex/latex/kerkis/omsmak.fd
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ktsy8a.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/ktsy8a.vf
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ktsy8r.tfm
+INPUT Bilder/usecase-1.png
+INPUT ./Bilder/usecase-1.png
+INPUT ./Bilder/usecase-1.png
 INPUT Bilder/projektplan.png
 INPUT ./Bilder/projektplan.png
 INPUT ./Bilder/projektplan.png
