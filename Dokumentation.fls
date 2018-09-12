@@ -600,6 +600,9 @@ INPUT ./Bilder/waegezelle-aufbaubeschreibung.jpg
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/eki8a.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/eki8a.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/eki8a.tfm
+INPUT Bilder/waegezelle-funktionsweise.png
+INPUT ./Bilder/waegezelle-funktionsweise.png
+INPUT ./Bilder/waegezelle-funktionsweise.png
 INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/kmath8a.vf
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/kmath8r.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/txfonts/txr.vf
@@ -607,9 +610,6 @@ INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/txfonts/rtxptmr.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/txfonts/rtxr.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/eki8a.vf
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/eki8r.tfm
-INPUT Bilder/waegezelle-funktionsweise.png
-INPUT ./Bilder/waegezelle-funktionsweise.png
-INPUT ./Bilder/waegezelle-funktionsweise.png
 INPUT Bilder/waegezelle-verschaltung.jpg
 INPUT ./Bilder/waegezelle-verschaltung.jpg
 INPUT ./Bilder/waegezelle-verschaltung.jpg
@@ -696,14 +696,14 @@ INPUT ./Bilder/Netzwerkdiagramm.png
 INPUT Bilder/schaltplan-1.png
 INPUT ./Bilder/schaltplan-1.png
 INPUT ./Bilder/schaltplan-1.png
+INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/ek8a.vf
+INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ek8r.tfm
 INPUT Bilder/schaltplan-2.jpg
 INPUT ./Bilder/schaltplan-2.jpg
 INPUT ./Bilder/schaltplan-2.jpg
 INPUT Bilder/schaltplan-3.jpg
 INPUT ./Bilder/schaltplan-3.jpg
 INPUT ./Bilder/schaltplan-3.jpg
-INPUT c:/texlive/2018/texmf-dist/fonts/vf/public/kerkis/ek8a.vf
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/kerkis/ek8r.tfm
 INPUT Dokumentation.aux
 INPUT Package/Titleanbindung.aux
 INPUT Package/Titleanbindung.aux

@@ -151,7 +151,6 @@ Bei Auflage von Gewicht bzw. Verformung der Wägezelle messen zwei Dehnmessstrei
     Leiterwiderstand=\textit{spezifischer Widerstand} \cdot \frac{\textit{Leiterlänge}}{Leiterquerschnitt}
 \end{equation}
 verringert sich der Widerstand des Dehnungsmessstreifens. Bei Spannung des Dehnmessstreifens werden die Leiter dünner und länger, somit erhöht sich auch der Widerstand des Dehnungsmessstreifens. 
-\newpage
 \begin{figure}[H]
     \center
     \includegraphics[width=15cm]{Bilder/waegezelle-funktionsweise.png}\\
@@ -247,6 +246,7 @@ Die wichtigsten Erweiterungen von uns sind:
     \item auf Tastendruck eine Tar-Funktion auszuführen, siehe Funktion weightStuff() in RN2483.c, Zeile 312-316
     \item Gewichts-Sende-Algorithmus in Verbindung mit dem LoRa-Modul, siehe Funktion ISR(TIMER0\_COMPA\_vect) in RN2483.c, Zeile 146-194
 \end{itemize}
+\newpage
 \subsection{Vereinfachte Funktionsweise für momentane Gewichtsmessung} \label{sec:vereinfachte-momentane-gewichtsmessung}
 \noindent
 Nachdem die Bibliothek für den Baustein HX711 angepasst ist, also das Gewicht gemessen und versendet werden kann, geht es darum einen visualisierbaren Wert zu erhalten. Jedoch sind nicht alle Wägezellen perfekt gleich und ohne Rücksicht auf diese Imperfektionen würde jede Wägezelle einen anderen Messwert ergeben. 
@@ -403,7 +403,6 @@ Nachdem man die Anweisungen zum Konfigurieren befolgt hat, sollte es auf der Web
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/gateways} \end{center}
     \label{fig:lora-1}
 \end{figure}
-\newpage
 \section{Erstellen einer LoRa-Applikation zum Abrufen der Daten}
 Nachdem unser Gateway nun empfangsbereit ist könnten wir eigentlich schon ein LoRa-Node in Betrieb setzen um Daten an den Gateway zu senden.
 Da diese Daten aber verschlüsselt sind, müssen wir zunächst eine Applikation erstellen um lesbare Daten zu erhalten und sie zu einem Sender zuordnen zu können.
@@ -422,7 +421,7 @@ Eine Applikation können wir in der Konsole von TheThingsNetwork erstellen (sieh
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
     \label{fig:lora-3}
 \end{figure}
-\newpage
+
 \paragraph{Application ID:} Muss einzigartig und eindeutig sein.
 \paragraph{Description:} Eine kurze, aber aussagekräftige Beschreibung der Applikation.
 \paragraph{Handler registration:} Wurde passend zum Standort gewählt.\\
@@ -441,7 +440,6 @@ Nachdem man nun eine Applikation erstellt hat, fügt man nun auch ein Gerät zu 
     \begin{center} \quelle\url{https://console.thethingsnetwork.org/applications} \end{center}
     \label{fig:lora-5}
 \end{figure}
-\newpage
 \paragraph{Device ID:} Muss einzigartig sein und am besten aussagekräftig, damit man diese ID später einem Gerät zuordnen kann.
 
 \paragraph{Device EUI:} Kann man selber bestimmen oder generieren lassen, indem man das Zufällig-Icon bzw. den Stift-Icon anklickt, um es umzuschalten. Dies wird später benötigt, um das Gerät richtig zu konfigurieren!
@@ -470,6 +468,7 @@ Wenn wir die Änderungen speichern, kommen wir wieder auf die Seite des Geräts.
 \end{figure}
 \noindent
 Diesen Codeausschnitt speichern wir oder wir merken uns, dass er auf der Seite des Geräts ist, da wir ihn später zum Konfigurieren des Nodes wieder brauchen werden. 
+
 \section{Aufsetzen eines Clients (LoRa-Node)} \label{mac-commands}
 Da unser Gateway jetzt funktionsfähig ist und wir durch die Applikation lesbare Daten erhalten können, konfigurieren wir nun die Sender (LoRa-Nodes).
 Bevor wir die LoRa-Nodes mit Strom versorgen, befestigen wir zunächst eine Antenne an den RFH (Radio Frequency High Band – PIN 23) Anschluss der unsere Antenne mit 868 MHz betreiben wird.\\
@@ -532,7 +531,7 @@ Jetzt ist der RN2483 fertig konfiguriert und wir können mit dem Befehl „\text
 \noindent
 Die vollständige Kommandoliste mit Syntax und Rückgabewerten findet man im RN2483 LoRa Technology Module Command Reference User’s Guide: \url{http://ww1.microchip.com/downloads/en/DeviceDoc/40001784F.pdf}\\
 Wir benötigen aus dieser Liste nur die System Commands aus Kapitel 2.3 und die MAC Commands aus Kapitel 2.4
-
+\newpage
 \section{Spreading Factor} \label{sec:spreadingfactor}
 Der LoRa-Knoten (LoRa-Node) ist nun bereit die Gewichtsinformationen über die Kaffeekanne entgegenzunehmen und als Nachricht verpackt zu senden.
 Nun geht es um die Feinabstimmung der Konfiguration, um die Reichweite und die Bandbreite des LoRa-Knotens zu bestimmen.\\
@@ -648,9 +647,6 @@ Damit eine Verbindung zwischen den beiden Servern hergestellt werden kann, müss
     \item \textbf{message:} Das ist die Payload, welche vom payload\_raw geparst wurde 
 \end{itemize} 
 \newpage
-\section{Inaktivität der Behälter}
-Sobald ein Gerät eine Stunde lang keine Nachricht bezüglich einer Gewichtsveränderung geschickt hat, wird es für den Anwender in der visualisierten Webumgebung (kurz UI ~--~ User Interface) als inaktiv gekennzeichnet. Diese Inaktivität würde bei einem Thermobehälter die Abkühlung bedeuten und sollte schnellstmöglich vom Gastronomie-Personal überprüft werden. Diese Zeitbeschränkung wurde nach einer Gesprächsrunde innerhalb der Entwickler festgesetzt.\\
-Falls das Gerät nicht in der Lage ist eine Nachricht zu versenden (beispielsweise durch einen unvorhersehbaren Defekt in einem Bauteil), kann das in der Visualisierung für Verwirrung sorgen, da die Messwerte bei Befüllung bzw. Entnahme des Behälterinhalts nicht aktualisert werden. Sobald das Gerät wieder im Netz ist und in der Lage ist Nachrichten zu versenden, wird es wieder als aktiv gekennzeichnet und mit den aktuellen Messwerten im UI eingeblendet. 
 
 \section{Voraussetzungen und Nutzung des Webservers}
 Um den Webserver, der für die Kommunikation hin zu den Knoten-Daten und die Visualisierung für die Gastro-Mitarbeiter, im realen Umfeld betreiben zu können, sind für das Aufsetzen folgende Systeme/Software notwendig.\\
@@ -686,7 +682,6 @@ Der Schaltplan wurde mit dem Programm Fritzing (\url{http://fritzing.org/home}) 
     \caption{Schaltplan, erstellt mit Fritzing}
     \label{fig:schaltplan}
 \end{figure}
-\newpage
 \noindent
 Als Mikrocontroller haben wir im Schaltplan einen ATmega644 statt einem ATmega644PA verwendet, da diese fast gleich sind. Ausgehend vom Mikrocontroller werden an den Pins XTAL1 und XTAL2 der Quarz angeschlossen. Die Pins PA0 bis PA7 sind für ein LCD Display reserviert, auf dem Gewichtsinformationen, aber auch Debug-Meldungen ausgegeben werden können. Der Wägesensor ist mit den Pins PD5 und PD6 verbunden. Wobei hier noch die notwendigen Pullup-Widerstände für die I\textsuperscript{2}C- (Two-Wire-) Schnittstelle fehlen. Für das Wägesensor-Bauteil (im Schaltplan fälschlicherweise als Compass, HMC betitelt) wurde ein Platzhalter-Bauteil mit vier Pins verwendet, da kein passendes Layout für unseren Wägesensor gefunden wurde. Das LoRa-Modul wird an PD1 angeschlossen und es wurde ebenso eine Platzhalterkomponente mit drei Pins verwendet. Zudem haben wir einen Taster auf PD0 für die direkte Kommunikation mit dem Wäge-Modul und an PD5 – PD7 einen ISP-Anschluss für die Programmierung angelötet. Die Platine und dessen Bauteile werden mit zwei in Reihe geschalteten Akkus versorgt die jeweils eine Spannung von ca. 3,6 Volt haben und damit eine Gesamtspannung von 7,2 Volt liefern. Dazwischen geschaltet ist ein DC-DC Wandler, der für konstante 5V sorgt.\\
 
