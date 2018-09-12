@@ -15,9 +15,9 @@
 \contentsline {section}{\numberline {6.2}Versuchsaufbau zur Gewichtsmessung}{17}{section.6.2}
 \contentsline {section}{\numberline {6.3}Programmlogik unseres Microchips}{19}{section.6.3}
 \contentsline {subsection}{\numberline {6.3.1}Vereinfachte Funktionsweise f\IeC {\"u}r momentane Gewichtsmessung}{19}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Algorithmus f\IeC {\"u}r Rausch- und Driftunterdr\IeC {\"u}ckung}{20}{subsection.6.3.2}
-\contentsline {subsubsection}{\nonumberline Rauschen}{20}{section*.21}
-\contentsline {subsubsection}{\nonumberline Drift}{21}{section*.23}
+\contentsline {subsection}{\numberline {6.3.2}Algorithmus f\IeC {\"u}r Rausch- und Driftunterdr\IeC {\"u}ckung}{21}{subsection.6.3.2}
+\contentsline {subsubsection}{\nonumberline Rauschen}{21}{section*.21}
+\contentsline {subsubsection}{\nonumberline Drift}{22}{section*.23}
 \contentsline {subsection}{\numberline {6.3.3}Algorithmus f\IeC {\"u}r Gewichtssendung mit dem LoRa-Modul}{23}{subsection.6.3.3}
 \contentsline {section}{\numberline {6.4}Demonstration der Gewichtsmessung}{23}{section.6.4}
 \contentsline {section}{\numberline {6.5}Alternative Use-Cases von \IeC {\textquotedblleft }Straight bar\IeC {\textquotedblright }-W\IeC {\"a}gezellen}{23}{section.6.5}
@@ -28,7 +28,7 @@
 \contentsline {subsection}{\numberline {6.6.4}Kompressions-W\IeC {\"a}gezellen}{26}{subsection.6.6.4}
 \contentsline {section}{\numberline {6.7}Alternative Gewichtssensoren}{27}{section.6.7}
 \contentsline {subsection}{\numberline {6.7.1}Force Sensitive Resistor (FSR)}{27}{subsection.6.7.1}
-\contentsline {subsection}{\numberline {6.7.2}Piezoelektrischer Sensor}{27}{subsection.6.7.2}
+\contentsline {subsection}{\numberline {6.7.2}Piezoelektrischer Sensor}{28}{subsection.6.7.2}
 \contentsline {chapter}{\numberline {7}Drahtlose Verbindung zwischen den Komponenten mit dem LoRaWAN-Protokoll}{29}{chapter.7}
 \contentsline {section}{\numberline {7.1}Aufsetzen eines Servers (LoRa-Gateway)}{29}{section.7.1}
 \contentsline {section}{\numberline {7.2}Erstellen einer LoRa-Applikation zum Abrufen der Daten}{32}{section.7.2}
